@@ -1,13 +1,16 @@
-import './NavBar.scss'
+import CartWidget from "../CartWidget/CartWidget"
+import LogoNavBar from "./LogoNavBar"
 
 const NavBar = () => {
     return (
         <nav>
-            <ul class="navMenu">
-                <li><a href="https://www.google.com/">MENU</a></li>
-                <li><a href="https://www.google.com/">LOCALES</a></li>
-                <li><a href="https://www.google.com/">CONTACTO</a></li>
-            </ul>
+            <LogoNavBar />
+            <div>
+                <button>MENU</button>
+                <button>LOCALES</button>
+                <button>CONTACTO</button>
+            </div>
+            <CartWidget />
         </nav>
     )
 }
