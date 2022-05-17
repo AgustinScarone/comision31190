@@ -1,17 +1,17 @@
-import ItemCount from "./ItemCount"
+import ItemCount from "../ItemCount/ItemCount"
 
-const ItemProducts = () =>{
+const ItemProducts = (props) =>{
     return(
         <div className="cardProduct"
             style={{  
-                backgroundImage: "url(" + "./img/products/burga03.jpg" + ")",
+                backgroundImage: `url(./img/products/${props.id}.jpg)`,
                 backgroundPosition: 'center',
                 backgroundSize: 'cover',
                 backgroundRepeat: 'no-repeat'
             }}
             >
-            <h2>CORONABURGER</h2>   
-            <ItemCount />
+            <h2>{props.name}</h2>   
+            <ItemCount stock={7}/>
             <button>SUMAR AL CARRITO</button>
         </div>
     )

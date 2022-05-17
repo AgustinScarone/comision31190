@@ -120,6 +120,7 @@ nav div .cartWidget:hover {
   padding: 10px;
   -webkit-box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
           box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+  margin: 10px;
 }
 
 .cardProduct img {
