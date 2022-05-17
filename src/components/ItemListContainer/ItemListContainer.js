@@ -1,5 +1,11 @@
-const ItemListContainer = (props) => {
-    return <h1>{props.greeting}</h1>
+import ItemProducts from "./ItemProducts";
+
+const ItemListContainer = () => {
+    return (
+        <section className="sectionProducts">
+            <ItemProducts />
+        </section>
+    )
 }
 
 export default ItemListContainer
