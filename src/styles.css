@@ -111,34 +111,128 @@ nav div .cartWidget:hover {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding: 10px;
   -webkit-box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
           box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
   margin: 10px;
 }
 
-.cardProduct img {
+.cardProduct .containerMenu {
+  position: absolute;
+  width: 300px;
+  height: auto;
+  padding: 15px;
+  background-color: rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.cardProduct .containerMenu img {
+  width: 20px;
+  -webkit-filter: invert(79%) sepia(43%) saturate(1365%) hue-rotate(331deg) brightness(103%) contrast(92%);
+          filter: invert(79%) sepia(43%) saturate(1365%) hue-rotate(331deg) brightness(103%) contrast(92%);
+}
+
+.cardProduct .containerMenu h2 {
   width: 100%;
-  height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
-}
-
-.cardProduct h2 {
-  font-size: 26px;
-  font-weight: 900;
   color: #fff;
-  -webkit-filter: drop-shadow(3px 3px 2px rgba(0, 0, 0, 0.3));
-          filter: drop-shadow(3px 3px 2px rgba(0, 0, 0, 0.3));
+  font-size: 16px;
+  font-weight: 700;
+  text-align: center;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.35);
 }
 
-.cardProduct .contador {
+.cardProduct .containerMenu article {
+  width: 100%;
+  position: relative;
+  bottom: 0;
+  color: #fff;
+  font-weight: 400;
+  font-size: 12px;
+  text-align: center;
+  padding: 20px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.35);
+}
+
+.cardProduct .containerMenu .precio {
+  padding: 5px 10px;
+  font-size: 36px;
+  color: #F5B03A;
+  font-weight: 900;
+  text-align: center;
+  border: 1px solid #F5B03A;
+  border-radius: 1px;
+}
+
+.cardProduct .containerMenu article, .cardProduct .containerMenu .precio {
+  display: none;
+}
+
+.cardProduct .containerMenu:hover {
+  height: 300px;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 20px 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.cardProduct .containerMenu:hover img {
+  -webkit-transform: rotate(-180deg);
+          transform: rotate(-180deg);
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.cardProduct .containerMenu:hover h2 {
+  font-size: 28px;
+  font-weight: 900;
+}
+
+.cardProduct .containerMenu:hover article, .cardProduct .containerMenu:hover .precio {
+  display: block;
+}
+
+.cardProduct .container {
+  width: 100%;
+  height: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 220px;
+}
+
+.cardProduct .container .contador {
   width: 200px;
   height: auto;
   margin: 5px 0px;
@@ -157,7 +251,7 @@ nav div .cartWidget:hover {
   border-radius: 3px;
 }
 
-.cardProduct .contador button {
+.cardProduct .container .contador button {
   width: auto;
   height: auto;
   background-color: transparent;
@@ -168,13 +262,13 @@ nav div .cartWidget:hover {
   color: #333;
 }
 
-.cardProduct .contador button:hover {
+.cardProduct .container .contador button:hover {
   color: #F5B03A;
   background-color: transparent;
   border: none;
 }
 
-.cardProduct button {
+.cardProduct .container button {
   width: 200px;
   height: auto;
   background-color: #F5B03A;
@@ -186,7 +280,7 @@ nav div .cartWidget:hover {
   font-weight: 700;
 }
 
-.cardProduct button:hover {
+.cardProduct .container button:hover {
   background-color: #333;
   cursor: pointer;
 }

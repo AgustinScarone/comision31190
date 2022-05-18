@@ -4,6 +4,7 @@ $colorMain: #F5B03A;
 $colorSecondary: #333;
 $colorB: #333;
 $colorFooter: #E8E8E8;
+$alert: #E23744;
 
 *{
 	padding: 0;
@@ -88,65 +89,128 @@ nav{
 	background-color: #fff;
 	display: flex;
 	flex-direction: column;
-	justify-content: flex-end;
 	align-items: center;
-	padding: 10px;
 	box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
 	margin: 10px;
-	img{
-		width: 100%;
-		height: 100%;
-		object-fit: cover;
-	}
-	h2{
-		font-size: 26px;
-		font-weight: 900;
-		color: #fff;
-		filter: drop-shadow(3px 3px 2px rgba(0,0,0,0.3));
-	}
-	.contador{
-		width: 200px;
+	.containerMenu{
+		position: absolute;
+		width: 300px;
 		height: auto;
-		margin: 5px 0px;
-		background-color: #fff;
+		padding: 15px;
+		background-color: rgba(0,0,0,0.4);
+		overflow: hidden;
 		display: flex;
-		justify-content: space-around;
+		flex-direction: column;
 		align-items: center;
-		font-size: 22px;
-		line-height: 10px;
-		padding: 5px;
-		border-radius: 3px;
-		button{
-			width: auto;
-			height: auto;
-			background-color: transparent;
-			font-size: 30px;
-			line-height: 10px;
+		justify-content: flex-end;
+		img{
+			width: 20px;
+			filter: invert(79%) sepia(43%) saturate(1365%) hue-rotate(331deg) brightness(103%) contrast(92%);
+		}
+		h2{
+			width: 100%;
+			color: #fff;
+			font-size: 16px;
 			font-weight: 700;
+			text-align: center;
+			text-shadow: 2px 2px 4px rgba(0,0,0,0.35);
+		}
+		article{
+			width: 100%;
+			position: relative;
+			bottom: 0;
+			color: #fff;
+			font-weight: 400;
+			font-size: 12px;
+			text-align: center;
+			padding: 20px;
+			text-shadow: 2px 2px 4px rgba(0,0,0,0.35);
+		}
+		.precio{
+			padding: 5px 10px;
+			font-size: 36px;
+			color: $colorMain;
+			font-weight: 900;
+			text-align: center;
+			border: 1px solid $colorMain;
+			border-radius: 1px;
+		}
+		article, .precio{
+			display: none;
+		}
+	}
+	.containerMenu:hover{
+		height: 300px;
+		transition: 0.3s;
+		background-color: rgba(0,0,0,0.8);
+		padding: 20px 10px;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		img{
+			transform: rotate(-180deg);
+			transition: 0.3s;
+		}
+		h2{
+			font-size: 28px;
+			font-weight: 900;
+		}
+		article, .precio{
+			display: block;
+		}
+	}
+	.container{
+		width: 100%;
+		height: auto;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		margin-top: 220px;
+		.contador{
+			width: 200px;
+			height: auto;
+			margin: 5px 0px;
+			background-color: #fff;
+			display: flex;
+			justify-content: space-around;
+			align-items: center;
+			font-size: 22px;
+			line-height: 10px;
+			padding: 5px;
+			border-radius: 3px;
+			button{
+				width: auto;
+				height: auto;
+				background-color: transparent;
+				font-size: 30px;
+				line-height: 10px;
+				font-weight: 700;
+				border: none;
+				color: $colorB;
+			}
+			button:hover{
+				color: $colorMain;
+				background-color: transparent;
+				border: none;
+			}
+		}
+		button{
+			width: 200px;
+			height: auto;
+			background-color: $colorMain;
+			color: #fff;
 			border: none;
-			color: $colorB;
+			border-radius: 3px;
+			padding: 5px;
+			font-size: 14px;
+			font-weight: 700;
 		}
 		button:hover{
-			color: $colorMain;
-			background-color: transparent;
-			border: none;
+			background-color: $colorSecondary;
+			cursor: pointer;
 		}
 	}
-	button{
-		width: 200px;
-		height: auto;
-		background-color: $colorMain;
-		color: #fff;
-		border: none;
-		border-radius: 3px;
-		padding: 5px;
-		font-size: 14px;
-		font-weight: 700;
-	}
-	button:hover{
-		background-color: $colorSecondary;
-		cursor: pointer;
-	}
+	
 }
 
 h1{
@@ -155,3 +219,4 @@ h1{
 	text-align: center;
 	margin-top: 100px;
 }
+
