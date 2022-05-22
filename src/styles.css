@@ -27,6 +27,8 @@ nav {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   -webkit-box-pack: space-evenly;
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
@@ -47,7 +49,7 @@ nav div {
 }
 
 nav div button {
-  width: 100px;
+  width: 80px;
   border: none;
   padding: 10px;
   margin: 10px;
@@ -100,7 +102,7 @@ nav div .cartWidget:hover {
   padding: 20px;
 }
 
-.cardProduct {
+.itemCard {
   width: 300px;
   height: 300px;
   background-color: #fff;
@@ -119,7 +121,7 @@ nav div .cartWidget:hover {
   margin: 10px;
 }
 
-.cardProduct .containerMenu {
+.itemCard .containerMenu {
   position: absolute;
   width: 300px;
   height: auto;
@@ -141,13 +143,13 @@ nav div .cartWidget:hover {
           justify-content: flex-end;
 }
 
-.cardProduct .containerMenu img {
+.itemCard .containerMenu img {
   width: 20px;
   -webkit-filter: invert(79%) sepia(43%) saturate(1365%) hue-rotate(331deg) brightness(103%) contrast(92%);
           filter: invert(79%) sepia(43%) saturate(1365%) hue-rotate(331deg) brightness(103%) contrast(92%);
 }
 
-.cardProduct .containerMenu h2 {
+.itemCard .containerMenu h2 {
   width: 100%;
   color: #fff;
   font-size: 16px;
@@ -156,7 +158,7 @@ nav div .cartWidget:hover {
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.35);
 }
 
-.cardProduct .containerMenu article {
+.itemCard .containerMenu article {
   width: 100%;
   position: relative;
   bottom: 0;
@@ -168,7 +170,7 @@ nav div .cartWidget:hover {
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.35);
 }
 
-.cardProduct .containerMenu .precio {
+.itemCard .containerMenu .precio {
   padding: 5px 10px;
   font-size: 36px;
   color: #F5B03A;
@@ -178,11 +180,11 @@ nav div .cartWidget:hover {
   border-radius: 1px;
 }
 
-.cardProduct .containerMenu article, .cardProduct .containerMenu .precio {
+.itemCard .containerMenu article, .itemCard .containerMenu .precio {
   display: none;
 }
 
-.cardProduct .containerMenu:hover {
+.itemCard .containerMenu:hover {
   height: 300px;
   -webkit-transition: 0.3s;
   transition: 0.3s;
@@ -200,23 +202,23 @@ nav div .cartWidget:hover {
           justify-content: center;
 }
 
-.cardProduct .containerMenu:hover img {
+.itemCard .containerMenu:hover img {
   -webkit-transform: rotate(-180deg);
           transform: rotate(-180deg);
   -webkit-transition: 0.3s;
   transition: 0.3s;
 }
 
-.cardProduct .containerMenu:hover h2 {
+.itemCard .containerMenu:hover h2 {
   font-size: 28px;
   font-weight: 900;
 }
 
-.cardProduct .containerMenu:hover article, .cardProduct .containerMenu:hover .precio {
+.itemCard .containerMenu:hover article, .itemCard .containerMenu:hover .precio {
   display: block;
 }
 
-.cardProduct .container {
+.itemCard .container {
   width: 100%;
   height: auto;
   display: -webkit-box;
@@ -232,7 +234,7 @@ nav div .cartWidget:hover {
   margin-top: 220px;
 }
 
-.cardProduct .container .contador {
+.itemCard .container .contador {
   width: 200px;
   height: auto;
   margin: 5px 0px;
@@ -251,7 +253,7 @@ nav div .cartWidget:hover {
   border-radius: 3px;
 }
 
-.cardProduct .container .contador button {
+.itemCard .container .contador button {
   width: auto;
   height: auto;
   background-color: transparent;
@@ -262,13 +264,13 @@ nav div .cartWidget:hover {
   color: #333;
 }
 
-.cardProduct .container .contador button:hover {
+.itemCard .container .contador button:hover {
   color: #F5B03A;
   background-color: transparent;
   border: none;
 }
 
-.cardProduct .container button {
+.itemCard .container button {
   width: 200px;
   height: auto;
   background-color: #F5B03A;
@@ -280,7 +282,7 @@ nav div .cartWidget:hover {
   font-weight: 700;
 }
 
-.cardProduct .container button:hover {
+.itemCard .container button:hover {
   background-color: #333;
   cursor: pointer;
 }
