@@ -1,17 +1,17 @@
-import ItemCount from "../ItemCount/ItemCount";
-import ItemProduct from "../ItemProduct/ItemProduct";
+import ItemCount from "./ItemCount/ItemCount";
+import ItemProduct from "./ItemProduct/ItemProduct";
 
 const ItemCard = (props) =>{
     return(
         <div className="itemCard"
             style={{  
-                backgroundImage: `url(./img/products/${props.menuImg}.jpg)`,
+                backgroundImage: `url(${props.menuImg})`,
                 backgroundPosition: 'center',
                 backgroundSize: 'cover',
                 backgroundRepeat: 'no-repeat'
             }}
             >
-            <ItemProduct menuName={props.menuName} menuData={props.menuData} menuPrice={props.menuPrice}/>
+            <ItemProduct menuName={props.menuName} menuInfo={props.menuInfo} menuPrice={props.menuPrice}/>
             <ItemCount menuStock={props.menuStock}/>
         </div>
     )
