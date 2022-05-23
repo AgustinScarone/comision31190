@@ -2,7 +2,7 @@ import ItemCard from "../ItemCard/ItemCard";
 import { useState, useEffect } from "react";
 import { getProducts } from "../../asyncmock";
 
-const ItemListContainer = ({greeting}) => {
+const ItemListContainer = () => {
     const [products, setProducts] = useState([])
 
     useEffect(() => {

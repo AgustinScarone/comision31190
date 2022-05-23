@@ -14,7 +14,7 @@
 body {
   width: 100%;
   height: auto;
-  background-color: #333;
+  background-color: #E8E8E8;
 }
 
 /* NAV */
@@ -90,25 +90,52 @@ nav div .cartWidget:hover {
 
 .sectionProducts {
   width: 100%;
-  height: 100%;
+  height: auto;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  padding: 5px;
+}
+
+.sectionProducts .itemCard {
+  width: 300px;
+  height: 380px;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 5px;
+  overflow: hidden;
+}
+
+.sectionProducts .itemCard .img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.sectionProducts .itemCard .containerMenu {
+  position: absolute;
+  width: 100%;
+  height: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  padding: 20px;
-}
-
-.itemCard {
-  width: 300px;
-  height: 300px;
-  background-color: #fff;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -116,49 +143,30 @@ nav div .cartWidget:hover {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
-          box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
-  margin: 10px;
-}
-
-.itemCard .containerMenu {
-  position: absolute;
-  width: 300px;
-  height: auto;
   padding: 15px;
-  background-color: rgba(0, 0, 0, 0.4);
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.2);
   overflow: hidden;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
+  z-index: 900;
 }
 
-.itemCard .containerMenu img {
+.sectionProducts .itemCard .containerMenu img {
   width: 20px;
   -webkit-filter: invert(79%) sepia(43%) saturate(1365%) hue-rotate(331deg) brightness(103%) contrast(92%);
           filter: invert(79%) sepia(43%) saturate(1365%) hue-rotate(331deg) brightness(103%) contrast(92%);
 }
 
-.itemCard .containerMenu h2 {
+.sectionProducts .itemCard .containerMenu h2 {
   width: 100%;
   color: #fff;
   font-size: 16px;
   font-weight: 700;
   text-align: center;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.35);
+  margin-top: 10px;
 }
 
-.itemCard .containerMenu article {
+.sectionProducts .itemCard .containerMenu article {
   width: 100%;
   position: relative;
   bottom: 0;
@@ -170,9 +178,9 @@ nav div .cartWidget:hover {
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.35);
 }
 
-.itemCard .containerMenu .precio {
+.sectionProducts .itemCard .containerMenu .precio {
   padding: 5px 10px;
-  font-size: 36px;
+  font-size: 26px;
   color: #F5B03A;
   font-weight: 900;
   text-align: center;
@@ -180,12 +188,12 @@ nav div .cartWidget:hover {
   border-radius: 1px;
 }
 
-.itemCard .containerMenu article, .itemCard .containerMenu .precio {
+.sectionProducts .itemCard .containerMenu article, .sectionProducts .itemCard .containerMenu .precio {
   display: none;
 }
 
-.itemCard .containerMenu:hover {
-  height: 300px;
+.sectionProducts .itemCard .containerMenu:hover {
+  height: 100%;
   -webkit-transition: 0.3s;
   transition: 0.3s;
   background-color: rgba(0, 0, 0, 0.8);
@@ -202,25 +210,34 @@ nav div .cartWidget:hover {
           justify-content: center;
 }
 
-.itemCard .containerMenu:hover img {
+.sectionProducts .itemCard .containerMenu:hover img {
   -webkit-transform: rotate(-180deg);
           transform: rotate(-180deg);
   -webkit-transition: 0.3s;
   transition: 0.3s;
 }
 
-.itemCard .containerMenu:hover h2 {
+.sectionProducts .itemCard .containerMenu:hover h2 {
   font-size: 28px;
   font-weight: 900;
 }
 
-.itemCard .containerMenu:hover article, .itemCard .containerMenu:hover .precio {
+.sectionProducts .itemCard .containerMenu:hover article, .sectionProducts .itemCard .containerMenu:hover .precio {
   display: block;
 }
 
-.itemCard .container {
+.sectionProducts .itemCard .img:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.sectionProducts .itemCard .container {
   width: 100%;
   height: auto;
+  position: absolute;
+  bottom: 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -231,11 +248,11 @@ nav div .cartWidget:hover {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin-top: 220px;
+  margin-bottom: 10px;
 }
 
-.itemCard .container .contador {
-  width: 200px;
+.sectionProducts .itemCard .container .contador {
+  width: 80%;
   height: auto;
   margin: 5px 0px;
   background-color: #fff;
@@ -253,7 +270,7 @@ nav div .cartWidget:hover {
   border-radius: 3px;
 }
 
-.itemCard .container .contador button {
+.sectionProducts .itemCard .container .contador button {
   width: auto;
   height: auto;
   background-color: transparent;
@@ -264,14 +281,14 @@ nav div .cartWidget:hover {
   color: #333;
 }
 
-.itemCard .container .contador button:hover {
+.sectionProducts .itemCard .container .contador button:hover {
   color: #F5B03A;
   background-color: transparent;
   border: none;
 }
 
-.itemCard .container button {
-  width: 200px;
+.sectionProducts .itemCard .container button {
+  width: 80%;
   height: auto;
   background-color: #F5B03A;
   color: #fff;
@@ -282,9 +299,14 @@ nav div .cartWidget:hover {
   font-weight: 700;
 }
 
-.itemCard .container button:hover {
+.sectionProducts .itemCard .container button:hover {
   background-color: #333;
   cursor: pointer;
+}
+
+.sectionProducts .itemCard:hover {
+  -webkit-box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+          box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
 }
 
 h1 {

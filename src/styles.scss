@@ -21,7 +21,7 @@ $alert: #E23744;
 body{
 	width: 100%;
 	height: auto;
-	background-color: #333;
+	background-color: $colorFooter;
 }
 
 /* NAV */
@@ -77,141 +77,158 @@ nav{
 
 .sectionProducts{
 	width: 100%;
-	height: 100%;
+	height: auto;
 	display: flex;
-	justify-content: center;
 	flex-wrap: wrap;
-	padding: 20px;
-}
-
-.itemCard{
-	width: 300px;
-	height: 300px;
-	background-color: #fff;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
-	margin: 10px;
-	.containerMenu{
-		position: absolute;
+	justify-content: center;
+	padding: 5px;
+	.itemCard{
 		width: 300px;
-		height: auto;
-		padding: 15px;
-		background-color: rgba(0,0,0,0.4);
-		overflow: hidden;
+		height: 380px;
+		position: relative;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		justify-content: flex-end;
-		img{
-			width: 20px;
-			filter: invert(79%) sepia(43%) saturate(1365%) hue-rotate(331deg) brightness(103%) contrast(92%);
-		}
-		h2{
+		margin: 5px;
+		overflow: hidden;
+		.img{
 			width: 100%;
-			color: #fff;
-			font-size: 16px;
-			font-weight: 700;
-			text-align: center;
-			text-shadow: 2px 2px 4px rgba(0,0,0,0.35);
+			height: 100%;
+			object-fit: cover;
 		}
-		article{
+		.containerMenu{
+			position: absolute;
 			width: 100%;
-			position: relative;
-			bottom: 0;
-			color: #fff;
-			font-weight: 400;
-			font-size: 12px;
-			text-align: center;
-			padding: 20px;
-			text-shadow: 2px 2px 4px rgba(0,0,0,0.35);
+			height: auto;
+			display: flex;
+			flex-wrap: wrap;
+			flex-direction: column;
+			align-items: center;
+			padding: 15px;
+			top: 0;
+			background-color: rgba(0,0,0,0.2);
+			overflow: hidden;
+			z-index: 900;
+			img{
+				width: 20px;
+				filter: invert(79%) sepia(43%) saturate(1365%) hue-rotate(331deg) brightness(103%) contrast(92%);
+			}
+			h2{
+				width: 100%;
+				color: #fff;
+				font-size: 16px;
+				font-weight: 700;
+				text-align: center;
+				text-shadow: 2px 2px 4px rgba(0,0,0,0.35);
+				margin-top: 10px;
+			}
+			article{
+				width: 100%;
+				position: relative;
+				bottom: 0;
+				color: #fff;
+				font-weight: 400;
+				font-size: 12px;
+				text-align: center;
+				padding: 20px;
+				text-shadow: 2px 2px 4px rgba(0,0,0,0.35);
+			}
+			.precio{
+				padding: 5px 10px;
+				font-size: 26px;
+				color: $colorMain;
+				font-weight: 900;
+				text-align: center;
+				border: 1px solid $colorMain;
+				border-radius: 1px;
+			}
+			article, .precio{
+				display: none;
+			}
 		}
-		.precio{
-			padding: 5px 10px;
-			font-size: 36px;
-			color: $colorMain;
-			font-weight: 900;
-			text-align: center;
-			border: 1px solid $colorMain;
-			border-radius: 1px;
+		.containerMenu:hover{
+			height: 100%;
+			transition: 0.3s;
+			background-color: rgba(0,0,0,0.8);
+			padding: 20px 10px;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			
+			img{
+				transform: rotate(-180deg);
+				transition: 0.3s;
+			}
+			h2{
+				font-size: 28px;
+				font-weight: 900;
+			}
+			article, .precio{
+				display: block;
+			}
 		}
-		article, .precio{
-			display: none;
-		}
-	}
-	.containerMenu:hover{
-		height: 300px;
-		transition: 0.3s;
-		background-color: rgba(0,0,0,0.8);
-		padding: 20px 10px;
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		img{
-			transform: rotate(-180deg);
+		.img:hover{
+			transform: scale(1.1);
 			transition: 0.3s;
 		}
-		h2{
-			font-size: 28px;
-			font-weight: 900;
-		}
-		article, .precio{
-			display: block;
-		}
-	}
-	.container{
-		width: 100%;
-		height: auto;
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		margin-top: 220px;
-		.contador{
-			width: 200px;
+		.container{
+			width: 100%;
 			height: auto;
-			margin: 5px 0px;
-			background-color: #fff;
+			position: absolute;
+			bottom: 0;
 			display: flex;
-			justify-content: space-around;
+			flex-direction: column;
 			align-items: center;
-			font-size: 22px;
-			line-height: 10px;
-			padding: 5px;
-			border-radius: 3px;
-			button{
-				width: auto;
+			margin-bottom: 10px;
+			.contador{
+				width: 80%;
 				height: auto;
-				background-color: transparent;
-				font-size: 30px;
+				margin: 5px 0px;
+				background-color: #fff;
+				display: flex;
+				justify-content: space-around;
+				align-items: center;
+				font-size: 22px;
 				line-height: 10px;
-				font-weight: 700;
+				padding: 5px;
+				border-radius: 3px;
+				button{
+					width: auto;
+					height: auto;
+					background-color: transparent;
+					font-size: 30px;
+					line-height: 10px;
+					font-weight: 700;
+					border: none;
+					color: $colorB;
+				}
+				button:hover{
+					color: $colorMain;
+					background-color: transparent;
+					border: none;
+				}
+			}
+			button{
+				width: 80%;
+				height: auto;
+				background-color: $colorMain;
+				color: #fff;
 				border: none;
-				color: $colorB;
+				border-radius: 3px;
+				padding: 5px;
+				font-size: 14px;
+				font-weight: 700;
 			}
 			button:hover{
-				color: $colorMain;
-				background-color: transparent;
-				border: none;
+				background-color: $colorSecondary;
+				cursor: pointer;
 			}
 		}
-		button{
-			width: 200px;
-			height: auto;
-			background-color: $colorMain;
-			color: #fff;
-			border: none;
-			border-radius: 3px;
-			padding: 5px;
-			font-size: 14px;
-			font-weight: 700;
-		}
-		button:hover{
-			background-color: $colorSecondary;
-			cursor: pointer;
-		}
+		
 	}
-	
+	.itemCard:hover{
+		box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+	}	
 }
 
 h1{
