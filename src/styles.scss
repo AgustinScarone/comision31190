@@ -82,9 +82,9 @@ nav{
 	flex-wrap: wrap;
 	justify-content: center;
 	padding: 5px;
-	.itemCard{
+	.itemList{
 		width: 300px;
-		height: 380px;
+		height: 300px;
 		position: relative;
 		display: flex;
 		flex-direction: column;
@@ -102,8 +102,8 @@ nav{
 			height: auto;
 			display: flex;
 			flex-wrap: wrap;
-			flex-direction: column;
-			align-items: center;
+			justify-content: center;
+			align-content: flex-start;
 			padding: 15px;
 			top: 0;
 			background-color: rgba(0,0,0,0.2);
@@ -133,7 +133,8 @@ nav{
 				padding: 20px;
 				text-shadow: 2px 2px 4px rgba(0,0,0,0.35);
 			}
-			.precio{
+			.price{
+				height: 40px;
 				padding: 5px 10px;
 				font-size: 26px;
 				color: $colorMain;
@@ -141,19 +142,17 @@ nav{
 				text-align: center;
 				border: 1px solid $colorMain;
 				border-radius: 1px;
+				margin: 10px;
 			}
-			article, .precio{
+			article, .price{
 				display: none;
 			}
 		}
 		.containerMenu:hover{
-			height: 100%;
+			height: auto;
 			transition: 0.3s;
 			background-color: rgba(0,0,0,0.8);
 			padding: 20px 10px;
-			display: flex;
-			flex-direction: column;
-			justify-content: center;
 			
 			img{
 				transform: rotate(-180deg);
@@ -163,7 +162,7 @@ nav{
 				font-size: 28px;
 				font-weight: 900;
 			}
-			article, .precio{
+			article, .price{
 				display: block;
 			}
 		}
@@ -226,7 +225,7 @@ nav{
 		}
 		
 	}
-	.itemCard:hover{
+	.itemList:hover{
 		box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
 	}	
 }

@@ -102,9 +102,9 @@ nav div .cartWidget:hover {
   padding: 5px;
 }
 
-.sectionProducts .itemCard {
+.sectionProducts .itemList {
   width: 300px;
-  height: 380px;
+  height: 300px;
   position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -120,14 +120,14 @@ nav div .cartWidget:hover {
   overflow: hidden;
 }
 
-.sectionProducts .itemCard .img {
+.sectionProducts .itemList .img {
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
 }
 
-.sectionProducts .itemCard .containerMenu {
+.sectionProducts .itemList .containerMenu {
   position: absolute;
   width: 100%;
   height: auto;
@@ -136,13 +136,11 @@ nav div .cartWidget:hover {
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-line-pack: start;
+      align-content: flex-start;
   padding: 15px;
   top: 0;
   background-color: rgba(0, 0, 0, 0.2);
@@ -150,13 +148,13 @@ nav div .cartWidget:hover {
   z-index: 900;
 }
 
-.sectionProducts .itemCard .containerMenu img {
+.sectionProducts .itemList .containerMenu img {
   width: 20px;
   -webkit-filter: invert(79%) sepia(43%) saturate(1365%) hue-rotate(331deg) brightness(103%) contrast(92%);
           filter: invert(79%) sepia(43%) saturate(1365%) hue-rotate(331deg) brightness(103%) contrast(92%);
 }
 
-.sectionProducts .itemCard .containerMenu h2 {
+.sectionProducts .itemList .containerMenu h2 {
   width: 100%;
   color: #fff;
   font-size: 16px;
@@ -166,7 +164,7 @@ nav div .cartWidget:hover {
   margin-top: 10px;
 }
 
-.sectionProducts .itemCard .containerMenu article {
+.sectionProducts .itemList .containerMenu article {
   width: 100%;
   position: relative;
   bottom: 0;
@@ -178,7 +176,8 @@ nav div .cartWidget:hover {
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.35);
 }
 
-.sectionProducts .itemCard .containerMenu .precio {
+.sectionProducts .itemList .containerMenu .price {
+  height: 40px;
   padding: 5px 10px;
   font-size: 26px;
   color: #F5B03A;
@@ -186,54 +185,45 @@ nav div .cartWidget:hover {
   text-align: center;
   border: 1px solid #F5B03A;
   border-radius: 1px;
+  margin: 10px;
 }
 
-.sectionProducts .itemCard .containerMenu article, .sectionProducts .itemCard .containerMenu .precio {
+.sectionProducts .itemList .containerMenu article, .sectionProducts .itemList .containerMenu .price {
   display: none;
 }
 
-.sectionProducts .itemCard .containerMenu:hover {
-  height: 100%;
+.sectionProducts .itemList .containerMenu:hover {
+  height: auto;
   -webkit-transition: 0.3s;
   transition: 0.3s;
   background-color: rgba(0, 0, 0, 0.8);
   padding: 20px 10px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
 }
 
-.sectionProducts .itemCard .containerMenu:hover img {
+.sectionProducts .itemList .containerMenu:hover img {
   -webkit-transform: rotate(-180deg);
           transform: rotate(-180deg);
   -webkit-transition: 0.3s;
   transition: 0.3s;
 }
 
-.sectionProducts .itemCard .containerMenu:hover h2 {
+.sectionProducts .itemList .containerMenu:hover h2 {
   font-size: 28px;
   font-weight: 900;
 }
 
-.sectionProducts .itemCard .containerMenu:hover article, .sectionProducts .itemCard .containerMenu:hover .precio {
+.sectionProducts .itemList .containerMenu:hover article, .sectionProducts .itemList .containerMenu:hover .price {
   display: block;
 }
 
-.sectionProducts .itemCard .img:hover {
+.sectionProducts .itemList .img:hover {
   -webkit-transform: scale(1.1);
           transform: scale(1.1);
   -webkit-transition: 0.3s;
   transition: 0.3s;
 }
 
-.sectionProducts .itemCard .container {
+.sectionProducts .itemList .container {
   width: 100%;
   height: auto;
   position: absolute;
@@ -251,7 +241,7 @@ nav div .cartWidget:hover {
   margin-bottom: 10px;
 }
 
-.sectionProducts .itemCard .container .contador {
+.sectionProducts .itemList .container .contador {
   width: 80%;
   height: auto;
   margin: 5px 0px;
@@ -270,7 +260,7 @@ nav div .cartWidget:hover {
   border-radius: 3px;
 }
 
-.sectionProducts .itemCard .container .contador button {
+.sectionProducts .itemList .container .contador button {
   width: auto;
   height: auto;
   background-color: transparent;
@@ -281,13 +271,13 @@ nav div .cartWidget:hover {
   color: #333;
 }
 
-.sectionProducts .itemCard .container .contador button:hover {
+.sectionProducts .itemList .container .contador button:hover {
   color: #F5B03A;
   background-color: transparent;
   border: none;
 }
 
-.sectionProducts .itemCard .container button {
+.sectionProducts .itemList .container button {
   width: 80%;
   height: auto;
   background-color: #F5B03A;
@@ -299,12 +289,12 @@ nav div .cartWidget:hover {
   font-weight: 700;
 }
 
-.sectionProducts .itemCard .container button:hover {
+.sectionProducts .itemList .container button:hover {
   background-color: #333;
   cursor: pointer;
 }
 
-.sectionProducts .itemCard:hover {
+.sectionProducts .itemList:hover {
   -webkit-box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
           box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
 }

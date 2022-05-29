@@ -1,20 +1,20 @@
-import ItemCard from "../ItemCard/ItemCard";
+import ItemDetail from "../ItemDetail/ItemDetail";
 import { useState, useEffect } from "react";
 import { getProductsById } from "../../asyncmock";
 
-const ItemListContainer = () => {
-    const [product, setProducts] = useState([])
+const ItemDetailContainer = () => {
+    const [product, setProduct] = useState([])
 
     useEffect(() => {
-        getProductsById('1').then(response => {
-            setProducts(response)
+        getProductsById('3').then(response => {
+            setProduct(response)
         })
     }, [])
     return (
         <section className="sectionProducts">
-            <ItemCard menuName={props.menuName}/>
+            <ItemDetail menuImg={product.menuImg} menuName={product.menuName} menuPrice={product.menuPrice} menuInfo={product.menuInfo} menuStock={product.menuStock}  />
         </section>
     )
 }
 
-export default ItemListContainer
+export default ItemDetailContainer

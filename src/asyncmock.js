@@ -34,7 +34,7 @@ const menu = [
         menuInfo: "Hamburguesa clásica acompañada de crocantes papas fritas rústicas.",
         menuPrice: 899,
         menuStock: 7
-    },
+    }
 ]
 
 export const getProducts = () => {
@@ -48,7 +48,7 @@ export const getProducts = () => {
 export const getProductsById = (id) => {
     return new Promise((resolve) => {
         setTimeout(() => {
-            resolve(products.fin(prod => prod.id === id))
+            resolve(menu.find(prod => prod.id === id))
         }, 500)
     })
 }

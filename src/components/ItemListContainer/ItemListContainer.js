@@ -1,4 +1,4 @@
-import ItemCard from "../ItemCard/ItemCard";
+import ItemList from "../ItemList/ItemList";
 import { useState, useEffect } from "react";
 import { getProducts } from "../../asyncmock";
 
@@ -12,7 +12,7 @@ const ItemListContainer = () => {
     }, [])
     return (
         <section className="sectionProducts">
-            { products.map(product => <ItemCard key={product.id} {...product}/>)}
+            { products.map(product => <ItemList key={product.id} {...product}/>)}
         </section>
     )
 }
