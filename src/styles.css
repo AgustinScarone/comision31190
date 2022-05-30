@@ -106,18 +106,17 @@ nav div .cartWidget:hover {
   width: 300px;
   height: 300px;
   position: relative;
+  margin: 5px;
+  overflow: hidden;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  margin: 5px;
-  overflow: hidden;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border-radius: 3px;
 }
 
 .sectionProducts .itemList .img {
@@ -127,100 +126,72 @@ nav div .cartWidget:hover {
      object-fit: cover;
 }
 
-.sectionProducts .itemList .containerMenu {
+.sectionProducts .itemList h2 {
+  width: 100%;
+  color: #fff;
   position: absolute;
-  width: 100%;
-  height: auto;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -ms-flex-line-pack: start;
-      align-content: flex-start;
-  padding: 15px;
-  top: 0;
-  background-color: rgba(0, 0, 0, 0.2);
-  overflow: hidden;
-  z-index: 900;
-}
-
-.sectionProducts .itemList .containerMenu img {
-  width: 20px;
-  -webkit-filter: invert(79%) sepia(43%) saturate(1365%) hue-rotate(331deg) brightness(103%) contrast(92%);
-          filter: invert(79%) sepia(43%) saturate(1365%) hue-rotate(331deg) brightness(103%) contrast(92%);
-}
-
-.sectionProducts .itemList .containerMenu h2 {
-  width: 100%;
-  color: #fff;
-  font-size: 16px;
-  font-weight: 700;
-  text-align: center;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.35);
-  margin-top: 10px;
-}
-
-.sectionProducts .itemList .containerMenu article {
-  width: 100%;
-  position: relative;
-  bottom: 0;
-  color: #fff;
-  font-weight: 400;
-  font-size: 12px;
-  text-align: center;
+  text-align: left;
+  font-weight: 900;
+  font-size: 26px;
   padding: 20px;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.35);
 }
 
-.sectionProducts .itemList .containerMenu .price {
-  height: 40px;
-  padding: 5px 10px;
-  font-size: 26px;
-  color: #F5B03A;
-  font-weight: 900;
-  text-align: center;
-  border: 1px solid #F5B03A;
-  border-radius: 1px;
-  margin: 10px;
-}
-
-.sectionProducts .itemList .containerMenu article, .sectionProducts .itemList .containerMenu .price {
-  display: none;
-}
-
-.sectionProducts .itemList .containerMenu:hover {
+.sectionProducts .itemList .containerCounter {
+  width: 100%;
   height: auto;
-  -webkit-transition: 0.3s;
-  transition: 0.3s;
-  background-color: rgba(0, 0, 0, 0.8);
-  padding: 20px 10px;
+  bottom: 0;
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
-.sectionProducts .itemList .containerMenu:hover img {
-  -webkit-transform: rotate(-180deg);
-          transform: rotate(-180deg);
-  -webkit-transition: 0.3s;
-  transition: 0.3s;
+.sectionProducts .itemList .containerCounter .countCartButtons {
+  height: 40px;
+  width: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  background-color: transparent;
 }
 
-.sectionProducts .itemList .containerMenu:hover h2 {
-  font-size: 28px;
+.sectionProducts .itemList .containerCounter .countCartButtons button {
+  width: 40px;
+  height: 100%;
+  background-color: transparent;
+  border: 2px solid #F5B03A;
+  color: #F5B03A;
+  font-size: 30px;
+}
+
+.sectionProducts .itemList .containerCounter .countCartButtons div {
+  width: 40px;
+  height: 100%;
+  color: #fff;
+  font-size: 30px;
+  text-align: center;
   font-weight: 900;
+  border: 2px solid #F5B03A;
 }
 
-.sectionProducts .itemList .containerMenu:hover article, .sectionProducts .itemList .containerMenu:hover .price {
-  display: block;
+.sectionProducts .itemList .containerCounter button {
+  width: 100%;
+  background-color: transparent;
+  border: 2px solid #F5B03A;
+  color: #F5B03A;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
 }
 
-.sectionProducts .itemList .img:hover {
-  -webkit-transform: scale(1.1);
-          transform: scale(1.1);
-  -webkit-transition: 0.3s;
-  transition: 0.3s;
+.sectionProducts .itemList .containerCounter button:hover {
+  background-color: #F5B03A;
+  color: #fff;
 }
 
 .sectionProducts .itemList .container {

@@ -86,89 +86,70 @@ nav{
 		width: 300px;
 		height: 300px;
 		position: relative;
-		display: flex;
-		flex-direction: column;
-		align-items: center;
 		margin: 5px;
 		overflow: hidden;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		border-radius: 3px;
 		.img{
 			width: 100%;
 			height: 100%;
 			object-fit: cover;
 		}
-		.containerMenu{
+		h2{
+			width: 100%;
+			color: #fff;
 			position: absolute;
+			text-align: left;
+			font-weight: 900;
+			font-size: 26px;
+			padding: 20px;
+			text-shadow: 2px 2px 4px rgba(0,0,0,0.35);
+		}
+		.containerCounter{
 			width: 100%;
 			height: auto;
+			bottom: 0;
+			position: absolute;
 			display: flex;
-			flex-wrap: wrap;
-			justify-content: center;
-			align-content: flex-start;
-			padding: 15px;
-			top: 0;
-			background-color: rgba(0,0,0,0.2);
-			overflow: hidden;
-			z-index: 900;
-			img{
-				width: 20px;
-				filter: invert(79%) sepia(43%) saturate(1365%) hue-rotate(331deg) brightness(103%) contrast(92%);
+			.countCartButtons{
+				height: 40px;
+				width: 50%;
+				display: flex;
+				flex-direction: row;
+				background-color: transparent;
+				button{
+					width: 40px;
+					height: 100%;
+					background-color: transparent;
+					border: 2px solid $colorMain;
+					color: $colorMain;
+					font-size: 30px;
+				}
+				div{
+					width: 40px;
+					height: 100%;
+					color: #fff;
+					font-size: 30px;
+					text-align: center;
+					font-weight: 900;
+					border: 2px solid $colorMain;
+				}
 			}
-			h2{
+			button{
 				width: 100%;
-				color: #fff;
+				background-color: transparent;
+				border: 2px solid $colorMain;
+				color: $colorMain;
 				font-size: 16px;
 				font-weight: 700;
-				text-align: center;
-				text-shadow: 2px 2px 4px rgba(0,0,0,0.35);
-				margin-top: 10px;
+				cursor: pointer;
 			}
-			article{
-				width: 100%;
-				position: relative;
-				bottom: 0;
+			button:hover{
+				background-color: $colorMain;
 				color: #fff;
-				font-weight: 400;
-				font-size: 12px;
-				text-align: center;
-				padding: 20px;
-				text-shadow: 2px 2px 4px rgba(0,0,0,0.35);
 			}
-			.price{
-				height: 40px;
-				padding: 5px 10px;
-				font-size: 26px;
-				color: $colorMain;
-				font-weight: 900;
-				text-align: center;
-				border: 1px solid $colorMain;
-				border-radius: 1px;
-				margin: 10px;
-			}
-			article, .price{
-				display: none;
-			}
-		}
-		.containerMenu:hover{
-			height: auto;
-			transition: 0.3s;
-			background-color: rgba(0,0,0,0.8);
-			padding: 20px 10px;
-			
-			img{
-				transform: rotate(-180deg);
-				transition: 0.3s;
-			}
-			h2{
-				font-size: 28px;
-				font-weight: 900;
-			}
-			article, .price{
-				display: block;
-			}
-		}
-		.img:hover{
-			transform: scale(1.1);
-			transition: 0.3s;
 		}
 		.container{
 			width: 100%;

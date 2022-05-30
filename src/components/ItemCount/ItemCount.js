@@ -14,8 +14,8 @@ const ItemCount = (props) =>{
         }
     }
     return(
-        <div className="container">
-            <div className="contador">
+        <div className="containerCounter">
+            <div className='countCartButtons'>
                 <button onClick={decrement}>-</button> 
                 <div>{count}</div>
                 <button onClick={increment}>+</button>
