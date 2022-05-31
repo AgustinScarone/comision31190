@@ -6,12 +6,12 @@ const ItemDetailContainer = () => {
     const [product, setProduct] = useState([])
 
     useEffect(() => {
-        getProductsById('3').then(response => {
+        getProductsById('4').then(response => {
             setProduct(response)
         })
     }, [])
     return (
-        <section className="sectionProducts">
+        <section className="itemDetailContainer">
             <ItemDetail menuImg={product.menuImg} menuName={product.menuName} menuPrice={product.menuPrice} menuInfo={product.menuInfo} menuStock={product.menuStock}  />
         </section>
     )

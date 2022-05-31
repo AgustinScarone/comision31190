@@ -75,74 +75,220 @@ nav{
 	}
 }
 
-.sectionProducts{
+.itemListContainer{
 	width: 100%;
 	height: auto;
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
-	padding: 5px;
+	padding: 25px;
 	.itemList{
 		width: 300px;
-		height: 300px;
+		height: auto;
 		position: relative;
 		margin: 5px;
-		overflow: hidden;
 		display: flex;
-		flex-wrap: wrap;
-		justify-content: center;
+		flex-direction: column;
+		background-color: #FFF;
 		border-radius: 3px;
-		.img{
+		.title{
 			width: 100%;
-			height: 100%;
-			object-fit: cover;
-		}
-		h2{
-			width: 100%;
-			color: #fff;
-			position: absolute;
-			text-align: left;
+			height: 65px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			h2{
+			text-align: center;
 			font-weight: 900;
 			font-size: 26px;
-			padding: 20px;
-			text-shadow: 2px 2px 4px rgba(0,0,0,0.35);
+			padding: 4px;
+			color: $colorMain;
+			}
 		}
+		.price{
+			width: 100%;
+			height: 30px;
+			background-color: $colorMain;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			filter: grayscale(60%);
+			p{
+				font-size: 18px;
+				font-weight: 400;
+				color: #fff;
+				
+			}		
+		}
+		.item{
+			width: 100%;
+			height: 260px;
+			overflow: hidden;
+			display: flex;
+			flex-direction: column;
+			justify-content: end;
+			align-items: center;
+			img{
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+			}
+			img:hover{
+				transform: scale(1.05);
+				transition: 0.3s;
+			}
+			
+			button{
+				font-size: 16px;
+				position: absolute;
+				padding: 8px;
+				margin: 10px;
+				font-weight: 900;
+				color: #FFF;
+				background-color: $colorMain;
+				border: 1px solid $colorMain;
+			}
+			button:hover{
+				background-color: $colorSecondary;
+				border: 1px solid $colorSecondary;
+				cursor: pointer;
+			}
+		}		
 		.containerCounter{
 			width: 100%;
 			height: auto;
-			bottom: 0;
-			position: absolute;
 			display: flex;
+			flex-direction: column;
+			align-items: center;
+			padding: 10px;
 			.countCartButtons{
-				height: 40px;
-				width: 50%;
+				height: 30px;
+				width: 80%;
 				display: flex;
 				flex-direction: row;
-				background-color: transparent;
+				margin: 3px;
 				button{
-					width: 40px;
 					height: 100%;
-					background-color: transparent;
-					border: 2px solid $colorMain;
+					width: 33.33%;
 					color: $colorMain;
-					font-size: 30px;
+					font-size: 20px;
 				}
 				div{
-					width: 40px;
 					height: 100%;
-					color: #fff;
-					font-size: 30px;
+					width: 33.33%;
+					color: $colorB;
+					font-size: 20px;
 					text-align: center;
-					font-weight: 900;
-					border: 2px solid $colorMain;
+					font-weight: 700;
+				}
+			}
+			button{
+				width: 80%;
+				height: auto;
+				background-color: transparent;
+				border: 1px solid $colorMain;
+				color: $colorMain;
+				font-size: 16px;
+				padding: 5px;
+				font-weight: 700;
+				cursor: pointer;
+			}
+			button:hover{
+				background-color: $colorMain;
+				color: #fff;
+			}
+		}		
+	}
+	.itemList:hover{
+		box-shadow: 2px 2px 6px rgba(0,0,0,0.15);
+	}
+}
+
+.itemDetailContainer{
+	width: 100%;
+	height: auto;
+	display: flex;
+	justify-content: center;
+	padding: 5px;
+	.itemDetail{
+		width: 100%;
+		height: auto;
+		position: relative;
+		margin: 5px;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		.itemImg{
+			width: 500px;
+			height: 500px;
+			img{
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+			}
+		}
+		.item{
+			width: 500px;
+			height: 500px;
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+			align-items: center;
+			padding: 40px;
+			background-color: #fff;
+			h2{
+				font-size: 36px;
+				margin: 20px;
+				text-align: center;
+				font-weight: 900;
+			}
+			article{
+				width: 100%;
+				font-size: 18px;
+				line-height: 26px;
+			}
+			.price{
+				font-size: 30px;
+				border: 2px solid $colorMain;
+				padding: 10px;
+				font-weight: 900;
+				color: $colorMain;
+				margin: 10px;
+			}
+		}	
+		.containerCounter{
+			width: 100%;
+			height: auto;
+			display: flex;
+			align-items: center;
+			.countCartButtons{
+				height: 30px;
+				width: 50%;
+				display: flex;
+				align-items: center;
+				margin: 5px;
+				button{
+					height: 40px;
+					width: 33.33%;
+					font-size: 20px;
+				}
+				div{
+					height: 100%;
+					width: 33.33%;
+					color: $colorB;
+					font-size: 20px;
+					text-align: center;
+					font-weight: 700;
 				}
 			}
 			button{
 				width: 100%;
+				height: 40px;
 				background-color: transparent;
-				border: 2px solid $colorMain;
+				border: 1px solid $colorMain;
 				color: $colorMain;
 				font-size: 16px;
+				padding: 5px;
 				font-weight: 700;
 				cursor: pointer;
 			}
@@ -150,66 +296,11 @@ nav{
 				background-color: $colorMain;
 				color: #fff;
 			}
-		}
-		.container{
-			width: 100%;
-			height: auto;
-			position: absolute;
-			bottom: 0;
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-			margin-bottom: 10px;
-			.contador{
-				width: 80%;
-				height: auto;
-				margin: 5px 0px;
-				background-color: #fff;
-				display: flex;
-				justify-content: space-around;
-				align-items: center;
-				font-size: 22px;
-				line-height: 10px;
-				padding: 5px;
-				border-radius: 3px;
-				button{
-					width: auto;
-					height: auto;
-					background-color: transparent;
-					font-size: 30px;
-					line-height: 10px;
-					font-weight: 700;
-					border: none;
-					color: $colorB;
-				}
-				button:hover{
-					color: $colorMain;
-					background-color: transparent;
-					border: none;
-				}
-			}
-			button{
-				width: 80%;
-				height: auto;
-				background-color: $colorMain;
-				color: #fff;
-				border: none;
-				border-radius: 3px;
-				padding: 5px;
-				font-size: 14px;
-				font-weight: 700;
-			}
-			button:hover{
-				background-color: $colorSecondary;
-				cursor: pointer;
-			}
-		}
-		
+		}		
 	}
-	.itemList:hover{
-		box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
-	}	
 }
+
+
 
 h1{
 	font-size: 160px;

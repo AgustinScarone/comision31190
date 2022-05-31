@@ -11,7 +11,7 @@ const ItemListContainer = () => {
         })
     }, [])
     return (
-        <section className="sectionProducts">
+        <section className="itemListContainer">
             { products.map(product => <ItemList key={product.id} {...product}/>)}
         </section>
     )
