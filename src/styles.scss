@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;700;900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
 
 $colorMain: #F5B03A;
 $colorSecondary: #333;
@@ -24,6 +25,20 @@ body{
 	background-color: $colorFooter;
 }
 
+/* NOT A 404 */
+
+.notA404{
+	width: 100%;
+	height: auto;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	div{
+		width: 800px;
+		height: auto;
+	}	
+}
+
 /* NAV */
 
 nav{
@@ -41,7 +56,7 @@ nav{
 		height: 100%;
 		display: flex;
 		align-items: center;
-		button{
+		.button{
 			width: 80px;
 			border: none;
 			padding: 10px;
@@ -50,7 +65,7 @@ nav{
 			font-weight: 600;
 			background-color: transparent;
 		}
-		button:hover{
+		.button:hover{
 			color: $colorMain;
 			cursor: pointer;
 		}
@@ -75,6 +90,8 @@ nav{
 	}
 }
 
+/* ITEM LIST CONTAINER */
+
 .itemListContainer{
 	width: 100%;
 	height: auto;
@@ -83,51 +100,19 @@ nav{
 	justify-content: center;
 	padding: 25px;
 	.itemList{
-		width: 300px;
+		width: 240px;
 		height: auto;
 		position: relative;
-		margin: 5px;
+		margin: 10px;
 		display: flex;
 		flex-direction: column;
 		background-color: #FFF;
 		border-radius: 3px;
-		.title{
-			width: 100%;
-			height: 65px;
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			h2{
-			text-align: center;
-			font-weight: 900;
-			font-size: 26px;
-			padding: 4px;
-			color: $colorMain;
-			}
-		}
-		.price{
-			width: 100%;
-			height: 30px;
-			background-color: $colorMain;
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			filter: grayscale(60%);
-			p{
-				font-size: 18px;
-				font-weight: 400;
-				color: #fff;
-				
-			}		
-		}
-		.item{
-			width: 100%;
-			height: 260px;
+		box-shadow: 1px 2px 3px rgba(0,0,0,0.15);
+		.img{
+			width: 240px;
+			height: 240px;
 			overflow: hidden;
-			display: flex;
-			flex-direction: column;
-			justify-content: end;
-			align-items: center;
 			img{
 				width: 100%;
 				height: 100%;
@@ -137,72 +122,58 @@ nav{
 				transform: scale(1.05);
 				transition: 0.3s;
 			}
-			
-			button{
-				font-size: 16px;
-				position: absolute;
-				padding: 8px;
-				margin: 10px;
-				font-weight: 900;
-				color: #FFF;
-				background-color: $colorMain;
-				border: 1px solid $colorMain;
-			}
-			button:hover{
-				background-color: $colorSecondary;
-				border: 1px solid $colorSecondary;
-				cursor: pointer;
-			}
-		}		
-		.containerCounter{
+		}
+		.itemInfo{
 			width: 100%;
 			height: auto;
 			display: flex;
 			flex-direction: column;
+			justify-content: flex-end;
 			align-items: center;
-			padding: 10px;
-			.countCartButtons{
-				height: 30px;
-				width: 80%;
-				display: flex;
-				flex-direction: row;
-				margin: 3px;
-				button{
-					height: 100%;
-					width: 33.33%;
-					color: $colorMain;
-					font-size: 20px;
-				}
-				div{
-					height: 100%;
-					width: 33.33%;
-					color: $colorB;
-					font-size: 20px;
-					text-align: center;
-					font-weight: 700;
-				}
-			}
-			button{
-				width: 80%;
+			.precio{
+				width: 90%;
 				height: auto;
-				background-color: transparent;
-				border: 1px solid $colorMain;
-				color: $colorMain;
-				font-size: 16px;
-				padding: 5px;
+				padding: 10px 5px;
+				font-size: 18px;
+				border-bottom: 2px solid $colorMain;
+				font-family: 'Roboto', sans-serif;
+			}
+			h2{
+				width: 90%;
+				height: 60px;
+				text-align: center;
+				font-size: 18px;
+				font-weight: 900;
+				padding: 20px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+			}
+			.verDetalle{
+				width: 90%;
+				height: auto;
+				text-align: center;
+				font-size: 12px;
 				font-weight: 700;
+				color: #fff;
+				padding: 8px;
+				border: 1px solid $colorMain;
+				background-color: $colorMain;
+				margin-bottom: 10px;
+			}
+			.verDetalle:hover{
+				border: 1px solid $colorB;
+				background-color: $colorB;
 				cursor: pointer;
 			}
-			button:hover{
-				background-color: $colorMain;
-				color: #fff;
-			}
-		}		
+		}					
 	}
 	.itemList:hover{
-		box-shadow: 2px 2px 6px rgba(0,0,0,0.15);
+		box-shadow: 0px 6px 8px rgba(0,0,0,0.25);
 	}
 }
+
+/* ITEM DETAIL CONTAINER */
 
 .itemDetailContainer{
 	width: 100%;
@@ -300,12 +271,4 @@ nav{
 	}
 }
 
-
-
-h1{
-	font-size: 160px;
-	color: $colorMain;
-	text-align: center;
-	margin-top: 100px;
-}
 

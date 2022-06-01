@@ -1,18 +1,41 @@
 import ItemList from "../ItemList/ItemList";
+
 import { useState, useEffect } from "react";
-import { getProducts } from "../../asyncmock";
+import { getProducts, getProductsByCategory } from "../../asyncmock";
+import { useParams } from 'react-router-dom';
 
 const ItemListContainer = () => {
     const [products, setProducts] = useState([])
+    const [loading, setLoading] = useState(true)
 
+    const { categoryId } = useParams()
     useEffect(() => {
-        getProducts().then(response => {
-            setProducts(response)
-        })
-    }, [])
+        if(!categoryId){
+            getProducts().then(response => {
+                setProducts(response)
+            }).catch(error => {
+                console.log(error)
+            }).finally(() => {
+                setLoading(false)
+            })
+        } else {
+            getProductsByCategory(categoryId).then(response => {
+                setProducts(response)
+            }).catch(error => {
+                console.log(error)
+            }).finally(() => {
+                setLoading(false)
+            })
+        }
+    }, [categoryId])
+
+    if(loading){
+        return <h2>loading...</h2>
+    } 
+
     return (
         <section className="itemListContainer">
-            { products.map(product => <ItemList key={product.id} {...product}/>)}
+            <ItemList products={products} />
         </section>
     )
 }

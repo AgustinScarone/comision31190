@@ -1,8 +1,12 @@
+import { Link } from 'react-router-dom';
+
 const LogoNavBar = () => {
     return (
-        <div>
-            <img src="./img/logo.png" alt="MOMO" className="logo"/>
-        </div>
+        <Link to="/">
+            <div>
+                <img src="../img/logo.png" alt="MOMO" className="logo"/>
+            </div>
+        </Link>
     )
 }
 

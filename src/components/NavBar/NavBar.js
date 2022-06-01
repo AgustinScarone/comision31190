@@ -1,14 +1,15 @@
-import CartWidget from "../CartWidget/CartWidget"
-import LogoNavBar from "./LogoNavBar"
+import CartWidget from "../CartWidget/CartWidget";
+import LogoNavBar from "./LogoNavBar";
+import { Link } from 'react-router-dom';
 
 const NavBar = () => {
     return (
         <nav>
             <LogoNavBar />
             <div>
-                <button>MENU</button>
-                <button>LOCALES</button>
-                <button>CONTACTO</button>
+                <Link to="/menu" className="button">MENU</Link>
+                <Link to="/locales" className="button">LOCALES</Link>
+                <Link to="/contacto" className="button">CONTACTO</Link>
             </div>
             <CartWidget />
         </nav>
