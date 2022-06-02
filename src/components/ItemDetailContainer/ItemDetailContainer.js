@@ -8,12 +8,13 @@ const ItemDetailContainer = () => {
     const [product, setProduct] = useState()
 
     const { productId } = useParams()
-
+    console.log(productId)
     useEffect(() => {
         getProductsById(productId).then(response => {
             setProduct(response)
         })
     }, [])
+    
     return (
         <section className="itemDetailContainer">
             <ItemDetail {...product}/>

@@ -124,45 +124,85 @@ nav div .cartWidget:hover {
   padding: 25px;
 }
 
-.itemListContainer .itemList {
-  width: 240px;
-  height: auto;
-  position: relative;
-  margin: 10px;
+.itemListContainer .linkCategorias {
+  width: 100%;
+  height: 80px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  background-color: #FFF;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin: 10px;
+}
+
+.itemListContainer .linkCategorias .links {
+  padding: 15px;
+  margin: 10px;
+  border-bottom: solid 2px transparent;
+}
+
+.itemListContainer .linkCategorias .activeLinks {
+  padding: 15px;
+  margin: 10px;
+  border-bottom: solid 2px #F5B03A;
+  font-weight: 700;
+  background-color: #F5B03A;
+  color: #E8E8E8;
+}
+
+.itemListContainer .linkCategorias .links:hover {
+  border-bottom: solid 2px #F5B03A;
+}
+
+.itemListContainer .itemList {
+  width: 100%;
+  height: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.itemListContainer .itemList .itemCard {
+  width: 240px;
+  background-color: #fff;
+  margin: 10px;
   border-radius: 3px;
   -webkit-box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.15);
           box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.15);
 }
 
-.itemListContainer .itemList .img {
+.itemListContainer .itemList .itemCard .img {
   width: 240px;
   height: 240px;
   overflow: hidden;
 }
 
-.itemListContainer .itemList .img img {
+.itemListContainer .itemList .itemCard .img img {
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
 }
 
-.itemListContainer .itemList .img img:hover {
+.itemListContainer .itemList .itemCard .img img:hover {
   -webkit-transform: scale(1.05);
           transform: scale(1.05);
   -webkit-transition: 0.3s;
   transition: 0.3s;
 }
 
-.itemListContainer .itemList .itemInfo {
+.itemListContainer .itemList .itemCard .itemInfo {
   width: 100%;
   height: auto;
   display: -webkit-box;
@@ -180,7 +220,7 @@ nav div .cartWidget:hover {
           align-items: center;
 }
 
-.itemListContainer .itemList .itemInfo .precio {
+.itemListContainer .itemList .itemCard .itemInfo .precio {
   width: 90%;
   height: auto;
   padding: 10px 5px;
@@ -189,7 +229,7 @@ nav div .cartWidget:hover {
   font-family: 'Roboto', sans-serif;
 }
 
-.itemListContainer .itemList .itemInfo h2 {
+.itemListContainer .itemList .itemCard .itemInfo h2 {
   width: 90%;
   height: 60px;
   text-align: center;
@@ -207,7 +247,7 @@ nav div .cartWidget:hover {
           justify-content: center;
 }
 
-.itemListContainer .itemList .itemInfo .verDetalle {
+.itemListContainer .itemList .itemCard .itemInfo .verDetalle {
   width: 90%;
   height: auto;
   text-align: center;
@@ -220,13 +260,13 @@ nav div .cartWidget:hover {
   margin-bottom: 10px;
 }
 
-.itemListContainer .itemList .itemInfo .verDetalle:hover {
+.itemListContainer .itemList .itemCard .itemInfo .verDetalle:hover {
   border: 1px solid #333;
   background-color: #333;
   cursor: pointer;
 }
 
-.itemListContainer .itemList:hover {
+.itemListContainer .itemList .itemCard:hover {
   -webkit-box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.25);
           box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.25);
 }
@@ -242,10 +282,11 @@ nav div .cartWidget:hover {
       -ms-flex-pack: center;
           justify-content: center;
   padding: 5px;
+  margin-top: 50px;
 }
 
 .itemDetailContainer .itemDetail {
-  width: 100%;
+  width: auto;
   height: auto;
   position: relative;
   margin: 5px;
@@ -257,6 +298,8 @@ nav div .cartWidget:hover {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  -webkit-box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.15);
+          box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.15);
 }
 
 .itemDetailContainer .itemDetail .itemImg {
@@ -287,6 +330,7 @@ nav div .cartWidget:hover {
           align-items: center;
   padding: 40px;
   background-color: #fff;
+  border-radius: 3px;
 }
 
 .itemDetailContainer .itemDetail .item h2 {
@@ -334,7 +378,7 @@ nav div .cartWidget:hover {
   margin: 5px;
 }
 
-.itemDetailContainer .itemDetail .containerCounter .countCartButtons button {
+.itemDetailContainer .itemDetail .containerCounter .countCartButtons .button {
   height: 40px;
   width: 33.33%;
   font-size: 20px;
@@ -349,7 +393,7 @@ nav div .cartWidget:hover {
   font-weight: 700;
 }
 
-.itemDetailContainer .itemDetail .containerCounter button {
+.itemDetailContainer .itemDetail .containerCounter .button {
   width: 100%;
   height: 40px;
   background-color: transparent;
@@ -361,8 +405,13 @@ nav div .cartWidget:hover {
   cursor: pointer;
 }
 
-.itemDetailContainer .itemDetail .containerCounter button:hover {
+.itemDetailContainer .itemDetail .containerCounter .button:hover {
   background-color: #F5B03A;
   color: #fff;
+}
+
+.itemDetailContainer .itemDetail:hover {
+  -webkit-box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.25);
+          box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.25);
 }
 /*# sourceMappingURL=styles.css.map */

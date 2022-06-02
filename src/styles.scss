@@ -99,78 +99,107 @@ nav{
 	flex-wrap: wrap;
 	justify-content: center;
 	padding: 25px;
-	.itemList{
-		width: 240px;
-		height: auto;
-		position: relative;
-		margin: 10px;
+	.linkCategorias{
+		width: 100%;
+		height: 80px;
 		display: flex;
-		flex-direction: column;
-		background-color: #FFF;
-		border-radius: 3px;
-		box-shadow: 1px 2px 3px rgba(0,0,0,0.15);
-		.img{
-			width: 240px;
-			height: 240px;
-			overflow: hidden;
-			img{
-				width: 100%;
-				height: 100%;
-				object-fit: cover;
-			}
-			img:hover{
-				transform: scale(1.05);
-				transition: 0.3s;
-			}
+		justify-content: center;
+		align-items: center;
+		flex-wrap: wrap;
+		margin: 10px;
+		.links{
+			padding: 15px;
+			margin: 10px;
+			border-bottom: solid 2px transparent;
 		}
-		.itemInfo{
-			width: 100%;
-			height: auto;
-			display: flex;
-			flex-direction: column;
-			justify-content: flex-end;
-			align-items: center;
-			.precio{
-				width: 90%;
-				height: auto;
-				padding: 10px 5px;
-				font-size: 18px;
-				border-bottom: 2px solid $colorMain;
-				font-family: 'Roboto', sans-serif;
+		.activeLinks{
+			padding: 15px;
+			margin: 10px;
+			border-bottom: solid 2px $colorMain;
+			font-weight: 700;
+			background-color: $colorMain;
+			color: #E8E8E8;
+		}
+		.links:hover{
+			border-bottom: solid 2px $colorMain;
+		}
+	}
+	.itemList{
+		width: 100%;
+		height: auto;
+		display: flex;
+		justify-content: center;
+		flex-wrap: wrap;
+		.itemCard{
+			width: 240px;
+			background-color: #fff;
+			margin: 10px;
+			border-radius: 3px;
+			box-shadow: 1px 2px 3px rgba(0,0,0,0.15);
+			.img{
+				width: 240px;
+				height: 240px;
+				overflow: hidden;
+				img{
+					width: 100%;
+					height: 100%;
+					object-fit: cover;
+				}
+				img:hover{
+					transform: scale(1.05);
+					transition: 0.3s;
+				}
 			}
-			h2{
-				width: 90%;
-				height: 60px;
-				text-align: center;
-				font-size: 18px;
-				font-weight: 900;
-				padding: 20px;
+			.itemInfo{
+				width: 100%;
+				height: auto;
 				display: flex;
+				flex-direction: column;
+				justify-content: flex-end;
 				align-items: center;
-				justify-content: center;
-			}
-			.verDetalle{
-				width: 90%;
-				height: auto;
-				text-align: center;
-				font-size: 12px;
-				font-weight: 700;
-				color: #fff;
-				padding: 8px;
-				border: 1px solid $colorMain;
-				background-color: $colorMain;
-				margin-bottom: 10px;
-			}
-			.verDetalle:hover{
-				border: 1px solid $colorB;
-				background-color: $colorB;
-				cursor: pointer;
-			}
-		}					
+				.precio{
+					width: 90%;
+					height: auto;
+					padding: 10px 5px;
+					font-size: 18px;
+					border-bottom: 2px solid $colorMain;
+					font-family: 'Roboto', sans-serif;
+				}
+				h2{
+					width: 90%;
+					height: 60px;
+					text-align: center;
+					font-size: 18px;
+					font-weight: 900;
+					padding: 20px;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+				}
+				.verDetalle{
+					width: 90%;
+					height: auto;
+					text-align: center;
+					font-size: 12px;
+					font-weight: 700;
+					color: #fff;
+					padding: 8px;
+					border: 1px solid $colorMain;
+					background-color: $colorMain;
+					margin-bottom: 10px;
+				}
+				.verDetalle:hover{
+					border: 1px solid $colorB;
+					background-color: $colorB;
+					cursor: pointer;
+				}
+			}	
+		}	
+		.itemCard:hover{
+			box-shadow: 0px 6px 8px rgba(0,0,0,0.25);
+		}		
 	}
-	.itemList:hover{
-		box-shadow: 0px 6px 8px rgba(0,0,0,0.25);
-	}
+	
 }
 
 /* ITEM DETAIL CONTAINER */
@@ -181,14 +210,16 @@ nav{
 	display: flex;
 	justify-content: center;
 	padding: 5px;
+	margin-top: 50px;
 	.itemDetail{
-		width: 100%;
+		width: auto;
 		height: auto;
 		position: relative;
 		margin: 5px;
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: center;
+		box-shadow: 1px 2px 3px rgba(0,0,0,0.15);
 		.itemImg{
 			width: 500px;
 			height: 500px;
@@ -207,6 +238,7 @@ nav{
 			align-items: center;
 			padding: 40px;
 			background-color: #fff;
+			border-radius: 3px;
 			h2{
 				font-size: 36px;
 				margin: 20px;
@@ -238,7 +270,7 @@ nav{
 				display: flex;
 				align-items: center;
 				margin: 5px;
-				button{
+				.button{
 					height: 40px;
 					width: 33.33%;
 					font-size: 20px;
@@ -252,7 +284,7 @@ nav{
 					font-weight: 700;
 				}
 			}
-			button{
+			.button{
 				width: 100%;
 				height: 40px;
 				background-color: transparent;
@@ -263,11 +295,14 @@ nav{
 				font-weight: 700;
 				cursor: pointer;
 			}
-			button:hover{
+			.button:hover{
 				background-color: $colorMain;
 				color: #fff;
 			}
 		}		
+	}
+	.itemDetail:hover{
+		box-shadow: 0px 6px 8px rgba(0,0,0,0.25);
 	}
 }
 

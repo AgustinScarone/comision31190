@@ -7,9 +7,9 @@ const NavBar = () => {
         <nav>
             <LogoNavBar />
             <div>
-                <Link to="/menu" className="button">MENU</Link>
-                <Link to="/locales" className="button">LOCALES</Link>
-                <Link to="/contacto" className="button">CONTACTO</Link>
+                <Link to="" className="button">MENU</Link>
+                <Link to="" className="button">LOCALES</Link>
+                <Link to="" className="button">CONTACTO</Link>
             </div>
             <CartWidget />
         </nav>

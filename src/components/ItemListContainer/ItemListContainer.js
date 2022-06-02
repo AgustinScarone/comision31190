@@ -2,13 +2,14 @@ import ItemList from "../ItemList/ItemList";
 
 import { useState, useEffect } from "react";
 import { getProducts, getProductsByCategory } from "../../asyncmock";
-import { useParams } from 'react-router-dom';
+import { Link, NavLink, useParams } from 'react-router-dom';
 
 const ItemListContainer = () => {
     const [products, setProducts] = useState([])
     const [loading, setLoading] = useState(true)
 
     const { categoryId } = useParams()
+    console.log(categoryId)
     useEffect(() => {
         if(!categoryId){
             getProducts().then(response => {
@@ -28,13 +29,19 @@ const ItemListContainer = () => {
             })
         }
     }, [categoryId])
-
     if(loading){
         return <h2>loading...</h2>
     } 
 
     return (
         <section className="itemListContainer">
+            <div className="linkCategorias">
+                <NavLink to='/' className={({isActive}) => isActive ? "activeLinks" : "links"}>VER TODO</NavLink>
+                <NavLink to='/categoria/hamburguesas' className={({isActive}) => isActive ? "activeLinks" : "links"}>HAMBURGUESAS</NavLink>
+                <NavLink to='/categoria/papas-fritas' className={({isActive}) => isActive ? "activeLinks" : "links"}>PAPAS FRITAS</NavLink>
+                <NavLink to='/categoria/bebidas-sin-alcohol' className={({isActive}) => isActive ? "activeLinks" : "links"}>BEBIDAS SIN ALCOHOL</NavLink>
+                <NavLink to='/categoria/cervezas' className={({isActive}) => isActive ? "activeLinks" : "links"}>CERVEZAS</NavLink>
+            </div>
             <ItemList products={products} />
         </section>
     )
