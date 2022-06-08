@@ -524,7 +524,7 @@ nav .cartWidget:hover {
 }
 
 .cartContainer .cart {
-  width: 80%;
+  width: 90%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -532,6 +532,7 @@ nav .cartWidget:hover {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  font-size: 14px;
 }
 
 .cartContainer .cart .cartDetail {
@@ -539,7 +540,179 @@ nav .cartWidget:hover {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #fff;
+  margin-bottom: 20px;
+  padding: 5px;
+  -webkit-box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.15);
+          box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.15);
+  border-radius: 3px;
+}
+
+.cartContainer .cart .cartDetail div {
+  width: 100%;
+  padding: 5px;
+  font-size: 12px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.cartContainer .cart .cartDetail div .titulo {
+  font-weight: 900;
+  font-size: 16px;
+}
+
+.cartContainer .cart .cartDetail div .subtotal {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.cartContainer .cart .cartDetail button {
+  margin: 10px;
+  padding: 3px 30px;
+  border: 1px solid #E23744;
+  background-color: transparent;
+  border-radius: 1px;
+  cursor: pointer;
+}
+
+.cartContainer .cart .cartDetail button svg {
+  width: 14px;
+  fill: #E23744;
+}
+
+.cartContainer .cart .cartDetail button:hover {
+  background-color: #E23744;
+}
+
+.cartContainer .cart .cartDetail button:hover svg {
+  fill: #fff;
+}
+
+.cartContainer .cart .cartDetail:hover {
+  -webkit-box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.25);
+          box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.25);
+}
+
+.cartContainer .cart .cartDetail:hover .titulo {
+  color: #F5B03A;
+}
+
+.cartContainer .cartSummary {
+  width: 90%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 14px;
+}
+
+.cartContainer .cartSummary .cartSummaryDetail {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #F5B03A;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  padding: 5px;
+  -webkit-box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.15);
+          box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.15);
+  border-radius: 3px;
+}
+
+.cartContainer .cartSummary .cartSummaryDetail div {
+  width: 100%;
+  padding: 5px;
+  font-size: 16px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  font-weight: 700;
+}
+
+.cartContainer .cartSummary .cartSummaryDetail div .titulo {
+  font-weight: 900;
+  font-size: 16px;
+}
+
+.cartContainer .cartSummary .cartSummaryDetail button {
+  margin: 10px;
+  padding: 3px 30px;
+  border: 1px solid #333;
+  background-color: transparent;
+  border-radius: 1px;
+  cursor: pointer;
+}
+
+.cartContainer .cartSummary .cartSummaryDetail button svg {
+  width: 14px;
+  fill: #333;
+}
+
+.cartContainer .cartSummary .cartSummaryDetail button:hover {
+  background-color: #333;
+}
+
+.cartContainer .cartSummary .cartSummaryDetail button:hover svg {
+  fill: #fff;
+}
+
+.cartContainer .cartSummary .buttonFinalizar {
+  width: auto;
+  height: auto;
+  background-color: #E23744;
+  border: 1px solid #E23744;
+  color: #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-size: 16px;
+  padding: 15px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.cartContainer .cartSummary .buttonFinalizar:hover {
+  background-color: #F5B03A;
+  border: 1px solid #F5B03A;
+  color: #fff;
 }
 /*# sourceMappingURL=styles.css.map */

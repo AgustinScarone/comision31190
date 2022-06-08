@@ -12,7 +12,6 @@ const ItemDetailContainer = () => {
     useEffect(() => {
         getProductsById(productId).then(response => {
             setProduct(response)
-            console.log(response)
         })
     }, [])
     
