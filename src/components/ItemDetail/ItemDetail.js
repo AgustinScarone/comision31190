@@ -1,36 +1,35 @@
 import ItemCount from "../ItemCount/ItemCount";
-import { useState } from "react";
+import BuyDetail from "../BuyDetail/BuyDetail";
+import { useState, useContext } from "react";
 import { Link } from 'react-router-dom';
+import CartContext from '../../context/CartContext';
 
-const ItemDetail = (props) =>{
+const ItemDetail = ({id, menuImg, menuName, menuInfo, menuPrice, menuStock }) =>{
     const [quantity, setQuantity] = useState(0)
 
-    const handleOnAdd = (count) => {
-        console.log('agregue al carrito')
-        console.log(count)
-        setQuantity(count)
+    const { addItem, getProduct } = useContext(CartContext)
+
+    const handleOnAdd = (quantity) => {
+        
+        setQuantity(quantity)
+        addItem({ id, menuName, menuPrice, quantity})
     }
     return(
-        // <div className="itemDetail">
-        //     <div className="itemImg">
-        //         <img src={`../img/products/${props.menuImg}`} alt={props.menuName}/>
-        //     </div>
-        //     <div className="item">
-        //         <h2>{props.menuName}</h2>
-        //         <article>{props.menuInfo}</article>
-        //         <div className="price">$ {props.menuPrice}</div>
-        //         <ItemCount menuStock={props.menuStock}/>
-        //     </div>
-        // </div>
+        
         <div className="itemDetail">
             <div className="itemImg">
-                <img src={`../img/products/${props.menuImg}`} alt={props.menuName}/>
+                <img src={`../img/products/${menuImg}`} alt={menuName}/>
             </div>
             <div className="item">
-                <h2>{props.menuName}</h2>
-                <article>{props.menuInfo}</article>
-                <div className="price">$ {props.menuPrice}</div>
-                { quantity > 0  ? <Link to='/cart'>Finalizar compra</Link> : <ItemCount menuStock={props.menuStock} onConfirm={handleOnAdd}/>}
+                <h2>{menuName}</h2>
+                <article>{menuInfo}</article>
+                <div className="priceContainer">
+                    <div className="price">$ {menuPrice}</div>
+                </div>
+                { quantity > 0
+                    ? <BuyDetail /> 
+                    : <ItemCount menuStock={menuStock} onAdd={handleOnAdd} initial={getProduct(id)?.quantity}/>
+                }
             </div>
         </div>
     )

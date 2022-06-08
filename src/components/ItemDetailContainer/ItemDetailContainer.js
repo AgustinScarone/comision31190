@@ -8,9 +8,11 @@ const ItemDetailContainer = () => {
     const [product, setProduct] = useState()
 
     const { productId } = useParams()
+
     useEffect(() => {
         getProductsById(productId).then(response => {
             setProduct(response)
+            console.log(response)
         })
     }, [])
     

@@ -50,7 +50,6 @@ const ItemListContainer = () => {
                 ? <ItemList products={products} />
                 : <h2>NO HAY PRODUCTOS</h2>
             }
-            <ItemList products={products} />
         </section>
     )
 }

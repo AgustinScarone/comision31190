@@ -72,21 +72,30 @@ nav{
 		.logo{
 			height: 60px;
 		}
-		.cartWidget{
-			height: 26px;
-			margin-right: 10px;
-			filter: invert(79%) sepia(43%) saturate(1365%) hue-rotate(331deg) brightness(103%) contrast(92%);
-			box-sizing: content-box;
-			padding: 10px;
-			border: 2px solid transparent;
+		
+	}
+	.cartWidget{
+		height: 26px;
+		margin-right: 10px;
+		fill: $colorMain;
+		box-sizing: content-box;
+		padding: 10px;
+		border: 2px solid transparent;
+		display: flex;
+		align-items: center;
+		font-size: 18px;
+		font-family: 'Roboto', sans-serif;
+		svg{
+			width: 30px;
+			margin-right: 5px;
 		}
-		.cartWidget:hover{
-			filter: invert(18%) sepia(0%) saturate(5%) hue-rotate(171deg) brightness(102%) contrast(96%);
-			box-sizing: content-box;
-			padding: 10px;
-			border: 2px solid #333;
-			cursor: pointer;
-		}
+	}
+	.cartWidget:hover{
+		box-sizing: content-box;
+		padding: 10px;
+		border: 2px solid $colorMain;
+		fill: $colorSecondary;
+		cursor: pointer;
 	}
 }
 
@@ -250,14 +259,54 @@ nav{
 				font-size: 18px;
 				line-height: 26px;
 			}
-			.price{
-				font-size: 30px;
-				border: 2px solid $colorMain;
-				padding: 10px;
-				font-weight: 900;
-				color: $colorMain;
-				margin: 10px;
+			.priceContainer{
+				width: 100%;
+				display: flex;
+				justify-content: center;
+				.price{
+					width: auto;
+					font-size: 30px;
+					border: 2px solid $colorMain;
+					padding: 10px;
+					font-weight: 900;
+					color: $colorMain;
+					margin: 10px;
+				}
 			}
+			.containerButtons{
+				width: 100%;
+				display: flex;
+				justify-content: center;
+				gap: 20px;
+				.linkButtons{
+					width: 50%;
+					height: 40px;
+					background-color: transparent;
+					border: 1px solid $colorMain;
+					color: $colorMain;
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					font-size: 16px;
+					padding: 5px;
+					font-weight: 700;
+					cursor: pointer;
+				}
+				.linkButtons:hover{
+					background-color: $colorMain;
+					color: #fff;
+				}
+				.linkButtons.alert{
+					background-color: transparent;
+					border: 1px solid $alert;
+					color: $alert;
+				}				
+				.linkButtons:hover.alert{
+					background-color: $alert;
+					color: #fff;
+					font-weight: 900;
+				}
+			}			
 		}	
 		.containerCounter{
 			width: 100%;
@@ -290,6 +339,9 @@ nav{
 				background-color: transparent;
 				border: 1px solid $colorMain;
 				color: $colorMain;
+				display: flex;
+				justify-content: center;
+				align-items: center;
 				font-size: 16px;
 				padding: 5px;
 				font-weight: 700;
@@ -299,11 +351,39 @@ nav{
 				background-color: $colorMain;
 				color: #fff;
 			}
-		}		
+			.buyItemContainer{
+				width: 100%;
+				margin: 20px;
+			}
+		}	
 	}
 	.itemDetail:hover{
 		box-shadow: 0px 6px 8px rgba(0,0,0,0.25);
 	}
 }
 
+/* CARRITO - CART */
 
+.cartContainer{
+	width: 100%;
+	height: auto;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 50px;
+	h2{
+		margin-bottom: 50px;
+		font-size: 36px;
+		font-weight: 900;
+	}
+	.cart{
+		width: 80%;
+		display: flex;
+		flex-direction: column;
+		.cartDetail{
+			width: 100%;
+			display: flex;
+			justify-content: space-around;
+		}
+	}
+}
