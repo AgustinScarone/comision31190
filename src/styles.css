@@ -11,6 +11,10 @@
   color: #333;
 }
 
+.moneyFont {
+  font-family: 'Roboto', sans-serif;
+}
+
 /* BODY */
 body {
   width: 100%;
@@ -392,8 +396,8 @@ nav .cartWidget:hover {
   width: 50%;
   height: 40px;
   background-color: transparent;
-  border: 1px solid #F5B03A;
-  color: #F5B03A;
+  border: 1px solid #95C11F;
+  color: #95C11F;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -410,8 +414,9 @@ nav .cartWidget:hover {
 }
 
 .itemDetailContainer .itemDetail .item .containerButtons .linkButtons:hover {
-  background-color: #F5B03A;
+  background-color: #95C11F;
   color: #fff;
+  font-weight: 900;
 }
 
 .itemDetailContainer .itemDetail .item .containerButtons .linkButtons.alert {
@@ -485,9 +490,18 @@ nav .cartWidget:hover {
   cursor: pointer;
 }
 
+.itemDetailContainer .itemDetail .containerCounter .button svg {
+  height: 100%;
+  fill: #F5B03A;
+}
+
 .itemDetailContainer .itemDetail .containerCounter .button:hover {
   background-color: #F5B03A;
   color: #fff;
+}
+
+.itemDetailContainer .itemDetail .containerCounter .button:hover svg {
+  fill: #fff;
 }
 
 .itemDetailContainer .itemDetail .containerCounter .buyItemContainer {
@@ -603,6 +617,87 @@ nav .cartWidget:hover {
   fill: #fff;
 }
 
+.cartContainer .cart .cartDetail .containerCounter {
+  width: 100%;
+  height: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.cartContainer .cart .cartDetail .containerCounter .countCartButtons {
+  height: 30px;
+  width: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.cartContainer .cart .cartDetail .containerCounter .countCartButtons .button {
+  width: 33.33%;
+  font-size: 20px;
+}
+
+.cartContainer .cart .cartDetail .containerCounter .countCartButtons div {
+  width: 33.33%;
+  color: #333;
+  font-size: 14px;
+  text-align: center;
+  font-weight: 700;
+}
+
+.cartContainer .cart .cartDetail .containerCounter .button {
+  width: auto;
+  background-color: transparent;
+  border: 1px solid #F5B03A;
+  color: #F5B03A;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.cartContainer .cart .cartDetail .containerCounter .button svg {
+  fill: #F5B03A;
+}
+
+.cartContainer .cart .cartDetail .containerCounter .button:hover {
+  background-color: #F5B03A;
+  color: #fff;
+}
+
+.cartContainer .cart .cartDetail .containerCounter .button:hover svg {
+  fill: #fff;
+}
+
 .cartContainer .cart .cartDetail:hover {
   -webkit-box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.25);
           box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.25);
@@ -629,6 +724,7 @@ nav .cartWidget:hover {
 
 .cartContainer .cartSummary .cartSummaryDetail {
   width: 100%;
+  height: 60px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -651,29 +747,27 @@ nav .cartWidget:hover {
 .cartContainer .cartSummary .cartSummaryDetail div {
   width: 100%;
   padding: 5px;
-  font-size: 16px;
+  font-size: 22px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
-  font-weight: 700;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  font-weight: 900;
+  color: #fff;
 }
 
-.cartContainer .cartSummary .cartSummaryDetail div .titulo {
-  font-weight: 900;
-  font-size: 16px;
+.cartContainer .cartSummary .cartSummaryDetail div span {
+  font-weight: 400;
+  color: #fff;
+  margin-left: 10px;
 }
 
 .cartContainer .cartSummary .cartSummaryDetail button {
   margin: 10px;
   padding: 3px 30px;
-  border: 1px solid #333;
+  border: 1px solid #fff;
   background-color: transparent;
   border-radius: 1px;
   cursor: pointer;
@@ -681,22 +775,23 @@ nav .cartWidget:hover {
 
 .cartContainer .cartSummary .cartSummaryDetail button svg {
   width: 14px;
-  fill: #333;
+  fill: #fff;
 }
 
 .cartContainer .cartSummary .cartSummaryDetail button:hover {
   background-color: #333;
+  border: 1px solid #333;
 }
 
 .cartContainer .cartSummary .cartSummaryDetail button:hover svg {
-  fill: #fff;
+  fill: #F5B03A;
 }
 
 .cartContainer .cartSummary .buttonFinalizar {
   width: auto;
   height: auto;
-  background-color: #E23744;
-  border: 1px solid #E23744;
+  background-color: #333;
+  border: 1px solid #333;
   color: #fff;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -714,5 +809,7 @@ nav .cartWidget:hover {
   background-color: #F5B03A;
   border: 1px solid #F5B03A;
   color: #fff;
+  -webkit-box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.25);
+          box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.25);
 }
 /*# sourceMappingURL=styles.css.map */

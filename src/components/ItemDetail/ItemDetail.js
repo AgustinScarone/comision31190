@@ -1,5 +1,6 @@
 import ItemCount from "../ItemCount/ItemCount";
 import BuyDetail from "../BuyDetail/BuyDetail";
+import CurrencyFormat from 'react-currency-format';
 import { useState, useContext } from "react";
 import CartContext from '../../context/CartContext';
 
@@ -22,7 +23,7 @@ const ItemDetail = ({id, menuImg, menuName, menuInfo, menuPrice, menuStock }) =>
                 <h2>{menuName}</h2>
                 <article>{menuInfo}</article>
                 <div className="priceContainer">
-                    <div className="price">$ {menuPrice}</div>
+                    <CurrencyFormat value={menuPrice} displayType={'text'} thousandSeparator={true} prefix={'$'} className='price moneyFont'/>
                 </div>
                 { quantity > 0
                     ? <BuyDetail /> 

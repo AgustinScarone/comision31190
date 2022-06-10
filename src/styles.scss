@@ -5,7 +5,9 @@ $colorMain: #F5B03A;
 $colorSecondary: #333;
 $colorB: #333;
 $colorFooter: #E8E8E8;
-$alert: #E23744;
+$colorAlert: #E23744;
+$colorOk: #95C11F;
+
 
 *{
 	padding: 0;
@@ -15,6 +17,10 @@ $alert: #E23744;
 	box-sizing: border-box;
 	scroll-behavior: smooth;
 	color: $colorB;
+}
+
+.moneyFont{
+	font-family: 'Roboto', sans-serif;
 }
 
 /* BODY */
@@ -282,8 +288,8 @@ nav{
 					width: 50%;
 					height: 40px;
 					background-color: transparent;
-					border: 1px solid $colorMain;
-					color: $colorMain;
+					border: 1px solid $colorOk;
+					color: $colorOk;
 					display: flex;
 					justify-content: center;
 					align-items: center;
@@ -293,16 +299,17 @@ nav{
 					cursor: pointer;
 				}
 				.linkButtons:hover{
-					background-color: $colorMain;
+					background-color: $colorOk;
 					color: #fff;
+					font-weight: 900;
 				}
 				.linkButtons.alert{
 					background-color: transparent;
-					border: 1px solid $alert;
-					color: $alert;
+					border: 1px solid $colorAlert;
+					color: $colorAlert;
 				}				
 				.linkButtons:hover.alert{
-					background-color: $alert;
+					background-color: $colorAlert;
 					color: #fff;
 					font-weight: 900;
 				}
@@ -346,10 +353,17 @@ nav{
 				padding: 5px;
 				font-weight: 700;
 				cursor: pointer;
+				svg{
+					height: 100%;
+					fill: $colorMain;
+				}
 			}
 			.button:hover{
 				background-color: $colorMain;
 				color: #fff;
+				svg{
+					fill: #fff;
+				}
 			}
 			.buyItemContainer{
 				width: 100%;
@@ -410,21 +424,70 @@ nav{
 			button{
 				margin: 10px;
 				padding: 3px 30px;
-				border: 1px solid $alert;
+				border: 1px solid $colorAlert;
 				background-color: transparent;
 				border-radius: 1px;
 				cursor: pointer;
 				svg{
 					width: 14px;
-					fill: $alert;
+					fill: $colorAlert;
 				}
 			}
 			button:hover{
-				background-color: $alert;
+				background-color: $colorAlert;
 				svg{
 					fill: #fff;
 				}
 			}
+			.containerCounter{
+				width: 100%;
+				height: auto;
+				display: flex;
+				flex-direction: row;
+				align-items: center;
+				justify-content: flex-start;
+				.countCartButtons{
+					height: 30px;
+					width: 50%;
+					display: flex;
+					flex-direction: row;
+					align-items: center;
+					justify-content: center;
+					.button{
+						width: 33.33%;
+						font-size: 20px;
+					}
+					div{
+						width: 33.33%;
+						color: $colorB;
+						font-size: 14px;
+						text-align: center;
+						font-weight: 700;
+					}
+				}
+				.button{
+					width: auto;
+					background-color: transparent;
+					border: 1px solid $colorMain;
+					color: $colorMain;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					font-size: 14px;
+					font-weight: 700;
+					cursor: pointer;
+					svg{
+						fill: $colorMain;
+					}
+				}
+				.button:hover{
+					background-color: $colorMain;
+					color: #fff;
+					svg{
+						fill: #fff;
+					}
+				}
+			}	
 		}
 		.cartDetail:hover{
 			box-shadow: 0px 6px 8px rgba(0,0,0,0.25);
@@ -441,6 +504,7 @@ nav{
 		font-size: 14px;
 		.cartSummaryDetail{
 			width: 100%;
+			height: 60px;
 			display: flex;
 			flex-direction: row;
 			align-items: center;
@@ -453,40 +517,42 @@ nav{
 			div{
 				width: 100%;
 				padding: 5px;
-				font-size: 16px;
+				font-size: 22px;
 				display: flex;
-				flex-direction: column;
-				justify-content: flex-end;
-				font-weight: 700;
-				.titulo{
-					font-weight: 900;
-					font-size: 16px;
+				justify-content: flex-start;
+				font-weight: 900;
+				color: #fff;
+				span{
+					font-weight: 400;
+					color: #fff;
+					margin-left: 10px;
 				}
 			}
 			button{
 				margin: 10px;
 				padding: 3px 30px;
-				border: 1px solid $colorB;
+				border: 1px solid #fff;
 				background-color: transparent;
 				border-radius: 1px;
 				cursor: pointer;
 				svg{
 					width: 14px;
-					fill: $colorB;
+					fill: #fff;
 				}
 			}
 			button:hover{
 				background-color: $colorB;
+				border: 1px solid $colorB;
 				svg{
-					fill: #fff;
+					fill: $colorMain;
 				}
 			}
 		}
 		.buttonFinalizar{
 			width: auto;
 			height: auto;
-			background-color: $alert;
-			border: 1px solid $alert;
+			background-color: $colorB;
+			border: 1px solid $colorB;
 			color: #fff;
 			display: flex;
 			justify-content: center;
@@ -499,6 +565,7 @@ nav{
 			background-color: $colorMain;
 			border: 1px solid $colorMain;
 			color: #fff;
+			box-shadow: 0px 6px 8px rgba(0,0,0,0.25);
 		}
 	}
 	
