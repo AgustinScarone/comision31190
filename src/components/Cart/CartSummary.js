@@ -4,9 +4,7 @@ import CurrencyFormat from 'react-currency-format';
 
 const CartSummary = (props) => {
     const { clearCart } = useContext(CartContext)
-
     
-
     return(
         <div className="cartSummary">
             <button className="buttonFinalizar">

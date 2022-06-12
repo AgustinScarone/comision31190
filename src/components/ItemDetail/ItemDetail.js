@@ -1,5 +1,5 @@
 import ItemCount from "../ItemCount/ItemCount";
-import BuyDetail from "../BuyDetail/BuyDetail";
+import BuyDetail from "./BuyDetail";
 import CurrencyFormat from 'react-currency-format';
 import { useState, useContext } from "react";
 import CartContext from '../../context/CartContext';
@@ -11,7 +11,7 @@ const ItemDetail = ({id, menuImg, menuName, menuInfo, menuPrice, menuStock }) =>
 
     const handleOnAdd = (quantity) => {
         setQuantity(quantity)
-        addItem({ id, menuName, menuPrice, quantity})
+        addItem({ id, menuName, menuPrice, quantity })
     }
     return(
         

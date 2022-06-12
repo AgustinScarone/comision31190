@@ -37,7 +37,7 @@ const Cart = () => {
                             </div>
                             <div>
                                 Cantidad: {prod.quantity}
-                                <ItemCount menuStock={prod.menuStock} onAdd={prod.handleOnAdd} initial={getProduct(prod.id)?.quantity}/>
+                                {/* <ItemCount menuStock={prod.menuStock} onAdd={prod.handleOnAdd} initial={getProduct(prod.id)?.quantity}/> */}
                             </div>
                             <div>
                                 <CurrencyFormat value={prod.menuPrice} displayType={'text'} thousandSeparator={true} prefix={'$'} className='moneyFont'/>
