@@ -1,7 +1,15 @@
-import {useState} from 'react';
+import { useState, useEffect } from 'react';
 
 const ItemCount = ({menuStock, initial = 1, onAdd}) =>{
     const [quantity, setQuantity] = useState(initial)
+    const [stock, setStock] = useState()
+
+    useEffect(() => {
+        if(quantity){
+            const newStock = menuStock - quantity
+        }
+        setStock(stock)
+      });
 
     const decrement = () =>{
         if(quantity > 1)
@@ -13,6 +21,7 @@ const ItemCount = ({menuStock, initial = 1, onAdd}) =>{
             setQuantity(quantity + 1)
         }
     }
+    
     return(
         <div className="containerCounter">
             <div className='countCartButtons'>

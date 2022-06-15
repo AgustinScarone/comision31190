@@ -1,7 +1,7 @@
 import { useContext } from "react"
 import CartContext from "../../context/CartContext"
 import CartSummary from "./CartSummary"
-import NotA404 from "../NotA404/NotA404"
+import NotA404 from "../Assets/NotA404"
 import ItemCount from "../ItemCount/ItemCount";
 import CurrencyFormat from 'react-currency-format';
 

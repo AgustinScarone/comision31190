@@ -9,7 +9,6 @@ export const CartContextProvider = ({ children }) => {
 
         if(!isInCart(productToAdd.id)) {
             setCart([...cart, productToAdd])
-            console.log(cart.menuStock)
         }
         else {
             const newCart = cart.map(prod => {
