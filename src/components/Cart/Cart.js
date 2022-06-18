@@ -7,25 +7,17 @@ import CurrencyFormat from 'react-currency-format';
 
 const Cart = () => {
 
-    const { cart, removeItem, getProduct } = useContext(CartContext)
+    const { cart, removeItem, getProduct, getTotal } = useContext(CartContext)
 
     const totalQuantity = cart.reduce((total, item) => {
         return total + item.quantity
-    }, 0)
-
-    const cartPriceSum = cart.map(prod => {
-        return prod.menuPrice * prod.quantity
-    })
-
-    const totalPrice = cartPriceSum.reduce((total, item) => {
-        return total + item
     }, 0)
 
     return(
         <div className="cartContainer">
             <h2>MI CARRITO</h2>
             { totalQuantity > 0
-                    ? <CartSummary totalPrice={totalPrice}  totalQuantity={totalQuantity}/> 
+                    ? <CartSummary getTotal={getTotal()}  totalQuantity={totalQuantity}/> 
                     : <NotA404 /> 
             }
             <div className="cart">

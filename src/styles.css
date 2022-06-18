@@ -17,9 +17,21 @@
 
 /* BODY */
 body {
-  width: 100%;
-  height: auto;
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   background-color: #E8E8E8;
+}
+
+main {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
 }
 
 /* NOT A 404 */
@@ -88,7 +100,7 @@ nav div .button:hover {
   cursor: pointer;
 }
 
-nav div .logo {
+nav .logo {
   height: 60px;
 }
 
@@ -137,6 +149,7 @@ nav .cartWidget:hover {
       -ms-flex-pack: center;
           justify-content: center;
   padding: 25px;
+  margin-bottom: 50px;
 }
 
 .itemListContainer .linkCategorias {
@@ -297,7 +310,7 @@ nav .cartWidget:hover {
       -ms-flex-pack: center;
           justify-content: center;
   padding: 5px;
-  margin-top: 50px;
+  margin: 50px 0px;
 }
 
 .itemDetailContainer .itemDetail {
@@ -826,7 +839,7 @@ nav .cartWidget:hover {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin-top: 100px;
+  margin: 100px 0px;
 }
 
 .loading h2 {
@@ -837,5 +850,194 @@ nav .cartWidget:hover {
 
 .loading img {
   width: 200px;
+}
+
+/* LOCATIONS */
+.locations {
+  width: 100%;
+  height: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  padding: 150px;
+}
+
+.locations .locationsContainer {
+  width: auto;
+  height: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: #fff;
+}
+
+.locations .locationsContainer div {
+  width: 300px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background-color: #fff;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 50px;
+  text-align: center;
+}
+
+.locations .locationsContainer div h2 {
+  padding: 15px;
+  font-size: 26px;
+  font-weight: 900;
+}
+
+.locations .locationsContainer div article {
+  padding: 15px;
+  text-align: center;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.locations .locationsContainer div article span {
+  font-weight: 900;
+}
+
+.locations .locationsContainer div article .button {
+  width: auto;
+  border: 1px solid #F5B03A;
+  padding: 10px 15px;
+  margin: 10px;
+  background-color: transparent;
+}
+
+.locations .locationsContainer div article .button a {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.locations .locationsContainer div article .button:hover {
+  background-color: #F5B03A;
+  cursor: pointer;
+}
+
+.locations .locationsContainer div article .button:hover a {
+  color: #fff;
+}
+
+.locations .locationsContainer div svg {
+  max-width: 60px;
+  max-height: 60px;
+  margin-bottom: 10px;
+  fill: #F5B03A;
+}
+
+/* FOOTER */
+footer {
+  width: 100%;
+  background-color: #fff;
+}
+
+footer section {
+  width: 100%;
+  height: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+footer section .redes {
+  display: block;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+footer section div {
+  width: 200px;
+  height: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin: 45px;
+}
+
+footer section div .logo {
+  max-width: 200px;
+}
+
+footer section div h2 {
+  font-size: 26px;
+  font-weight: 900;
+  color: #F5B03A;
+}
+
+footer section div button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+footer section div button svg {
+  fill: #333;
+  width: 24px;
+  padding: 5px 0px;
+  margin: 5px 10px 0px 0px;
+  font-size: 16px;
+  border: none;
+}
+
+footer section div button svg:hover {
+  fill: #F5B03A;
+  padding-top: 10px;
+  border-top: solid 4px #F5B03A;
+  color: #F5B03A;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+
+footer section div .button {
+  padding: 5px 0px;
+  margin: 5px 0px;
+  font-size: 16px;
+  border: none;
+}
+
+footer section div .button:hover {
+  padding-left: 10px;
+  border-left: solid 4px #F5B03A;
+  color: #F5B03A;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
 }
 /*# sourceMappingURL=styles.css.map */

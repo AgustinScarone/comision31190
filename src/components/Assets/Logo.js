@@ -1,13 +1,11 @@
 import { Link } from 'react-router-dom';
 
-const LogoNavBar = () => {
+const Logo = () => {
     return (
         <Link to="/">
-            <div>
                 <img src="../img/logo.png" alt="MOMO" className="logo"/>
-            </div>
         </Link>
     )
 }
 
-export default LogoNavBar
+export default Logo

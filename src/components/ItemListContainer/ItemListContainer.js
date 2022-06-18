@@ -1,5 +1,6 @@
 import ItemList from "../ItemList/ItemList";
 import Loading from "../Assets/Loading";
+import NotA404 from "../Assets/NotA404"
 
 import { useState, useEffect } from "react";
 import { NavLink, useParams } from 'react-router-dom';
@@ -38,16 +39,16 @@ const ItemListContainer = () => {
     return (
         <section className="itemListContainer">
             <div className="linkCategorias">
-                <NavLink to='/' className={({isActive}) => isActive ? "activeLinks" : "links"}>VER TODO</NavLink>
-                <NavLink to='/categoria/hamburguesas' className={({isActive}) => isActive ? "activeLinks" : "links"}>HAMBURGUESAS</NavLink>
-                <NavLink to='/categoria/papas-fritas' className={({isActive}) => isActive ? "activeLinks" : "links"}>PAPAS FRITAS</NavLink>
-                <NavLink to='/categoria/bebidas-sin-alcohol' className={({isActive}) => isActive ? "activeLinks" : "links"}>BEBIDAS SIN ALCOHOL</NavLink>
-                <NavLink to='/categoria/cervezas' className={({isActive}) => isActive ? "activeLinks" : "links"}>CERVEZAS</NavLink>
+                <NavLink to='/menu/' className={({isActive}) => isActive ? "activeLinks" : "links"}>VER TODO</NavLink>
+                <NavLink to='/menu/hamburguesas' className={({isActive}) => isActive ? "activeLinks" : "links"}>HAMBURGUESAS</NavLink>
+                <NavLink to='/menu/papas-fritas' className={({isActive}) => isActive ? "activeLinks" : "links"}>PAPAS FRITAS</NavLink>
+                <NavLink to='/menu/bebidas-sin-alcohol' className={({isActive}) => isActive ? "activeLinks" : "links"}>BEBIDAS SIN ALCOHOL</NavLink>
+                <NavLink to='/menu/cervezas' className={({isActive}) => isActive ? "activeLinks" : "links"}>CERVEZAS</NavLink>
             </div>
             {
                 products.length > 0
                 ? <ItemList products={products} />
-                : <h2>NO HAY PRODUCTOS</h2>
+                : <NotA404 />
             }
         </section>
     )

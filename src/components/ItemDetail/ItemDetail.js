@@ -13,6 +13,7 @@ const ItemDetail = ({id, menuImg, menuName, menuInfo, menuPrice, menuStock }) =>
         setQuantity(quantity)
         addItem({ id, menuName, menuPrice, quantity })
     }
+
     return(
         
         <div className="itemDetail">

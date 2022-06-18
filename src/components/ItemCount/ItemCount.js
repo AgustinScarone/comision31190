@@ -1,15 +1,7 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
-const ItemCount = ({menuStock, initial = 1, onAdd}) =>{
+const ItemCount = ({menuStock = 0, initial = 1, onAdd}) =>{
     const [quantity, setQuantity] = useState(initial)
-    const [stock, setStock] = useState()
-
-    useEffect(() => {
-        if(quantity){
-            const newStock = menuStock - quantity
-        }
-        setStock(stock)
-      });
 
     const decrement = () =>{
         if(quantity > 1)
@@ -17,7 +9,7 @@ const ItemCount = ({menuStock, initial = 1, onAdd}) =>{
     }
 
     const increment = () =>{
-        if(quantity < `${menuStock}`){
+        if(quantity < menuStock){
             setQuantity(quantity + 1)
         }
     }
