@@ -202,22 +202,45 @@ nav{
 					align-items: center;
 					justify-content: center;
 				}
-				.verDetalle{
-					width: 90%;
+				.containerVerDetalle{
+					width: 100%;
 					height: auto;
-					text-align: center;
-					font-size: 12px;
-					font-weight: 700;
-					color: #fff;
-					padding: 8px;
-					border: 1px solid $colorMain;
-					background-color: $colorMain;
-					margin-bottom: 10px;
-				}
-				.verDetalle:hover{
-					border: 1px solid $colorB;
-					background-color: $colorB;
-					cursor: pointer;
+					display: flex;
+					justify-content: center;
+					.verDetalle{
+						width: 90%;
+						height: auto;
+						text-align: center;
+						font-size: 12px;
+						font-weight: 700;
+						color: #fff;
+						padding: 8px;
+						border: 1px solid $colorMain;
+						background-color: $colorMain;
+						margin-bottom: 10px;
+					}
+					.verDetalle:hover{
+						border: 1px solid $colorB;
+						background-color: $colorB;
+						cursor: pointer;
+					}
+					.verDetalleAlert{
+						width: 90%;
+						height: auto;
+						text-align: center;
+						font-size: 12px;
+						font-weight: 700;
+						color: #fff;
+						padding: 8px;
+						border: 1px solid $colorAlert;
+						background-color: $colorAlert;
+						margin-bottom: 10px;
+					}
+					.verDetalleAlert:hover{
+						border: 1px solid $colorB;
+						background-color: $colorB;
+						cursor: pointer;
+					}
 				}
 			}	
 		}	
@@ -290,96 +313,99 @@ nav{
 					margin: 10px;
 				}
 			}
-			.containerButtons{
+			.containerItemButtons{
 				width: 100%;
-				display: flex;
-				justify-content: center;
-				gap: 20px;
-				.linkButtons{
-					width: 50%;
-					height: 40px;
-					background-color: transparent;
-					border: 1px solid $colorOk;
-					color: $colorOk;
+				.containerButtons{
+					width: 100%;
 					display: flex;
 					justify-content: center;
+					gap: 20px;
+					.linkButtons{
+						width: 50%;
+						height: 40px;
+						background-color: transparent;
+						border: 1px solid $colorOk;
+						color: $colorOk;
+						display: flex;
+						justify-content: center;
+						align-items: center;
+						font-size: 16px;
+						padding: 5px;
+						font-weight: 700;
+						cursor: pointer;
+					}
+					.linkButtons:hover{
+						background-color: $colorOk;
+						color: #fff;
+						font-weight: 900;
+					}
+					.linkButtons.alert{
+						background-color: transparent;
+						border: 1px solid $colorAlert;
+						color: $colorAlert;
+					}				
+					.linkButtons:hover.alert{
+						background-color: $colorAlert;
+						color: #fff;
+						font-weight: 900;
+					}
+				}
+				.containerCounter{
+					width: 100%;
+					height: auto;
+					display: flex;
 					align-items: center;
-					font-size: 16px;
-					padding: 5px;
-					font-weight: 700;
-					cursor: pointer;
-				}
-				.linkButtons:hover{
-					background-color: $colorOk;
-					color: #fff;
-					font-weight: 900;
-				}
-				.linkButtons.alert{
-					background-color: transparent;
-					border: 1px solid $colorAlert;
-					color: $colorAlert;
-				}				
-				.linkButtons:hover.alert{
-					background-color: $colorAlert;
-					color: #fff;
-					font-weight: 900;
-				}
-			}			
-		}	
-		.containerCounter{
-			width: 100%;
-			height: auto;
-			display: flex;
-			align-items: center;
-			.countCartButtons{
-				height: 30px;
-				width: 50%;
-				display: flex;
-				align-items: center;
-				margin: 5px;
-				.button{
-					height: 40px;
-					width: 33.33%;
-					font-size: 20px;
-				}
-				div{
-					height: 100%;
-					width: 33.33%;
-					color: $colorB;
-					font-size: 20px;
-					text-align: center;
-					font-weight: 700;
-				}
-			}
-			.button{
-				width: 100%;
-				height: 40px;
-				background-color: transparent;
-				border: 1px solid $colorMain;
-				color: $colorMain;
-				display: flex;
-				justify-content: center;
-				align-items: center;
-				font-size: 16px;
-				padding: 5px;
-				font-weight: 700;
-				cursor: pointer;
-				svg{
-					height: 100%;
-					fill: $colorMain;
-				}
-			}
-			.button:hover{
-				background-color: $colorMain;
-				color: #fff;
-				svg{
-					fill: #fff;
-				}
-			}
-			.buyItemContainer{
-				width: 100%;
-				margin: 20px;
-			}
+					.countCartButtons{
+						height: 30px;
+						width: 50%;
+						display: flex;
+						align-items: center;
+						margin: 5px;
+						.button{
+							height: 40px;
+							width: 33.33%;
+							font-size: 20px;
+						}
+						div{
+							height: 100%;
+							width: 33.33%;
+							color: $colorB;
+							font-size: 20px;
+							text-align: center;
+							font-weight: 700;
+						}
+					}
+					.button{
+						width: 100%;
+						height: 40px;
+						background-color: transparent;
+						border: 1px solid $colorMain;
+						color: $colorMain;
+						display: flex;
+						justify-content: center;
+						align-items: center;
+						font-size: 16px;
+						padding: 5px;
+						font-weight: 700;
+						cursor: pointer;
+						svg{
+							height: 100%;
+							fill: $colorMain;
+						}
+					}
+					.button:hover{
+						background-color: $colorMain;
+						color: #fff;
+						svg{
+							fill: #fff;
+						}
+					}
+					.buyItemContainer{
+						width: 100%;
+						margin: 20px;
+					}
+				}	
+			}		
 		}	
 	}
 	.itemDetail:hover{
@@ -507,58 +533,64 @@ nav{
 			}
 		}	
 	}
-	.cartSummary{
-		width: 90%;
+	.containerCartSummary{
+		width: 100%;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		font-size: 14px;
-		.cartSummaryDetail{
-			width: 100%;
-			height: 60px;
+		.cartSummary{
+			width: 90%;
 			display: flex;
-			flex-direction: row;
+			flex-direction: column;
 			align-items: center;
-			background-color: $colorMain;
-			margin-bottom: 20px;
-			margin-top: 20px;
-			padding: 5px;
-			box-shadow: 1px 2px 3px rgba(0,0,0,0.15);
-			border-radius: 3px;
-			div{
+			font-size: 14px;
+			.cartSummaryDetail{
 				width: 100%;
-				padding: 5px;
-				font-size: 22px;
+				height: 60px;
 				display: flex;
-				justify-content: flex-start;
-				font-weight: 900;
-				color: #fff;
-				span{
-					font-weight: 400;
+				flex-direction: row;
+				align-items: center;
+				background-color: $colorMain;
+				margin-bottom: 20px;
+				margin-top: 20px;
+				padding: 5px;
+				box-shadow: 1px 2px 3px rgba(0,0,0,0.15);
+				border-radius: 3px;
+				div{
+					width: 100%;
+					padding: 5px;
+					font-size: 22px;
+					display: flex;
+					justify-content: flex-start;
+					font-weight: 900;
 					color: #fff;
-					margin-left: 10px;
+					span{
+						font-weight: 400;
+						color: #fff;
+						margin-left: 10px;
+					}
+				}
+				button{
+					margin: 10px;
+					padding: 3px 30px;
+					border: 1px solid #fff;
+					background-color: transparent;
+					border-radius: 1px;
+					cursor: pointer;
+					svg{
+						width: 14px;
+						fill: #fff;
+					}
+				}
+				button:hover{
+					background-color: $colorB;
+					border: 1px solid $colorB;
+					svg{
+						fill: $colorMain;
+					}
 				}
 			}
-			button{
-				margin: 10px;
-				padding: 3px 30px;
-				border: 1px solid #fff;
-				background-color: transparent;
-				border-radius: 1px;
-				cursor: pointer;
-				svg{
-					width: 14px;
-					fill: #fff;
-				}
-			}
-			button:hover{
-				background-color: $colorB;
-				border: 1px solid $colorB;
-				svg{
-					fill: $colorMain;
-				}
-			}
-		}
+		}	
 		.containerCartButtons{
 			width: 100%;
 			display: flex;
@@ -580,8 +612,9 @@ nav{
 				border: 1px solid $colorMain;
 				box-shadow: 0px 6px 8px rgba(0,0,0,0.25);
 			}
-		}		
-	}	
+		}	
+	}
+	
 }
 
 /* LOADING */

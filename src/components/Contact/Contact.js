@@ -9,7 +9,7 @@ const Contact = () => {
                     <input type="number" name="telefono" placeholder="TELÉFONO" pattern="[0-9]+" required="" />
                     <input type="email" name="mail" placeholder="EMAIL" required="" />
                     <textarea type="text" name="mensaje" rows="6" placeholder="MENSAJE" required="" />
-                    <input type="submit" value="ENVIAR" class="button" />
+                    <input type="submit" value="ENVIAR" className="button" />
                 </form>
             </div>
         </section>

@@ -26,9 +26,12 @@ const ItemDetail = ({id, menuImg, menuName, menuInfo, menuPrice, menuStock }) =>
                 <div className="priceContainer">
                     <CurrencyFormat value={menuPrice} displayType={'text'} thousandSeparator={true} prefix={'$'} className='price moneyFont'/>
                 </div>
-                { quantity > 0
-                    ? <BuyDetail /> 
-                    : <ItemCount menuStock={menuStock} onAdd={handleOnAdd} initial={getProduct(id)?.quantity}/>
+                { menuStock > 0
+                    ? <div className="containerItemButtons">{quantity > 0
+                        ? <BuyDetail /> 
+                        : <ItemCount menuStock={menuStock} onAdd={handleOnAdd} initial={getProduct(id)?.quantity}/>
+                    }</div>
+                    : <h1>PRODUCTO SIN STOCK</h1>
                 }
             </div>
         </div>

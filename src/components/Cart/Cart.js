@@ -1,24 +1,98 @@
-import { useContext } from "react"
-import CartContext from "../../context/CartContext"
-import CartSummary from "./CartSummary"
-import NotA404 from "../Assets/NotA404"
-import ItemCount from "../ItemCount/ItemCount";
+import { useState, useContext } from "react";
+import { addDoc, collection, updateDoc, doc, getDocs, query, where, documentId, writeBatch } from 'firebase/firestore';
+import { db } from '../../services/firebase';
+import { Link } from "react-router-dom";
+
+import CartContext from "../../context/CartContext";
+import CartSummary from "./CartSummary";
+import NotA404 from "../Assets/NotA404";
+import Loading from "../Assets/Loading";
 import CurrencyFormat from 'react-currency-format';
 
 const Cart = () => {
 
-    const { cart, removeItem, getProduct, getTotal } = useContext(CartContext)
+    const [loading, setLoading] = useState(false)
+
+    const { cart, removeItem, getTotal, clearCart } = useContext(CartContext)
 
     const totalQuantity = cart.reduce((total, item) => {
         return total + item.quantity
     }, 0)
 
+    const createOrder = () => {
+        setLoading(true)
+
+        const objOrder = {
+            buyer: {
+                name: 'Agustin Scarone',
+                email: 'agustin@email.com',
+                phone: '123456789',
+                address: 'direccion 12345',
+                comment: 'comentario'
+            },
+            items: cart,
+            total: getTotal()
+        }
+
+        const ids = cart.map(prod => prod.id)
+
+        const batch = writeBatch(db)
+
+        const outOfStock = []
+
+        const collectionRef = collection(db, 'menu')
+
+        getDocs(query(collectionRef, where(documentId(), 'in', ids)))
+            .then(response => {
+                response.docs.forEach(doc => {
+                    const dataDoc = doc.data()
+                    const prodQuantity = cart.find(prod => prod.id === doc.id)?.quantity
+
+                    if(dataDoc.menuStock >= prodQuantity) {
+                        batch.update(doc.ref, { menuStock: dataDoc.menuStock - prodQuantity})
+                    } else {
+                        outOfStock.push({ id: doc.id, ...dataDoc})
+                    }
+                })
+            }).then(() => {
+                if(outOfStock.length === 0) {
+                    const collectionRef = collection(db, 'orders')
+                    return addDoc(collectionRef, objOrder)
+                } else {
+                    return Promise.reject({ type: 'out_of_stock', products: outOfStock})
+                }
+            }).then(({ id }) => {
+                batch.commit()
+                clearCart()
+                console.log(`el id es ${id}`)
+            }).catch(error => {
+                console.log(error)
+            }).finally(() => {
+                setLoading(false)
+            })
+    }
+    
+    if(loading) {
+        return <Loading />
+    }
+
     return(
         <div className="cartContainer">
-            <h2>MI CARRITO</h2>
             { totalQuantity > 0
-                    ? <CartSummary getTotal={getTotal()}  totalQuantity={totalQuantity}/> 
-                    : <NotA404 /> 
+                ? 
+                <div className="containerCartSummary">
+                    <h2>MI CARRITO</h2>
+                    <div className="containerCartButtons">
+                        <Link to='/menu' className="button">
+                            SEGUIR COMPRANDO
+                        </Link>
+                        <button className="button" onClick={createOrder}>
+                            FINALIZAR PEDIDO
+                        </button> 
+                    </div>
+                    <CartSummary getTotal={getTotal()}  totalQuantity={totalQuantity}/>
+                </div>
+            :  <NotA404 />
             }
             <div className="cart">
                 {cart.map(prod => {
@@ -29,7 +103,6 @@ const Cart = () => {
                             </div>
                             <div>
                                 Cantidad: {prod.quantity}
-                                {/* <ItemCount menuStock={prod.menuStock} onAdd={prod.handleOnAdd} initial={getProduct(prod.id)?.quantity}/> */}
                             </div>
                             <div>
                                 <CurrencyFormat value={prod.menuPrice} displayType={'text'} thousandSeparator={true} prefix={'$'} className='moneyFont'/>
