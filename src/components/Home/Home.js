@@ -1,6 +1,10 @@
+import Swiper from "../Swiper/SwiperHome"
+
 const Home = () => {
     return (
-        <h1>hola</h1>
+        <div>
+            < Swiper />
+        </div>
     )
 }
 

@@ -1,15 +1,21 @@
 import { useContext } from "react"
 import CartContext from "../../context/CartContext"
 import CurrencyFormat from 'react-currency-format';
+import { Link } from "react-router-dom";
 
 const CartSummary = (props) => {
     const { clearCart, getTotal } = useContext(CartContext)
     
     return(
         <div className="cartSummary">
-            <button className="buttonFinalizar">
-                FINALIZAR PEDIDO
-            </button>
+            <div className="containerCartButtons">
+                <Link to='/menu' className="button">
+                    SEGUIR COMPRANDO
+                </Link>
+                <button className="button">
+                    FINALIZAR PEDIDO
+                </button>
+            </div>
             <div key={props.id} className="cartSummaryDetail">
                 <div>
                     PRODUCTO

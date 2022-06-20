@@ -27,10 +27,15 @@ $colorOk: #95C11F;
 /* BODY */
 
 body{
-	min-height: 100vh;
-    display: flex;
-    flex-direction: column;
+	width: 100%;
 	background-color: $colorBody;
+}
+
+.appContainer{
+	width: 100%;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
 }
 
 main{
@@ -554,27 +559,29 @@ nav{
 				}
 			}
 		}
-		.buttonFinalizar{
-			width: auto;
-			height: auto;
-			background-color: $colorB;
-			border: 1px solid $colorB;
-			color: #fff;
+		.containerCartButtons{
+			width: 100%;
 			display: flex;
 			justify-content: center;
-			font-size: 16px;
-			padding: 15px;
-			font-weight: 700;
-			cursor: pointer;
-		}
-		.buttonFinalizar:hover{
-			background-color: $colorMain;
-			border: 1px solid $colorMain;
-			color: #fff;
-			box-shadow: 0px 6px 8px rgba(0,0,0,0.25);
-		}
-	}
-	
+			.button{
+				width: auto;
+				height: auto;
+				background-color: $colorB;
+				border: 1px solid $colorB;
+				color: #fff;
+				font-size: 16px;
+				padding: 15px;
+				font-weight: 700;
+				cursor: pointer;
+				margin: 0px 20px;
+			}
+			.button:hover{
+				background-color: $colorMain;
+				border: 1px solid $colorMain;
+				box-shadow: 0px 6px 8px rgba(0,0,0,0.25);
+			}
+		}		
+	}	
 }
 
 /* LOADING */
@@ -601,12 +608,11 @@ nav{
 	width: 100%;
 	height: auto;
 	display: flex;
-	flex-wrap: wrap;
 	justify-content: center;
 	background-position: center;
+	background-repeat: no-repeat;
 	background-size: cover;
 	background-attachment: fixed;
-	padding: 150px;
 	.locationsContainer{
 		width: auto;
 		height: auto;
@@ -614,21 +620,21 @@ nav{
 		flex-wrap: wrap;
 		justify-content: center;
 		background-color: #fff;
+		margin: 150px;
+		border-radius: 3px;
 		div{
-			width: 300px;
+			width: 200px;
 			display: flex;
-			background-color: #fff;
 			flex-direction: column;
 			align-items: center;
-			margin: 50px;
-			text-align: center;
+			margin: 30px 50px;
 			h2{
-				padding: 15px;
+				margin: 15px;
 				font-size: 26px;
 				font-weight: 900;
 			}
 			article{
-				padding: 15px;
+				padding: 5px;
 				text-align: center;
 				font-size: 16px;
 				line-height: 24px;
@@ -643,7 +649,7 @@ nav{
 					background-color: transparent;
 					a{
 						font-size: 16px;
-						font-weight: 600;
+						font-weight: 700;
 					}
 				}
 				.button:hover{
@@ -655,73 +661,113 @@ nav{
 				}
 			}
 			svg{
-				max-width: 60px;
-				max-height: 60px;
-				margin-bottom: 10px;
+				max-width: 50px;
+				max-height: 50px;
 				fill: $colorMain;
 			}
 		}		
 	}
 }
 
+/* CONTACT */
+
+.contact{
+	width: 100%;
+	height: auto;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-attachment: fixed;
+	padding: 5px;
+	padding: 100px;
+	.formContainer{
+		width: 60%;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		background-color: #fff;
+		padding: 30px;
+		border-radius: 3px;
+		h2{
+			font-size: 26px;
+			font-weight: 900;
+			margin-bottom: 20px;
+		}
+		form{
+			width: 100%;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			input, textarea{
+				width: 100%;
+				padding: 10px;
+				margin: 10px;
+				border: none;
+				background-color: $colorBody;
+			}
+			textarea{
+				min-height: 100px;
+				max-height: 300px;
+				min-width: 100%;
+				max-width: 100%;
+			}
+			.button{
+				width: auto;
+				padding: 10px 15px;
+				margin: 10px;
+				background-color: $colorMain;
+				color: #fff;
+				font-size: 16px;
+				font-weight: 700;
+			}
+			.button:hover{
+				background-color: $colorSecondary;
+				cursor: pointer;			
+			}
+		}
+	}
+	
+}
+
 /* FOOTER */ 
 
 footer{
 	width: 100%;
+	height: auto;
 	background-color: $colorFooter;
-	section{
-		width: 100%;
-		height: auto;
-		display: flex;
-		flex-wrap: wrap;
-		justify-content: center;
-		.redes{
-			display: block;
-			flex-direction: row;
-		}
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: flex-start;
+	padding: 50px;
 		div{
-			width: 200px;
-			height: auto;
+			width: 150px;
 			display: flex;
 			flex-direction: column;
 			align-items: flex-start;
 			flex-wrap: wrap;
-			margin: 45px;
-			
+			margin: 10px;
 			.logo{
-				max-width: 200px;
+				max-width: 75px;
 			}
 			h2{
+				width: 100%;
 				font-size: 26px;
 				font-weight: 900;
 				color: $colorMain;
+				margin-bottom: 10px;
 			}
-			button{
+			.button{
+				width: 100%;
 				background-color: transparent;
 				border: none;
 				cursor: pointer;
-				svg{
-					fill: $colorB;
-					width: 24px;
-					padding: 5px 0px;
-					margin: 5px 10px 0px 0px;
-					font-size: 16px;
-					border: none;
-				}
-				svg:hover{
-					fill: $colorMain;
-					padding-top: 10px;
-					border-top: solid 4px $colorMain;
-					color: $colorMain;
-					transition: 0.2s;
-				}
-			}
-			.button{
-				padding: 5px 0px;
-				margin: 5px 0px;
 				font-size: 16px;
-				border: none;
-				
+				margin: 5px 0px;
 			}
 			.button:hover{
 				padding-left: 10px;
@@ -730,5 +776,60 @@ footer{
 				transition: 0.2s;
 			}
 		}
-	}	
+		.social{
+			height: 70px;
+			display: flex;
+			flex-direction: row;
+			svg{
+				fill: $colorB;
+				width: 26px;
+				font-size: 16px;
+				margin: 0px 10px 0px 0px;
+			}
+			svg:hover{
+				fill: $colorMain;
+				padding-top: 10px;
+				border-top: solid 4px $colorMain;
+				color: $colorMain;
+				transition: 0.2s;
+			}
+		}
+}
+
+/* SWIPER */ 
+
+.swiper-container {
+    width: 100%;
+	height: 600px;
+	.swiper-slide {	
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-attachment: fixed;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		h1{
+			font-size: 36px;
+			color: #fff;
+			font-weight: 900;
+			margin-bottom: 20px;
+		}
+		.button{
+			font-size: 36px;
+			font-weight: 900;
+			color: #fff;
+			border: 4px solid #fff;
+			padding: 20px;
+			background-color: transparent;
+		}
+		.button:hover{
+			font-size: 36px;
+			font-weight: 900;
+			color: #fff;
+			border: 4px solid $colorMain;
+			background-color: $colorMain;
+		}
+	}
 }

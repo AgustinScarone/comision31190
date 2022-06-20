@@ -4,23 +4,21 @@ import { LinkMenu, LinkLocations, LinkContact, LinkCall, LinkInstagram, LinkFace
 const Footer = () => {
     return (
         <footer>
-            <section>
-                <div>
-                    <button>< Logo /></button>
-                </div>
-                <div>
-                    <h2>MOMO</h2>
-                    {LinkCall}
-                    {LinkMenu}
-                    {LinkLocations}
-                    {LinkContact}
-                </div>
-                <div className="redes">
-                    <h2>REDES</h2>
-                    {LinkFacebook}
-                    {LinkInstagram}                    
-                </div>
-            </section>
+            <div>
+                < Logo />
+            </div>
+            <div>
+                <h2>MOMO</h2>
+                {LinkCall}
+                {LinkMenu}
+                {LinkLocations}
+                {LinkContact}
+            </div>
+            <div className="social">
+                <h2>REDES</h2>
+                {LinkFacebook}
+                {LinkInstagram}                    
+            </div>
         </footer>
     )
 }

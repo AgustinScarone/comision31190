@@ -14,20 +14,24 @@ import { CartContextProvider } from './context/CartContext';
 
 const App = () => {
   return (
-    <div>
+    <div className='appContainer'>
       <CartContextProvider>
         <BrowserRouter>
-          <NavBar />
-          <Routes>
-            <Route path='/' element={ <Home /> }/>
-            <Route path='/menu' element={ <ItemListContainer /> }/>
-            <Route path='/menu/:categoryId' element={ <ItemListContainer /> } />
-            <Route path='/detalle/:productId' element={ <ItemDetailContainer /> } />
-            <Route path='/locales' element={ <Locations /> }/>
-            <Route path='/contacto' element={ <Contact /> }/>
-            <Route path='/cart' element={ <Cart /> } />
-            <Route path='*' element={ <NotA404 /> }/>
-          </Routes>
+          <header>
+            <NavBar />
+          </header>
+          <main>
+            <Routes>
+              <Route path='/' element={ <Home /> }/>
+              <Route path='/menu' element={ <ItemListContainer /> }/>
+              <Route path='/menu/:categoryId' element={ <ItemListContainer /> } />
+              <Route path='/detalle/:productId' element={ <ItemDetailContainer /> } />
+              <Route path='/locales' element={ <Locations /> }/>
+              <Route path='/contacto' element={ <Contact /> }/>
+              <Route path='/cart' element={ <Cart /> } />
+              <Route path='*' element={ <NotA404 /> }/>
+            </Routes>
+          </main>
           <Footer />
         </BrowserRouter>
       </CartContextProvider>
