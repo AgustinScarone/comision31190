@@ -2,6 +2,7 @@ import { useState, useContext } from "react";
 import { addDoc, collection, updateDoc, doc, getDocs, query, where, documentId, writeBatch } from 'firebase/firestore';
 import { db } from '../../services/firebase';
 import { Link } from "react-router-dom";
+import { useNotification } from '../../notification/Notification'
 
 import CartContext from "../../context/CartContext";
 import CartSummary from "./CartSummary";
@@ -13,7 +14,9 @@ const Cart = () => {
 
     const [loading, setLoading] = useState(false)
 
-    const { cart, removeItem, getTotal, clearCart } = useContext(CartContext)
+    const { cart, removeItem, getTotal, clearCart, getProduct } = useContext(CartContext)
+
+    const { setNotification } = useNotification()
 
     const totalQuantity = cart.reduce((total, item) => {
         return total + item.quantity
@@ -64,9 +67,10 @@ const Cart = () => {
             }).then(({ id }) => {
                 batch.commit()
                 clearCart()
-                console.log(`el id es ${id}`)
+                setNotification('success',`Compra concretada. El ID de tu compra es ${id}`)
             }).catch(error => {
                 console.log(error)
+                setNotification('error',` no tiene stock`)
             }).finally(() => {
                 setLoading(false)
             })
