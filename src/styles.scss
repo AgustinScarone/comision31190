@@ -3,12 +3,11 @@
 
 $colorMain: #F5B03A;
 $colorSecondary: #333;
-$colorB: #333;
+$colorNavFooter: #fff;
 $colorBody: #E8E8E8;
-$colorFooter: #fff;
 $colorAlert: #E23744;
 $colorOk: #95C11F;
-
+$colorB: #333;
 
 *{
 	padding: 0;
@@ -19,12 +18,6 @@ $colorOk: #95C11F;
 	scroll-behavior: smooth;
 	color: $colorB;
 }
-
-.moneyFont{
-	font-family: 'Roboto', sans-serif;
-}
-
-/* BODY */
 
 body{
 	width: 100%;
@@ -42,18 +35,16 @@ main{
 	flex-grow: 1;
 }
 
-/* NOT A 404 */
-
-.notA404{
+section{
 	width: 100%;
 	height: auto;
 	display: flex;
+	flex-wrap: wrap;
 	justify-content: center;
-	align-items: center;
-	div{
-		width: 800px;
-		height: auto;
-	}	
+}
+
+.moneyFont{
+	font-family: 'Roboto', sans-serif;
 }
 
 /* NAV */
@@ -61,8 +52,7 @@ main{
 nav{
 	width: 100%;
 	height: 80px;
-	background-color: #fff;
-	position: relative;
+	background-color: $colorNavFooter;
 	z-index: 100;
 	display: flex;
 	flex-wrap: wrap;
@@ -73,6 +63,7 @@ nav{
 		height: 100%;
 		display: flex;
 		align-items: center;
+		order: 2;
 		.button{
 			width: 80px;
 			border: none;
@@ -89,6 +80,7 @@ nav{
 	}
 	.logo{
 		height: 60px;
+		order: 1;
 	}
 	.cartWidget{
 		height: 26px;
@@ -101,6 +93,7 @@ nav{
 		align-items: center;
 		font-size: 18px;
 		font-family: 'Roboto', sans-serif;
+		order: 3;
 		svg{
 			width: 30px;
 			margin-right: 5px;
@@ -735,7 +728,11 @@ nav{
 			flex-direction: column;
 			justify-content: center;
 			align-items: center;
-			input, textarea{
+			p{
+				color: $colorMain;
+				font-weight: 400;
+			}
+			input, textarea, select{
 				width: 100%;
 				padding: 10px;
 				margin: 10px;
@@ -771,7 +768,7 @@ nav{
 footer{
 	width: 100%;
 	height: auto;
-	background-color: $colorFooter;
+	background-color: $colorNavFooter;
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
@@ -829,6 +826,66 @@ footer{
 		}
 }
 
+.cartCheckout{
+	width: 100%;
+	height: auto;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	margin-top: 30px;
+	text-align: center;
+	h3{
+		width: 100%;
+		text-align: center;
+		font-size: 40px;
+		font-weight: 900;
+		margin-bottom: 20px;
+	}
+	p{
+		margin-bottom: 10px;
+	}
+	.cartCheckoutDetail{
+		width: 45%;
+		margin: 10px;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		padding: 10px;
+		border: dotted 4px $colorMain;
+		.titulo{
+			font-weight: 900;
+			font-size: 18px;
+		}
+	}
+	article{
+		width: 100%;
+		font-size: 18px;
+		line-height: 24px;
+		margin-top: 20px;
+		padding: 20px;
+		background-color: $colorMain;
+		border-radius: 3px;
+		.button{
+			font-weight: 900;
+			color: #fff;
+			border-bottom: 1px solid #fff;
+		}
+		.button:hover{
+			color: $colorB;
+			border: none;
+		}
+		svg{
+			max-width: 20px;
+			margin: 0px 5px 0px 5px;
+			fill: #fff;
+		}
+		svg:hover{
+			fill: $colorB;
+			transform: scale(1.3);
+		}
+	}
+}
+
 /* SWIPER */ 
 
 .swiper-container {
@@ -865,4 +922,21 @@ footer{
 			background-color: $colorMain;
 		}
 	}
+}
+
+
+
+
+/* NOT A 404 */
+
+.notA404{
+	width: 100%;
+	height: auto;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	div{
+		width: 800px;
+		height: auto;
+	}	
 }

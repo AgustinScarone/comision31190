@@ -1,6 +1,6 @@
 import { useContext } from "react"
 import CartContext from "../../context/CartContext"
-import CurrencyFormat from 'react-currency-format';
+import { currencyFormat } from "../Assets/Variables";
 
 const CartSummary = (props) => {
     const { clearCart, getTotal } = useContext(CartContext)
@@ -19,8 +19,8 @@ const CartSummary = (props) => {
                 </div>
                 <div>
                     TOTAL: 
-                    <span>
-                        <CurrencyFormat value={getTotal()} displayType={'text'} thousandSeparator={true} prefix={'$'} className='moneyFont'/>
+                    <span className='moneyFont'>
+                        {currencyFormat(getTotal())}
                     </span>
                 </div>
                 <button onClick={() => clearCart()}>

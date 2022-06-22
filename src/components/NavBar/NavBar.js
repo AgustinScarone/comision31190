@@ -1,6 +1,6 @@
 import CartWidget from "../CartWidget/CartWidget";
 import Logo from "../Assets/Logo"
-import { LinkMenu, LinkLocations, LinkContact, LinkCall } from '../Assets/Links';
+import { LinkMenu, LinkLocations, LinkContact, LinkCall } from '../Assets/Variables';
 
 const NavBar = () => {
     return (

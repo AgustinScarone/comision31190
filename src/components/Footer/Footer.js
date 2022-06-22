@@ -1,5 +1,5 @@
 import Logo from "../Assets/Logo"
-import { LinkMenu, LinkLocations, LinkContact, LinkCall, LinkInstagram, LinkFacebook } from '../Assets/Links';
+import { LinkMenu, LinkLocations, LinkContact, LinkCall, LinkInstagram, LinkFacebook, LinkWhatsApp } from '../Assets/Variables';
 
 const Footer = () => {
     return (
@@ -17,7 +17,8 @@ const Footer = () => {
             <div className="social">
                 <h2>REDES</h2>
                 {LinkFacebook}
-                {LinkInstagram}                    
+                {LinkInstagram} 
+                {LinkWhatsApp}                    
             </div>
         </footer>
     )

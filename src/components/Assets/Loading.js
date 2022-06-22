@@ -6,7 +6,7 @@ const Loading = () => {
 
     return (
         <div className='loading'>
-            { location.pathname === "/cart" 
+            { location.pathname === "/checkout" 
                 ? <h2>GENERANDO ORDEN...</h2>
                 : <h2>CARGANDO...</h2>
             }

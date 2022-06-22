@@ -2,9 +2,9 @@ import Swiper from "../Swiper/SwiperHome"
 
 const Home = () => {
     return (
-        <div>
+        <section>
             < Swiper />
-        </div>
+        </section>
     )
 }
 

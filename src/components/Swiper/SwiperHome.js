@@ -1,4 +1,4 @@
-import { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
+import { Navigation, Pagination } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 import { Link } from 'react-router-dom';
@@ -6,7 +6,6 @@ import { Link } from 'react-router-dom';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-import 'swiper/css/scrollbar';
 
 export default () => {
     return (
@@ -25,7 +24,9 @@ export default () => {
             <h1>PEDÍ AHORA</h1>
             <Link  to='/menu' className="button">MIRÁ EL MENÚ</Link>
         </SwiperSlide>
-        <SwiperSlide style ={ {backgroundImage: "url('./img/contact.jpg')" } }>Slide 2</SwiperSlide>
+        <SwiperSlide style ={ {backgroundImage: "url('./img/contact.jpg')" } }>
+            Slide 2
+        </SwiperSlide>
     </Swiper>
     );
 };

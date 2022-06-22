@@ -1,5 +1,5 @@
-import CurrencyFormat from 'react-currency-format';
 import { Link } from 'react-router-dom';
+import { currencyFormat } from "../Assets/Variables";
 
 const Item = ({id, menuImg, menuName, menuPrice, menuStock}) => {
         return(
@@ -8,7 +8,9 @@ const Item = ({id, menuImg, menuName, menuPrice, menuStock}) => {
                 <img src={`../img/products/${menuImg}`} alt={menuName}/>
             </div>
             <div className="itemInfo">
-                <CurrencyFormat value={menuPrice} displayType={'text'} thousandSeparator={true} prefix={'$'} className='precio moneyFont'/>
+                <div className='moneyFont precio'>
+                    {currencyFormat(menuPrice)}
+                </div>
                 <h2>{menuName}</h2>
                 <div className="containerVerDetalle">
                     { menuStock > 0
