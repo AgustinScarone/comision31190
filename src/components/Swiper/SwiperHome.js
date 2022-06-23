@@ -1,4 +1,4 @@
-import { Navigation, Pagination } from 'swiper';
+import { Navigation, Pagination, Autoplay  } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 import { Link } from 'react-router-dom';
@@ -16,8 +16,12 @@ export default () => {
         pagination={{
         clickable: true,
         }}
+        autoplay={{
+            delay: 5000,
+            disableOnInteraction: false,
+        }}
         navigation={true}
-        modules={[Pagination, Navigation]}
+        modules={[Autoplay, Pagination, Navigation]}
         className="mySwiper swiper-container"
         >
         <SwiperSlide style ={ {backgroundImage: "url('./img/locations.jpg')" } } className="swiper-slide">

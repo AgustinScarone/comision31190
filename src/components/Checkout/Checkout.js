@@ -4,20 +4,30 @@ import { db } from '../../services/firebase';
 import { useNotification } from '../../notification/Notification';
 import { useNavigate } from 'react-router-dom';
 import { LinkCall, LinkWhatsApp, currencyFormat } from "../Assets/Variables";
+import { useForm  } from "react-hook-form";
+import { ErrorMessage } from '@hookform/error-message';
 
 import CartContext from "../../context/CartContext";
-import CheckoutForm from "./CheckoutForm";
 import Loading from "../Assets/Loading";
 
 const Checkout = () => {
 
-    const [loading, setLoading] = useState(false)
+    const [loading, setLoading] = useState(false);
+    const [buyer, setBuyer] = useState({
+        name: "",
+        surname: "",
+        email: "",
+        phone: "",
+        address: "",
+        paymentMethod: "",
+        message: ""
+    });
 
-    const [data, setData] = useState("");
+    const navigate = useNavigate();
 
-    const navigate = useNavigate()
+    const { cart, getTotal, clearCart } = useContext(CartContext);
 
-    const { cart, getTotal, clearCart } = useContext(CartContext)
+    const { register, handleSubmit, formState: { errors } } = useForm();
 
     const { setNotification } = useNotification()
 
@@ -25,19 +35,10 @@ const Checkout = () => {
         setLoading(true)
 
         const objOrder = {
-            buyer: {
-                name: data.name,
-                surname: data.surname,
-                email: data.email,
-                phone: data.phone,
-                address: data.adress,
-                paymentMethod: data.paymentMethod,
-                message: data.message
-            },
+            buyer,
             items: cart,
             total: getTotal()
         }
-        console.log(objOrder)
 
         const ids = cart.map(prod => prod.id)
 
@@ -87,7 +88,100 @@ const Checkout = () => {
         <section className="contact" style ={ {backgroundImage: "url('./img/checkout.jpg')" } }>
             <div className="formContainer">
                 <h2>COMPLETÁ TUS DATOS PARA FINALIZAR LA COMPRA</h2>
-                < CheckoutForm />
+                <form onSubmit={handleSubmit(createOrder)}>
+                    <input 
+                        type="text" 
+                        name="name" 
+                        placeholder="NOMBRE" 
+                        value={buyer.name}
+                        {...register("name", { required: "El campo NOMBRE es obligatorio" })}
+                        onChange={(e) => setBuyer({...buyer, name: e.target.value})}
+                    />
+                    <ErrorMessage
+                        errors={errors}
+                        name="name"
+                        render={({ message }) => <p>{message}</p>}
+                    />
+
+                    <input 
+                        type="text" 
+                        name="surname" 
+                        placeholder="APELLIDO" 
+                        value={buyer.surname}
+                        {...register('surname', { required: "El campo APELLIDO es obligatorio" })}
+                        onChange={(e) => setBuyer({...buyer, surname: e.target.value})}
+                    />
+                    <ErrorMessage
+                        errors={errors}
+                        name="surname"
+                        render={({ message }) => <p>{message}</p>}
+                    />
+
+                    <input 
+                        type="number" 
+                        name="phone" 
+                        placeholder="TELÉFONO" 
+                        pattern="[0-9]+" 
+                        value={buyer.phone}
+                        {...register('phone', { required: "El campo TELÉFONO es obligatorio" })}
+                        onChange={(e) => setBuyer({...buyer, phone: e.target.value})}
+                    />
+                    <ErrorMessage
+                        errors={errors}
+                        name="phone"
+                        render={({ message }) => <p>{message}</p>}
+                    />
+
+                    <input 
+                        type="email" 
+                        name="email" 
+                        placeholder="EMAIL" 
+                        value={buyer.email}
+                        {...register('email', { required: "El campo EMAIL es obligatorio" })}
+                        onChange={(e) => setBuyer({...buyer, email: e.target.value})}
+                    />
+                    <ErrorMessage
+                        errors={errors}
+                        name="email"
+                        render={({ message }) => <p>{message}</p>}
+                    />
+
+                    <input 
+                        type="text" 
+                        name="address" 
+                        placeholder="DIRECCIÓN" 
+                        value={buyer.address}
+                        {...register('address', { required: "El campo DIRECCIÓN es obligatorio" })}
+                        onChange={(e) => setBuyer({...buyer, address: e.target.value})}
+                    />
+                    <ErrorMessage
+                        errors={errors}
+                        name="address"
+                        render={({ message }) => <p>{message}</p>}
+                    />
+
+                    <select 
+                        name="paymentMethod" 
+                        value={buyer.paymentMethod}
+                        {...register('paymentMethod')}
+                        onChange={(e) => setBuyer({...buyer, paymentMethod: e.target.value})}>
+                        <option value="">ELEGÍ MEDIO DE PAGO</option>
+                        <option value="efectivo">EFECTIVO</option>
+                        <option value="mercadoPago">MERCADO PAGO</option>
+                    </select>
+
+                    <textarea 
+                        type="text" 
+                        name="message" 
+                        rows="6" 
+                        placeholder="COMENTARIOS" 
+                        value={buyer.message}
+                        {...register('message')}
+                        onChange={(e) => setBuyer({...buyer, message: e.target.value})}
+                    />
+
+                    <input type="submit" value="FINALIZAR COMPRA" className="button"/>
+                </form>
                 <div className="cartCheckout">
                     <p>
                         RESUMEN DE TU COMPRA<br/><br/> 
