@@ -2,53 +2,40 @@ import ItemList from "../ItemList/ItemList";
 import Loading from "../Assets/Loading";
 import NotA404 from "../Assets/NotA404"
 
-import { useState, useEffect } from "react";
 import { NavLink, useParams } from 'react-router-dom';
-import { getDocs, collection, query, where} from 'firebase/firestore'
-import { db } from '../../services/firebase'
+import { getCategories, getProducts } from "../../services/firebase/firestore";
+import { useFirestore } from '../../hooks/useFirestore'
+import { useNavigate } from 'react-router-dom';
+
 
 const ItemListContainer = () => {
-    const [products, setProducts] = useState([])
-    const [loading, setLoading] = useState(true)
+
+    const navigate = useNavigate();
 
     const { categoryId } = useParams()
-    
-    useEffect(() => {
-        setLoading(true)
+    const { isLoading, data, error } = useFirestore(() => getProducts(categoryId), [categoryId])
+    const { categories } = useFirestore(() => getCategories(categoryId))
 
-        const collectionRef = categoryId 
-            ? query(collection(db, 'menu'), where('category', '==', categoryId)) 
-            : collection(db, 'menu')
-
-        getDocs(collectionRef).then(response => {
-            const products = response.docs.map(doc => {
-                return { id: doc.id, ...doc.data() }
-            })
-            setProducts(products)
-        }).catch(error => {
-            console.log(error)
-        }).finally(() => {
-            setLoading(false)
-        })
-    }, [categoryId])
-
-    if(loading){
+    if(isLoading) {
         return <Loading />
-    } 
+    }
+
+    if(error) {
+        return <NotA404 />
+    }
 
     return (
         <section className="itemListContainer">
             <div className="linkCategorias">
                 <NavLink to='/menu/' className={({isActive}) => isActive ? "activeLinks" : "links"}>VER TODO</NavLink>
-                <NavLink to='/menu/hamburguesas' className={({isActive}) => isActive ? "activeLinks" : "links"}>HAMBURGUESAS</NavLink>
-                <NavLink to='/menu/papas-fritas' className={({isActive}) => isActive ? "activeLinks" : "links"}>PAPAS FRITAS</NavLink>
-                <NavLink to='/menu/bebidas-sin-alcohol' className={({isActive}) => isActive ? "activeLinks" : "links"}>BEBIDAS SIN ALCOHOL</NavLink>
-                <NavLink to='/menu/cervezas' className={({isActive}) => isActive ? "activeLinks" : "links"}>CERVEZAS</NavLink>
+                { categories.map(cat => 
+                    <NavLink key={cat.id} to={`/menu/${cat.id}`} className={({isActive}) => isActive ? "activeLinks" : "links"}>{cat.label}</NavLink>    
+                )}
             </div>
             {
-                products.length > 0
-                ? <ItemList products={products} />
-                : <NotA404 />
+                data.length > 0
+                ? <ItemList products={data} />
+                : navigate('/menu/')
             }
         </section>
     )

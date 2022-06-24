@@ -22,7 +22,7 @@ const Cart = () => {
                 <div className="containerCartSummary">
                     <h2>MI CARRITO</h2>
                     <div className="containerCartButtons">
-                        <Link to='/menu' className="button">
+                        <Link to='/menu/' className="button">
                             SEGUIR COMPRANDO
                         </Link>
                         <Link to='/checkout' className="button">

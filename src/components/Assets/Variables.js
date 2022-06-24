@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-export const LinkMenu = <Link  to='/menu' className="button">MENÚ</Link>    
+export const LinkMenu = <Link  to='/menu/' className="button">MENÚ</Link>    
 export const LinkLocations = <Link to='/locales' className="button">LOCALES</Link>    
 export const LinkContact = <Link to='/contacto' className="button">CONTACTO</Link>
 export const LinkCall = <a href="tel:+5491166630456" className="button">LLAMAR</a>
