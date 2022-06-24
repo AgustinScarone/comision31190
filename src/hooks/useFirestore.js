@@ -3,9 +3,13 @@ import { useState, useEffect} from 'react'
 export const useFirestore = (asyncFn, dependencies = []) => {
     const [categories, setCategories] = useState([])
     const [data, setData] = useState()
+    const [social, setSocial] = useState([])
+    const [businessInfo, setBusinessInfo] = useState([])
     const [error, setError] = useState()
     const [isLoading, setIsLoading] = useState(true)
 
+
+    // CATEGORIES - ITEM LIST CONTAINER
     useEffect(() => {
 
         asyncFn().then(response => {
@@ -13,6 +17,23 @@ export const useFirestore = (asyncFn, dependencies = []) => {
         })
     }, dependencies)
 
+    // BUSINESS INFO - LOCATIONS
+    useEffect(() => {
+
+        asyncFn().then(response => {
+            setBusinessInfo(response)
+        })
+    }, dependencies)
+
+    // SOCIAL - FOOTER
+    useEffect(() => {
+
+        asyncFn().then(response => {
+            setSocial(response)
+        })
+    }, dependencies)
+
+    // PRODUCTS
     useEffect(() => {
         setIsLoading(true)
 
@@ -27,6 +48,8 @@ export const useFirestore = (asyncFn, dependencies = []) => {
     }, dependencies)
 
     return {
+        social,
+        businessInfo,
         categories,
         data,
         isLoading,

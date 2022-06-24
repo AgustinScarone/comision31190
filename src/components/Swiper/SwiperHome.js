@@ -26,7 +26,7 @@ export default () => {
         >
         <SwiperSlide style ={ {backgroundImage: "url('./img/locations.jpg')" } } className="swiper-slide">
             <h1>PEDÍ AHORA</h1>
-            <Link  to='/menu' className="button">MIRÁ EL MENÚ</Link>
+            <Link  to='/menu/' className="button">MIRÁ EL MENÚ</Link>
         </SwiperSlide>
         <SwiperSlide style ={ {backgroundImage: "url('./img/contact.jpg')" } }>
             Slide 2

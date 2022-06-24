@@ -953,7 +953,7 @@ nav .cartWidget:hover {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin: 30px 50px;
+  margin: 30px 50px 10px 50px;
 }
 
 .locations .locationsContainer div h2 {
@@ -967,6 +967,7 @@ nav .cartWidget:hover {
   text-align: center;
   font-size: 16px;
   line-height: 24px;
+  margin-bottom: 20px;
 }
 
 .locations .locationsContainer div article span {

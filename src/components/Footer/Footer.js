@@ -1,7 +1,12 @@
 import Logo from "../Assets/Logo"
-import { LinkMenu, LinkLocations, LinkContact, LinkCall, LinkInstagram, LinkFacebook, LinkWhatsApp } from '../Assets/Variables';
+import { LinkMenu, LinkLocations, LinkContact, LinkCall } from '../Assets/Variables';
+import { getSocial } from "../../services/firebase/firestore";
+import { useFirestore } from '../../hooks/useFirestore'
 
 const Footer = () => {
+
+    const { social } = useFirestore(() => getSocial())
+
     return (
         <footer>
             <div>
@@ -16,9 +21,9 @@ const Footer = () => {
             </div>
             <div className="social">
                 <h2>REDES</h2>
-                {LinkFacebook}
-                {LinkInstagram} 
-                {LinkWhatsApp}                    
+                { social.map(prod =>
+                    <a key={prod.id} href={prod.link} target="_BLANK" dangerouslySetInnerHTML={{__html:prod.img}}></a>                  
+                )}
             </div>
         </footer>
     )

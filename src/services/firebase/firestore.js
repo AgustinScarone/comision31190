@@ -35,5 +35,39 @@ export const getProducts = (categoryId) => {
     })
 }
 
+export const getBusinessInfo = (businessInfoId) => {
+    return new Promise((resolve, reject) => {
+        const collectionRef = businessInfoId 
+            ? query(collection(db, 'businessInfo'), where('id', '==', businessInfoId)) 
+            : collection(db, 'businessInfo')
+
+            getDocs(collectionRef).then(response => {
+                const products = response.docs.map(doc => {
+                    return { id: doc.id, ...doc.data() }
+                })
+                resolve(products)
+            }).catch(error => {
+                reject(error)
+            })
+    })
+}
+
+export const getSocial = (socialId) => {
+    return new Promise((resolve, reject) => {
+        const collectionRef = socialId 
+            ? query(collection(db, 'social'), where('id', '==', socialId)) 
+            : collection(db, 'social')
+
+            getDocs(collectionRef).then(response => {
+                const products = response.docs.map(doc => {
+                    return { id: doc.id, ...doc.data() }
+                })
+                resolve(products)
+            }).catch(error => {
+                reject(error)
+            })
+    })
+}
+
 
 
