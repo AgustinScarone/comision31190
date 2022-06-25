@@ -1,35 +1,29 @@
-import { useState, useEffect } from "react";
-import { useParams } from 'react-router-dom';
-import { getDoc, doc } from 'firebase/firestore'
-import { db } from '../../services/firebase'
-
 import ItemDetail from "../ItemDetail/ItemDetail";
 import Loading from "../Assets/Loading";
+import NotA404 from "../Assets/NotA404";
+
+import { useParams } from 'react-router-dom';
+import { getProduct } from "../../services/firebase/firestore";
+import { useFirestore } from '../../hooks/useFirestore';
+
 
 const ItemDetailContainer = () => {
-    const [product, setProduct] = useState()
-    const [loading, setLoading] = useState(true)
-    
+
     const { productId } = useParams()
+    const { isLoading, data, error } = useFirestore(() => getProduct(productId))
+    
 
-    useEffect(() => {
-        getDoc(doc(db, 'menu', productId)).then(response => {
-            const product = { id: response.id, ...response.data()}
-            setProduct(product)
-        }).catch(error => {
-            console.log(error)
-        }).finally(() => {
-            setLoading(false)
-        })
-    }, [productId])
-
-    if(loading) {
+    if(isLoading) {
         return <Loading />
     }
+
+    if(error) {
+        return <NotA404 />
+    }   
     
     return (
         <section className="itemDetailContainer">
-            <ItemDetail {...product}/>
+            <ItemDetail {...data}/>
         </section>
     )
 }

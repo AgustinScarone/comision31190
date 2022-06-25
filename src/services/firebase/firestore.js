@@ -1,5 +1,5 @@
 import { db } from ".";
-import { getDocs, collection, query, where} from 'firebase/firestore'
+import { getDocs, collection, query, where, getDoc, doc} from 'firebase/firestore'
 
 export const getCategories = (categoryId) => {
     return new Promise((resolve, reject) => {
@@ -35,6 +35,17 @@ export const getProducts = (categoryId) => {
     })
 }
 
+export const getProduct = (productId) => {
+    return new Promise((resolve, reject) => {
+            getDoc(doc(db, 'menu', productId)).then(response => {
+                const product = { id: response.id, ...response.data()}
+                resolve(product)
+            }).catch(error => {
+                reject(error)
+            })
+    })
+}    
+
 export const getBusinessInfo = (businessInfoId) => {
     return new Promise((resolve, reject) => {
         const collectionRef = businessInfoId 
@@ -42,10 +53,10 @@ export const getBusinessInfo = (businessInfoId) => {
             : collection(db, 'businessInfo')
 
             getDocs(collectionRef).then(response => {
-                const products = response.docs.map(doc => {
+                const businessInfo = response.docs.map(doc => {
                     return { id: doc.id, ...doc.data() }
                 })
-                resolve(products)
+                resolve(businessInfo)
             }).catch(error => {
                 reject(error)
             })
@@ -59,10 +70,27 @@ export const getSocial = (socialId) => {
             : collection(db, 'social')
 
             getDocs(collectionRef).then(response => {
-                const products = response.docs.map(doc => {
+                const social = response.docs.map(doc => {
                     return { id: doc.id, ...doc.data() }
                 })
-                resolve(products)
+                resolve(social)
+            }).catch(error => {
+                reject(error)
+            })
+    })
+}
+
+export const getBanners = (bannerId) => {
+    return new Promise((resolve, reject) => {
+        const collectionRef = bannerId 
+            ? query(collection(db, 'banners'), where('id', '==', bannerId)) 
+            : collection(db, 'banners')
+
+            getDocs(collectionRef).then(response => {
+                const banners = response.docs.map(doc => {
+                    return { id: doc.id, ...doc.data() }
+                })
+                resolve(banners)
             }).catch(error => {
                 reject(error)
             })

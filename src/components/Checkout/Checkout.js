@@ -1,11 +1,12 @@
 import { useState, useContext } from "react";
 import { addDoc, collection, updateDoc, doc, getDocs, query, where, documentId, writeBatch } from 'firebase/firestore';
 import { db } from '../../services/firebase';
-import { useNotification } from '../../notification/Notification';
 import { useNavigate } from 'react-router-dom';
 import { LinkCall, LinkWhatsApp, currencyFormat } from "../Assets/Variables";
 import { useForm  } from "react-hook-form";
 import { ErrorMessage } from '@hookform/error-message';
+import { Link } from "react-router-dom";
+import swal from 'sweetalert'
 
 import CartContext from "../../context/CartContext";
 import Loading from "../Assets/Loading";
@@ -28,8 +29,6 @@ const Checkout = () => {
     const { cart, getTotal, clearCart } = useContext(CartContext);
 
     const { register, handleSubmit, formState: { errors } } = useForm();
-
-    const { setNotification } = useNotification()
 
     const createOrder = () => {
         setLoading(true)
@@ -69,12 +68,20 @@ const Checkout = () => {
                 }
             }).then(({ id }) => {
                 batch.commit()
+                console.log(objOrder)
                 clearCart()
-                setNotification('success',`Compra concretada. El ID de tu compra es ${id}`)
-                navigate('/thankyou')
+                swal(
+                    "¡GRACIAS POR TU COMPRA!", 
+                    `El ID de tu compra es ${id}`, 
+                    "success");
+                navigate('/gracias')
             }).catch(error => {
                 console.log(error)
-                setNotification('error',`no tiene stock`)
+                swal(
+                    "¡LLEGASTE TARDE!", 
+                    `Alguien más se llevó el último.
+                    Probá con otro por favor.`, 
+                    "error");
             }).finally(() => {
                 setLoading(false)
             })
@@ -180,7 +187,12 @@ const Checkout = () => {
                         onChange={(e) => setBuyer({...buyer, message: e.target.value})}
                     />
 
-                    <input type="submit" value="FINALIZAR COMPRA" className="button"/>
+                    { getTotal() > 0
+                        ? <input type="submit" value="FINALIZAR COMPRA" className="button"/>
+                        : <Link to='/menu/' className="button">
+                            IR AL MENÚ
+                        </Link> 
+                    }
                 </form>
                 <div className="cartCheckout">
                     <p>
@@ -197,7 +209,7 @@ const Checkout = () => {
                                     <span className="titulo">{prod.menuName}</span>
                                 </div>
                                 <div>
-                                    Subtotal: <span className='moneyFont'>{currencyFormat(prod.menuPrice)}</span>
+                                    Precio: <span className='moneyFont'>{currencyFormat(prod.menuPrice)}</span>
                                 </div>
                                 <div>
                                     Cantidad: {prod.quantity}

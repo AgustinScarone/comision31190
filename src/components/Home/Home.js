@@ -2,7 +2,7 @@ import Swiper from "../Swiper/SwiperHome"
 
 const Home = () => {
     return (
-        <section>
+        <section className="home">
             < Swiper />
         </section>
     )

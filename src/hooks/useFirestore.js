@@ -3,7 +3,9 @@ import { useState, useEffect} from 'react'
 export const useFirestore = (asyncFn, dependencies = []) => {
     const [categories, setCategories] = useState([])
     const [data, setData] = useState()
+    const [product, setProduct] = useState()
     const [social, setSocial] = useState([])
+    const [banners, setBanners] = useState([])
     const [businessInfo, setBusinessInfo] = useState([])
     const [error, setError] = useState()
     const [isLoading, setIsLoading] = useState(true)
@@ -33,6 +35,14 @@ export const useFirestore = (asyncFn, dependencies = []) => {
         })
     }, dependencies)
 
+    // BANNERS - SWIPER HOME
+    useEffect(() => {
+
+        asyncFn().then(response => {
+            setBanners(response)
+        })
+    }, dependencies)
+
     // PRODUCTS
     useEffect(() => {
         setIsLoading(true)
@@ -47,7 +57,22 @@ export const useFirestore = (asyncFn, dependencies = []) => {
 
     }, dependencies)
 
+    useEffect(() => {
+        setIsLoading(true)
+
+        asyncFn().then(response => {
+            setProduct(response)
+        }).catch(error => {
+            setError(error)
+        }).finally(() => {
+            setIsLoading(false)
+        })
+
+    }, dependencies)
+
     return {
+        product,
+        banners,
         social,
         businessInfo,
         categories,
