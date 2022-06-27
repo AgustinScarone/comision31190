@@ -30,6 +30,10 @@ const Checkout = () => {
 
     const { register, handleSubmit, formState: { errors } } = useForm();
 
+    const sendToWhatsapp = () => {
+        window.open(`https://api.whatsapp.com/send?phone=541166630456?text=Hola!%20Soy%20${buyer.name}%20de${buyer.address}%20y%20quiero%20pedir%20`, "_blank")
+    }
+
     const createOrder = () => {
         setLoading(true)
 
@@ -68,8 +72,8 @@ const Checkout = () => {
                 }
             }).then(({ id }) => {
                 batch.commit()
-                console.log(objOrder)
                 clearCart()
+                sendToWhatsapp()
                 swal(
                     "¡GRACIAS POR TU COMPRA!", 
                     `El ID de tu compra es ${id}`, 
@@ -92,7 +96,7 @@ const Checkout = () => {
     }
 
     return(
-        <section className="contact" style ={ {backgroundImage: "url('./img/checkout.jpg')" } }>
+        <section className="checkout" style ={ {backgroundImage: "url('./img/checkout.jpg')" } }>
             <div className="formContainer">
                 <h2>COMPLETÁ TUS DATOS PARA FINALIZAR LA COMPRA</h2>
                 <form onSubmit={handleSubmit(createOrder)}>
@@ -188,7 +192,7 @@ const Checkout = () => {
                     />
 
                     { getTotal() > 0
-                        ? <input type="submit" value="FINALIZAR COMPRA" className="button"/>
+                        ? <input type="submit" value="FINALIZAR COMPRA" className="button" />
                         : <Link to='/menu/' className="button">
                             IR AL MENÚ
                         </Link> 

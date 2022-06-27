@@ -765,6 +765,75 @@ nav{
 	
 }
 
+/* CHECKOUT */
+
+.checkout{
+	width: 100%;
+	height: auto;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-attachment: fixed;
+	padding: 5px;
+	padding: 100px;
+	.formContainer{
+		width: 60%;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		background-color: #fff;
+		padding: 30px;
+		border-radius: 3px;
+		h2{
+			font-size: 26px;
+			font-weight: 900;
+			margin-bottom: 20px;
+			text-align: center;
+		}
+		form{
+			width: 100%;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			p{
+				color: $colorMain;
+				font-weight: 400;
+			}
+			input, textarea, select{
+				width: 100%;
+				padding: 10px;
+				margin: 10px;
+				border: none;
+				background-color: $colorBody;
+			}
+			textarea{
+				min-height: 100px;
+				max-height: 300px;
+				min-width: 100%;
+				max-width: 100%;
+			}
+			.button{
+				width: auto;
+				padding: 10px 15px;
+				margin: 10px;
+				background-color: $colorMain;
+				color: #fff;
+				font-size: 16px;
+				font-weight: 700;
+			}
+			.button:hover{
+				background-color: $colorSecondary;
+				cursor: pointer;			
+			}
+		}
+	}
+	
+}
+
 /* FOOTER */ 
 
 footer{
