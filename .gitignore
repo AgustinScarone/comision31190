@@ -12,6 +12,10 @@
 /build
 
 # misc
+<<<<<<< HEAD
+=======
+.env
+>>>>>>> firebase02
 .DS_Store
 .env.local
 .env.development.local
