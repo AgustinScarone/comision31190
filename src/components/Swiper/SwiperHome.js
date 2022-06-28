@@ -17,6 +17,7 @@ export default () => {
     <Swiper
         slidesPerView={1}
         spaceBetween={0}
+        initialSlide={1}
         loop={true}
         pagination={{
         clickable: true,
