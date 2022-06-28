@@ -12,7 +12,6 @@ const ItemDetailContainer = () => {
     const { productId } = useParams()
     const { isLoading, data, error } = useFirestore(() => getProduct(productId))
     
-
     if(isLoading) {
         return <Loading />
     }

@@ -98,5 +98,22 @@ export const getBanners = (bannerId) => {
 }
 
 
+export const getOrder = (orderId) => {
+    return new Promise((resolve, reject) => {
+        const collectionRef = orderId 
+            ? query(collection(db, 'orders'), where('id', '==', orderId)) 
+            : collection(db, 'orders')
+
+            getDocs(collectionRef).then(response => {
+                const orders = response.docs.map(doc => {
+                    return { id: doc.id, ...doc.data() }
+                })
+                resolve(orders)
+            }).catch(error => {
+                reject(error)
+            })
+    })
+} 
+
 
 

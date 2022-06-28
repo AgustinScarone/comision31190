@@ -14,7 +14,7 @@ const Cart = () => {
     const totalQuantity = cart.reduce((total, item) => {
         return total + item.quantity
     }, 0)
-
+    
     return(
         <section className="cartContainer">
             { totalQuantity > 0

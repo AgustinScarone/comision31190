@@ -20,18 +20,19 @@ const Checkout = () => {
         email: "",
         phone: "",
         address: "",
+        city: "",
         paymentMethod: "",
         message: ""
     });
-
+    
     const navigate = useNavigate();
 
     const { cart, getTotal, clearCart } = useContext(CartContext);
 
     const { register, handleSubmit, formState: { errors } } = useForm();
 
-    const sendToWhatsapp = () => {
-        window.open(`https://api.whatsapp.com/send?phone=541166630456?text=Hola!%20Soy%20${buyer.name}%20de${buyer.address}%20y%20quiero%20pedir%20`, "_blank")
+    const sendWhatsapp = (id) => {
+        window.open(`https://wa.me/5491166630456?text=Hola!%20Soy%20${buyer.name}%20de%20${buyer.address},%20${buyer.city}.%20Acabo%20de%20hacer%20un%20pedido%20desde%20la%20app%20con%20el%20número%20de%20orden%20${id}`, "_blank")
     }
 
     const createOrder = () => {
@@ -70,15 +71,11 @@ const Checkout = () => {
                 } else {
                     return Promise.reject({ type: 'out_of_stock', products: outOfStock})
                 }
-            }).then(({ id }) => {
+            }).then(({ id, objOrder }) => {
                 batch.commit()
                 clearCart()
-                sendToWhatsapp()
-                swal(
-                    "¡GRACIAS POR TU COMPRA!", 
-                    `El ID de tu compra es ${id}`, 
-                    "success");
-                navigate('/gracias')
+                sendWhatsapp(id)
+                navigate(`/gracias/${id}`)
             }).catch(error => {
                 console.log(error)
                 swal(
@@ -169,6 +166,15 @@ const Checkout = () => {
                         errors={errors}
                         name="address"
                         render={({ message }) => <p>{message}</p>}
+                    />
+
+                    <input 
+                        type="text" 
+                        name="city" 
+                        placeholder="CIUDAD" 
+                        value={buyer.city}
+                        {...register('city')}
+                        onChange={(e) => setBuyer({...buyer, city: e.target.value})}
                     />
 
                     <select 

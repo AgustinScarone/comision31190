@@ -1027,3 +1027,15 @@ footer{
 .swal-button:hover{
 	background-color: $colorB;
 }
+
+.thankYouContainer{
+	width: 100%;
+	height: auto;
+	display: flex;
+	justify-content: center;
+	padding: 5px;
+	margin: 50px 0px;
+	article{
+		padding: 20px;
+	}
+}

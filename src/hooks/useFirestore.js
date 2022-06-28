@@ -5,6 +5,7 @@ export const useFirestore = (asyncFn, dependencies = []) => {
     const [data, setData] = useState()
     const [product, setProduct] = useState()
     const [social, setSocial] = useState([])
+    const [order, setOrder] = useState([])
     const [banners, setBanners] = useState([])
     const [businessInfo, setBusinessInfo] = useState([])
     const [error, setError] = useState()
@@ -70,7 +71,16 @@ export const useFirestore = (asyncFn, dependencies = []) => {
 
     }, dependencies)
 
+    // ORDERS - THANK YOU
+    useEffect(() => {
+
+        asyncFn().then(response => {
+            setOrder(response)
+        })
+    }, dependencies)
+    
     return {
+        order,
         product,
         banners,
         social,

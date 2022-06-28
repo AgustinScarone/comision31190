@@ -9,7 +9,7 @@ import ItemListContainer from './components/ItemListContainer/ItemListContainer'
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
 import Cart from './components/Cart/Cart';
 import Checkout from './components/Checkout/Checkout';
-import Gracias from './components/Gracias/Gracias';
+import ThankYou from './components/ThankYou/ThankYou';
 import NotA404 from './components/Assets/NotA404';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { CartContextProvider } from './context/CartContext';
@@ -32,7 +32,7 @@ const App = () => {
               <Route path='/contacto' element={ <Contact /> }/>
               <Route path='/cart' element={ <Cart /> } />
               <Route path='/checkout' element={ <Checkout /> } />
-              <Route path='/gracias' element={ <Gracias /> } />
+              <Route path='/gracias/:orderId' element={ <ThankYou /> } />
               <Route path='*' element={ <NotA404 /> }/>
             </Routes>
           </main>
