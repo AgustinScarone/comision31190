@@ -27,7 +27,7 @@ const ItemListContainer = () => {
     return (
         <section className="itemListContainer">
             <div className="linkCategorias">
-                <NavLink to='/menu/' className={({isActive}) => isActive ? "activeLinks" : "links"}>VER TODO</NavLink>
+                <NavLink to='/menu/' className={({isActive}) => isActive ? "activeLinks" : "links"} onClick={(setCategories) => setCategories(categories)}>VER TODO</NavLink>
                 { categories.map(cat => 
                     <NavLink key={cat.id} to={`/menu/${cat.id}`} className={({isActive}) => isActive ? "activeLinks" : "links"}>{cat.label}</NavLink>    
                 )}

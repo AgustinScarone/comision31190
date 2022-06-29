@@ -15,6 +15,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { CartContextProvider } from './context/CartContext';
 
 const App = () => {
+
   return (
     <div className='appContainer'>
       <CartContextProvider>

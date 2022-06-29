@@ -13,6 +13,7 @@ export const useFirestore = (asyncFn, dependencies = []) => {
 
 
     // CATEGORIES - ITEM LIST CONTAINER
+    
     useEffect(() => {
 
         asyncFn().then(response => {

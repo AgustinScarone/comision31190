@@ -1,5 +1,5 @@
 import { useState, useContext } from "react";
-import { addDoc, collection, updateDoc, doc, getDocs, query, where, documentId, writeBatch } from 'firebase/firestore';
+import { addDoc, collection, getDocs, query, where, documentId, writeBatch } from 'firebase/firestore';
 import { db } from '../../services/firebase';
 import { useNavigate } from 'react-router-dom';
 import { LinkCall, LinkWhatsApp, currencyFormat } from "../Assets/Variables";
@@ -27,7 +27,7 @@ const Checkout = () => {
     
     const navigate = useNavigate();
 
-    const { cart, getTotal, clearCart } = useContext(CartContext);
+    const { cart, getTotal, clearCart, removeEmptyItem } = useContext(CartContext);
 
     const { register, handleSubmit, formState: { errors } } = useForm();
 
@@ -71,7 +71,7 @@ const Checkout = () => {
                 } else {
                     return Promise.reject({ type: 'out_of_stock', products: outOfStock})
                 }
-            }).then(({ id, objOrder }) => {
+            }).then(({ id }) => {
                 batch.commit()
                 clearCart()
                 sendWhatsapp(id)
@@ -83,6 +83,8 @@ const Checkout = () => {
                     `Alguien más se llevó el último.
                     Probá con otro por favor.`, 
                     "error");
+                    removeEmptyItem()
+                    navigate(`/menu/`)
             }).finally(() => {
                 setLoading(false)
             })

@@ -25,10 +25,10 @@ export const getProducts = (categoryId) => {
             : collection(db, 'menu')
 
             getDocs(collectionRef).then(response => {
-                const products = response.docs.map(doc => {
+                const categories = response.docs.map(doc => {
                     return { id: doc.id, ...doc.data() }
                 })
-                resolve(products)
+                resolve(categories)
             }).catch(error => {
                 reject(error)
             })
