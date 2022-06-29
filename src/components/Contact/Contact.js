@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { addDoc, collection, updateDoc, doc, getDocs, query, where, documentId, writeBatch } from 'firebase/firestore';
+import { addDoc, collection } from 'firebase/firestore';
 import { db } from '../../services/firebase';
 import { useNavigate } from 'react-router-dom';
 import { useForm  } from "react-hook-form";

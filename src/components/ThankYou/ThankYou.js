@@ -7,6 +7,7 @@ const ThankYou = () => {
     const { orderId } = useParams()
     const { order } = useFirestore(() => getOrder())
     
+    console.log(order)
     
     return (
         <section className="thankYouContainer">
@@ -15,7 +16,7 @@ const ThankYou = () => {
                     <article key={prod.id}>
                         <span>{prod.id}</span><br/>
                         <span>{prod.buyer.name}</span><br/>
-                        <span>{prod.cart}</span><br/>
+                        <span>{prod.items[prod.id]}</span><br/>
                     </article>
                 )})
             }

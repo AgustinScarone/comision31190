@@ -1,9 +1,8 @@
 import { useState, useEffect} from 'react'
-
+ 
 export const useFirestore = (asyncFn, dependencies = []) => {
     const [categories, setCategories] = useState([])
     const [data, setData] = useState()
-    const [product, setProduct] = useState()
     const [social, setSocial] = useState([])
     const [order, setOrder] = useState([])
     const [banners, setBanners] = useState([])
@@ -59,19 +58,6 @@ export const useFirestore = (asyncFn, dependencies = []) => {
 
     }, dependencies)
 
-    useEffect(() => {
-        setIsLoading(true)
-
-        asyncFn().then(response => {
-            setProduct(response)
-        }).catch(error => {
-            setError(error)
-        }).finally(() => {
-            setIsLoading(false)
-        })
-
-    }, dependencies)
-
     // ORDERS - THANK YOU
     useEffect(() => {
 
@@ -82,7 +68,6 @@ export const useFirestore = (asyncFn, dependencies = []) => {
     
     return {
         order,
-        product,
         banners,
         social,
         businessInfo,

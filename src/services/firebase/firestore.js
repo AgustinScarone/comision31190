@@ -1,6 +1,7 @@
 import { db } from ".";
 import { getDocs, collection, query, where, getDoc, doc} from 'firebase/firestore'
 
+
 export const getCategories = (categoryId) => {
     return new Promise((resolve, reject) => {
         const collectionRef = categoryId 
@@ -25,10 +26,10 @@ export const getProducts = (categoryId) => {
             : collection(db, 'menu')
 
             getDocs(collectionRef).then(response => {
-                const categories = response.docs.map(doc => {
+                const products = response.docs.map(doc => {
                     return { id: doc.id, ...doc.data() }
                 })
-                resolve(categories)
+                resolve(products)
             }).catch(error => {
                 reject(error)
             })
@@ -115,5 +116,15 @@ export const getOrder = (orderId) => {
     })
 } 
 
+// export const getProduct = (productId) => {
+//     return new Promise((resolve, reject) => {
+//             getDoc(doc(db, 'menu', productId)).then(response => {
+//                 const orders = { id: response.id, ...response.data()}
+//                 resolve(orders)
+//             }).catch(error => {
+//                 reject(error)
+//             })
+//     })
+// }  
 
 
