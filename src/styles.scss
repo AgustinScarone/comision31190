@@ -998,9 +998,6 @@ footer{
 	}
 }
 
-
-
-
 /* NOT A 404 */
 
 .notA404{
@@ -1012,6 +1009,33 @@ footer{
 	div{
 		width: 800px;
 		height: auto;
+	}	
+}
+
+/* NO STOCK */
+
+.noStock{
+	width: 100%;
+	height: auto;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-top: 30px;
+	article{
+		width: 100%;
+		font-weight: 700;
+		text-align: center;
+		span{
+			color: $colorMain;
+			font-weight: 900;
+		}
+	}
+	div{
+		width: 800px;
+		height: auto;
+		img{
+			max-width: 100%;
+		}
 	}	
 }
 

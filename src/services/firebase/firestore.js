@@ -1,5 +1,5 @@
 import { db } from ".";
-import { getDocs, collection, query, where, getDoc, doc} from 'firebase/firestore'
+import { getDocs, collection, query, where, getDoc, doc } from 'firebase/firestore'
 
 
 export const getCategories = (categoryId) => {
@@ -97,34 +97,3 @@ export const getBanners = (bannerId) => {
             })
     })
 }
-
-
-export const getOrder = (orderId) => {
-    return new Promise((resolve, reject) => {
-        const collectionRef = orderId 
-            ? query(collection(db, 'orders'), where('id', '==', orderId)) 
-            : collection(db, 'orders')
-
-            getDocs(collectionRef).then(response => {
-                const orders = response.docs.map(doc => {
-                    return { id: doc.id, ...doc.data() }
-                })
-                resolve(orders)
-            }).catch(error => {
-                reject(error)
-            })
-    })
-} 
-
-// export const getProduct = (productId) => {
-//     return new Promise((resolve, reject) => {
-//             getDoc(doc(db, 'menu', productId)).then(response => {
-//                 const orders = { id: response.id, ...response.data()}
-//                 resolve(orders)
-//             }).catch(error => {
-//                 reject(error)
-//             })
-//     })
-// }  
-
-

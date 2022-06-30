@@ -6,7 +6,6 @@ import { LinkCall, LinkWhatsApp, currencyFormat } from "../Assets/Variables";
 import { useForm  } from "react-hook-form";
 import { ErrorMessage } from '@hookform/error-message';
 import { Link } from "react-router-dom";
-import swal from 'sweetalert'
 
 import CartContext from "../../context/CartContext";
 import Loading from "../Assets/Loading";
@@ -27,7 +26,7 @@ const Checkout = () => {
     
     const navigate = useNavigate();
 
-    const { cart, getTotal, clearCart, removeEmptyItem } = useContext(CartContext);
+    const { cart, getTotal, clearCart, removeNoStock } = useContext(CartContext);
 
     const { register, handleSubmit, formState: { errors } } = useForm();
 
@@ -49,7 +48,8 @@ const Checkout = () => {
         const batch = writeBatch(db)
 
         const outOfStock = []
-
+        console.log(outOfStock)
+        console.log(cart)
         const collectionRef = collection(db, 'menu')
 
         getDocs(query(collectionRef, where(documentId(), 'in', ids)))
@@ -75,16 +75,11 @@ const Checkout = () => {
                 batch.commit()
                 clearCart()
                 sendWhatsapp(id)
-                navigate(`/gracias/${id}`)
+                navigate(`/gracias`)
             }).catch(error => {
                 console.log(error)
-                swal(
-                    "¡LLEGASTE TARDE!", 
-                    `Alguien más se llevó el último.
-                    Probá con otro por favor.`, 
-                    "error");
-                    removeEmptyItem()
-                    navigate(`/menu/`)
+                removeNoStock(outOfStock)
+                navigate(`/no-stock`)
             }).finally(() => {
                 setLoading(false)
             })

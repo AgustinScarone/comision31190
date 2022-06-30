@@ -1,7 +1,6 @@
 import ItemList from "../ItemList/ItemList";
 import Loading from "../Assets/Loading";
 import NotA404 from "../Assets/NotA404";
-import swal from 'sweetalert';
 
 import { NavLink, useParams } from 'react-router-dom';
 import { getCategories, getProducts } from "../../services/firebase/firestore";
