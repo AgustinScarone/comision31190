@@ -4,8 +4,9 @@ import { db } from '../../services/firebase';
 import { useNavigate } from 'react-router-dom';
 import { useForm  } from "react-hook-form";
 import { ErrorMessage } from '@hookform/error-message';
-import swal from 'sweetalert'
+import { sendContactMail } from "../Mails/Mail";
 
+import swal from 'sweetalert'
 import Loading from "../Assets/Loading";
 
 
@@ -35,6 +36,7 @@ const Contact = () => {
                 "¡GRACIAS POR CONTACTARTE!", 
                 `Te respondemos en breve`, 
                 "success");
+            sendContactMail(contact)
             navigate('/')
         }).catch(error => {
             console.log(error)

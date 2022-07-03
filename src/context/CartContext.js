@@ -49,7 +49,7 @@ export const CartContextProvider = ({ children }) => {
     }
 
     const removeNoStock = (outOfStock) => {
-        
+        outOfStock.forEach(item => removeItem(item.id))
     }
 
     const clearCart = () => {

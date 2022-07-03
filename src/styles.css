@@ -1033,10 +1033,67 @@ footer .social svg:hover {
   width: 100%;
   height: auto;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
   padding: 5px;
-  margin: 50px 0px;
+  padding: 100px;
 }
-.thankYouContainer article {
-  padding: 20px;
+.thankYouContainer .thankYouInfo {
+  width: 60%;
+  background-color: #fff;
+  padding: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  border-radius: 3px;
+}
+.thankYouContainer .thankYouInfo h1 {
+  width: 100%;
+  text-align: center;
+}
+.thankYouContainer .thankYouInfo h3 {
+  width: 100%;
+  text-align: center;
+}
+.thankYouContainer .thankYouInfo .thankYouDetail {
+  width: 240px;
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  border: dotted 4px #F5B03A;
+}
+.thankYouContainer .thankYouInfo .thankYouDetail .titulo {
+  font-weight: 900;
+  font-size: 18px;
+}
+.thankYouContainer .thankYouInfo article {
+  width: 100%;
+  font-size: 18px;
+  line-height: 24px;
+  margin: 20px;
+  border-radius: 3px;
+  text-align: center;
+}
+.thankYouContainer .thankYouInfo article .button {
+  font-weight: 900;
+}
+.thankYouContainer .thankYouInfo article .button:hover {
+  color: #F5B03A;
+  border-bottom: 1px solid #F5B03A;
+}
+.thankYouContainer .thankYouInfo article svg {
+  max-width: 20px;
+  margin: 0px 5px 0px 5px;
+  fill: #333;
+}
+.thankYouContainer .thankYouInfo article svg:hover {
+  transform: scale(1.3);
+  fill: #F5B03A;
 }/*# sourceMappingURL=styles.css.map */

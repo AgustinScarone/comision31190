@@ -34,7 +34,7 @@ const App = () => {
               <Route path='/contacto' element={ <Contact /> }/>
               <Route path='/cart' element={ <Cart /> } />
               <Route path='/checkout' element={ <Checkout /> } />
-              <Route path='/gracias' element={ <ThankYou /> } />
+              <Route path='/gracias/:orderId' element={ <ThankYou /> } />
               <Route path='/no-stock' element={ <NoStock /> } />
               <Route path='*' element={ <NotA404 /> }/>
             </Routes>

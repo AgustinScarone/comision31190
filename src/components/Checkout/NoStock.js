@@ -9,8 +9,8 @@ const NoStock = () => {
                 </div>
                 <article>
                     ¡UPS! PARECE QUE ALGUIEN SE LLEVÓ EL ÚLTIMO ANTES QUE VOS.<br/><br/>
-                    HACÉ <span>CLICK ACÁ</span> PARA VOLVER AL MENÚ. <br/>
-                    YA SACAMOS EL PRODUCTO DEL CARRITO.
+                    HACÉ <span>CLICK ACÁ</span> PARA VOLVER AL MENÚ. <br/><br/>
+                    YA SACAMOS EL PRODUCTO SIN STOCK DE TU CARRITO.
                 </article>
             </div>
         </Link>

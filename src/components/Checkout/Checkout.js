@@ -2,10 +2,12 @@ import { useState, useContext } from "react";
 import { addDoc, collection, getDocs, query, where, documentId, writeBatch } from 'firebase/firestore';
 import { db } from '../../services/firebase';
 import { useNavigate } from 'react-router-dom';
-import { LinkCall, LinkWhatsApp, currencyFormat } from "../Assets/Variables";
 import { useForm  } from "react-hook-form";
 import { ErrorMessage } from '@hookform/error-message';
 import { Link } from "react-router-dom";
+import { currencyFormat } from "../Assets/Variables";
+import { sendCheckoutMail } from "../Mails/Mail";
+
 
 import CartContext from "../../context/CartContext";
 import Loading from "../Assets/Loading";
@@ -75,7 +77,8 @@ const Checkout = () => {
                 batch.commit()
                 clearCart()
                 sendWhatsapp(id)
-                navigate(`/gracias`)
+                sendCheckoutMail(id)
+                navigate(`/gracias/${id}`)
             }).catch(error => {
                 console.log(error)
                 removeNoStock(outOfStock)
@@ -231,8 +234,7 @@ const Checkout = () => {
                     }
                     <div>
                         <article>
-                            Una vez realizada la compra vas a recibir un email con toda la información. <br/><br/>
-                            Por cualquier consulta comunicate con nosotros a través de {LinkWhatsApp} o también nos podés {LinkCall}
+                            Una vez realizada la compra vas a recibir un email con toda la información.
                         </article>
                     </div>
                 </div>

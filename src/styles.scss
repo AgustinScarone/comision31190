@@ -1056,10 +1056,69 @@ footer{
 	width: 100%;
 	height: auto;
 	display: flex;
-	justify-content: center;
+	flex-direction: column;
+	align-items: center;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-attachment: fixed;
 	padding: 5px;
-	margin: 50px 0px;
-	article{
-		padding: 20px;
+	padding: 100px;
+	.thankYouInfo{
+		width: 60%;
+		background-color: #fff;
+		padding: 50px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-wrap: wrap;
+		border-radius: 3px;
+		h1{
+			width: 100%;
+			text-align: center;
+		}
+		h3{
+			width: 100%;
+			text-align: center;
+		}
+		.thankYouDetail{
+			width: 240px;
+			margin: 10px;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			padding: 10px;
+			border: dotted 4px $colorMain;
+			.titulo{
+				font-weight: 900;
+				font-size: 18px;
+			}
+		}
+		article{
+			width: 100%;
+			font-size: 18px;
+			line-height: 24px;
+			margin: 20px;
+			border-radius: 3px;
+			text-align: center;
+			.button{
+				font-weight: 900;
+				
+			}
+			.button:hover{
+				color: $colorMain;
+				border-bottom: 1px solid $colorMain;
+			}
+			svg{
+				max-width: 20px;
+				margin: 0px 5px 0px 5px;
+				fill: $colorB;
+			}
+			svg:hover{
+				transform: scale(1.3);
+				fill: $colorMain;
+			}
+		}
 	}
+	
 }

@@ -97,3 +97,14 @@ export const getBanners = (bannerId) => {
             })
     })
 }
+
+export const getOrder = (orderId) => {
+    return new Promise((resolve, reject) => {
+            getDoc(doc(db, 'orders', orderId)).then(response => {
+                const order = { id: response.id, ...response.data()}
+                resolve(order)
+            }).catch(error => {
+                reject(error)
+            })
+    })
+}
