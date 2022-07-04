@@ -7,6 +7,7 @@ import { ErrorMessage } from '@hookform/error-message';
 import { Link } from "react-router-dom";
 import { currencyFormat } from "../Assets/Variables";
 import { sendCheckoutMail } from "../Mails/Mail";
+import { sendClientMail } from "../Mails/Mail";
 
 
 import CartContext from "../../context/CartContext";
@@ -50,8 +51,8 @@ const Checkout = () => {
         const batch = writeBatch(db)
 
         const outOfStock = []
-        console.log(outOfStock)
-        console.log(cart)
+        console.log(objOrder)
+
         const collectionRef = collection(db, 'menu')
 
         getDocs(query(collectionRef, where(documentId(), 'in', ids)))
@@ -76,8 +77,9 @@ const Checkout = () => {
             }).then(({ id }) => {
                 batch.commit()
                 clearCart()
+                sendCheckoutMail(id, JSON.stringify({objOrder}, null, 4))
+                sendClientMail(id, objOrder)
                 sendWhatsapp(id)
-                sendCheckoutMail(id)
                 navigate(`/gracias/${id}`)
             }).catch(error => {
                 console.log(error)

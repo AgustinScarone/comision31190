@@ -3,19 +3,18 @@ import { useFirestore } from '../../hooks/useFirestore';
 import { useParams } from 'react-router-dom';
 import { LinkCall, LinkWhatsApp, currencyFormat } from "../Assets/Variables";
 
-
 const ThankYou = () => {
 
     const { orderId } = useParams()
-    const { order } = useFirestore(() => getOrder(orderId))
-
+    const { order } = useFirestore(() => getOrder(orderId)) 
+    
     return (
         <section className="thankYouContainer" style ={ {backgroundImage: "url('./img/checkout.jpg')" } }>
             { !!order && order.id &&
             <div className="thankYouInfo">
                 <h1>¡GRACIAS POR TU COMPRA {order.buyer.name.toUpperCase()}!</h1>
                 <article>
-                    TU NÚMERO DE ORDEN ES {order.id}                
+                    TU NÚMERO DE ORDEN ES <span className="moneyFont">{order.id} </span>              
                     <br/><br/>
                     EL TOTAL DE TU COMPRA FUE POR <span className="moneyFont">{currencyFormat(order.total)}</span>
                 </article>

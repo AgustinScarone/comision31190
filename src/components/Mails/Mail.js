@@ -1,7 +1,8 @@
+import { LinkCall, LinkWhatsApp } from "../Assets/Variables";
 import { addDoc, collection } from 'firebase/firestore';
 import { db } from '../../services/firebase';
 
-export const sendCheckoutMail = (order, item) => {
+export const sendCheckoutMail = (id, objOrder) => {
 
     addDoc(collection(db, "mail"), {
         to: 'agustin@momoagencia.com',
@@ -12,35 +13,40 @@ export const sendCheckoutMail = (order, item) => {
             hola
             `,
             html: 
+            `<div>
+                <h1>NRO DE ORDEN: ${id}<h1>
+                <pre>${objOrder}</pre>
+            </div>
+            }
+            `,
+        }
+    }).then(() => console.log('Queued email for delivery!'));
+}
+
+export const sendClientMail = (id, objOrder) => {
+
+    addDoc(collection(db, "mail"), {
+        to: objOrder.buyer.email,
+        message: {
+            subject: 'Gracias por tu compra!',
+            from: 'MOMO',
+            text: 
             `
-            { !!order && order.id &&
-                <div className="thankYouInfo">
-                    <h1>¡GRACIAS POR TU COMPRA ${order.buyer.name}!</h1>
-                    <article>
-                        TU NÚMERO DE ORDEN ES ${order.id}                
-                        <br/><br/>
-                        EL TOTAL DE TU COMPRA FUE POR <span className="moneyFont">$${order.total}</span>
-                    </article>
-                    {order.items.map(item => 
-                        <div key={item.id} className="thankYouDetail">
-                            <div>
-                                <span className="titulo">${item.menuName}</span>
-                            </div>
-                            <div>
-                                Precio: <span className='moneyFont'>$${item.menuPrice}</span>
-                            </div>
-                            <div>
-                                Cantidad: ${item.quantity}
-                            </div>
-                            <div>
-                                <span className="subtotal ">
-                                    Subtotal: <span className='moneyFont'>$${item.menuPrice * item.quantity}</span>
-                                </span>
-                            </div>
-                        </div>
-                    )}
-                </div>
-                }
+            hola
+            `,
+            html: 
+            `<div>
+                <img width=600 height=150 src="https://tienda31190.web.app/img/mail-header.jpg">
+                <br/><br/>
+                <h1>¡GRACIAS POR TU COMPRA!</h1>
+                <p>Tu número de orden es <strong>${id}</strong></p>
+                <p>
+                    Por cualquier consulta comunicate con nosotros a través de <a href="https://api.whatsapp.com/send?phone=541166630456" target="_BLANK">WHATSAPP</a>
+                    o también nos podés <a href="tel:+5491166630456">LLAMAR</a>
+                </p>
+                <br/><br/>
+                <img width=600 height=50 src="https://tienda31190.web.app/img/mail-footer.jpg">
+            </div>
             `,
         }
     }).then(() => console.log('Queued email for delivery!'));
