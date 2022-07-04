@@ -35,16 +35,21 @@ export const sendClientMail = (id, objOrder) => {
             hola
             `,
             html: 
-            `<div>
-                <img width=600 height=150 src="https://tienda31190.web.app/img/mail-header.jpg">
-                <br/><br/>
-                <h1>¡GRACIAS POR TU COMPRA!</h1>
-                <p>Tu número de orden es <strong>${id}</strong></p>
-                <p>
-                    Por cualquier consulta comunicate con nosotros a través de <a href="https://api.whatsapp.com/send?phone=541166630456" target="_BLANK">WHATSAPP</a>
-                    o también nos podés <a href="tel:+5491166630456">LLAMAR</a>
-                </p>
-                <br/><br/>
+            `<div style="text-align: center">
+                <a href="https://tienda31190.web.app/">
+                    <img width=600 height=150 src="https://tienda31190.web.app/img/mail-header.jpg">
+                </a>
+                <div style="padding: 40px; font-size:18px">
+                    <h1 style="font-size:26px">¡GRACIAS POR TU COMPRA!</h1>
+                    <p>Tu número de orden es <strong>${id}</strong></p>
+                    <br/>
+                    <p>
+                        Por cualquier consulta comunicate con nosotros a través de 
+                        <br/>
+                        <a href="https://api.whatsapp.com/send?phone=541166630456" target="_BLANK">WHATSAPP</a>
+                        o también nos podés <a href="tel:+5491166630456">LLAMAR</a>
+                    </p>
+                </div>
                 <img width=600 height=50 src="https://tienda31190.web.app/img/mail-footer.jpg">
             </div>
             `,
