@@ -1,4 +1,3 @@
-import { LinkCall, LinkWhatsApp } from "../Assets/Variables";
 import { addDoc, collection } from 'firebase/firestore';
 import { db } from '../../services/firebase';
 
@@ -7,17 +6,48 @@ export const sendCheckoutMail = (id, objOrder) => {
     addDoc(collection(db, "mail"), {
         to: 'agustin@momoagencia.com',
         message: {
-            subject: 'Nueva venta de 31190!',
+            subject: `Nueva venta de 31190 con nro de orden ${id}`,
             text: 
             `
             hola
             `,
             html: 
-            `<div>
-                <h1>NRO DE ORDEN: ${id}<h1>
-                <pre>${objOrder}</pre>
+            `<div style="font-size: 16px">
+                <div>
+                    <strong>NRO DE ORDEN: ${id}</strong><br/><br/>
+                <div>
+                <div>
+                    NOMBRE: ${objOrder.buyer.name}<br/>
+                    APELLIDO: ${objOrder.buyer.surname}<br/>
+                    EMAIL: ${objOrder.buyer.email}<br/>
+                    TELÉFONO: ${objOrder.buyer.phone}<br/>
+                    DIRECCIÓN: ${objOrder.buyer.address}<br/>
+                    CIUDAD: ${objOrder.buyer.city}<br/>  
+                    MÉTODO DE PAGO: ${objOrder.buyer.paymentMethod}<br/>  
+                    MENSAJE: ${objOrder.buyer.message}<br/><br/>  
+                </div>
+                <div style="font-size: 22px"
+                    <strong>TOTAL: $${objOrder.total}</strong><br/><br/> 
+                </div>
+                <div>
+                ${objOrder.items.map(item => 
+                    `<div key=${item.id}>
+                        <div>
+                            <strong>${item.menuName}</strong>
+                        </div>
+                        <div>
+                            <strong>Precio:</strong> $${item.menuPrice}
+                        </div>
+                        <div>
+                            <strong>Cantidad:</strong> ${item.quantity}
+                        </div>
+                        <div>
+                            <strong>Subtotal:</strong> $${item.menuPrice * item.quantity}
+                        </div>
+                    </div>`
+                )}
+                </div>
             </div>
-            }
             `,
         }
     }).then(() => console.log('Queued email for delivery!'));
@@ -28,7 +58,7 @@ export const sendClientMail = (id, objOrder) => {
     addDoc(collection(db, "mail"), {
         to: objOrder.buyer.email,
         message: {
-            subject: 'Gracias por tu compra!',
+            subject: `Gracias por tu compra ${objOrder.buyer.name}!`,
             from: 'MOMO',
             text: 
             `
@@ -37,20 +67,41 @@ export const sendClientMail = (id, objOrder) => {
             html: 
             `<div style="text-align: center">
                 <a href="https://tienda31190.web.app/">
-                    <img width=600 height=150 src="https://tienda31190.web.app/img/mail-header.jpg">
+                    <img src="https://tienda31190.web.app/img/mail-header.jpg">
                 </a>
-                <div style="padding: 40px; font-size:18px">
+                <div style="padding: 40px; font-size:14px">
                     <h1 style="font-size:26px">¡GRACIAS POR TU COMPRA!</h1>
-                    <p>Tu número de orden es <strong>${id}</strong></p>
-                    <br/>
-                    <p>
+                    <div>${objOrder.buyer.name}, tu número de orden es <strong>${id}</strong></div>
+                    <br/><br/>
+                    <div>
+                        <strong>TOTAL: $${objOrder.total}</strong><br/><br/> 
+                    </div>
+                    <div>
+                    ${objOrder.items.map(item => 
+                        `<div key=${item.id}>
+                            <div>
+                                <strong>${item.menuName}</strong>
+                            </div>
+                            <div>
+                                <strong>Precio:</strong> $${item.menuPrice}
+                            </div>
+                            <div>
+                                <strong>Cantidad:</strong> ${item.quantity}
+                            </div>
+                            <div>
+                                <strong>Subtotal:</strong> $${item.menuPrice * item.quantity}
+                            </div>
+                        </div>`
+                    )}
+                    </div><br/><br/>
+                    <div>
                         Por cualquier consulta comunicate con nosotros a través de 
                         <br/>
                         <a href="https://api.whatsapp.com/send?phone=541166630456" target="_BLANK">WHATSAPP</a>
                         o también nos podés <a href="tel:+5491166630456">LLAMAR</a>
-                    </p>
+                    </div>
                 </div>
-                <img width=600 height=50 src="https://tienda31190.web.app/img/mail-footer.jpg">
+                <img src="https://tienda31190.web.app/img/mail-footer.jpg">
             </div>
             `,
         }

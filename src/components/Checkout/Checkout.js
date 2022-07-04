@@ -77,7 +77,8 @@ const Checkout = () => {
             }).then(({ id }) => {
                 batch.commit()
                 clearCart()
-                sendCheckoutMail(id, JSON.stringify({objOrder}, null, 4))
+                /* sendCheckoutMail(id, JSON.stringify({objOrder}, null, 4)) */
+                sendCheckoutMail(id, objOrder)
                 sendClientMail(id, objOrder)
                 sendWhatsapp(id)
                 navigate(`/gracias/${id}`)
