@@ -50,7 +50,7 @@ export const sendCheckoutMail = (id, objOrder) => {
             </div>
             `,
         }
-    }).then(() => console.log('Queued email for delivery!'));
+    })
 }
 
 export const sendClientMail = (id, objOrder) => {
@@ -105,7 +105,7 @@ export const sendClientMail = (id, objOrder) => {
             </div>
             `,
         }
-    }).then(() => console.log('Queued email for delivery!'));
+    })
 }
 
 export const sendContactMail = (contact) => {
@@ -132,5 +132,5 @@ export const sendContactMail = (contact) => {
             - <span style="font-size: 18px;"><strong>Mensaje:</strong> ${contact.message}</span>
             </p>`,
         }
-    }).then(() => console.log('Queued email for delivery!'));
+    })
 }

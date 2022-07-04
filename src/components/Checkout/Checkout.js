@@ -51,7 +51,6 @@ const Checkout = () => {
         const batch = writeBatch(db)
 
         const outOfStock = []
-        console.log(objOrder)
 
         const collectionRef = collection(db, 'menu')
 

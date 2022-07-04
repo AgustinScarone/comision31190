@@ -17,7 +17,7 @@ const Locations = () => {
                             <article key={prod.id}>
                                 <span key={prod.id}>{prod.label}</span>
                                 <br/>
-                                {prod.adress}
+                                {prod.address}
                                 <br/>
                                 {prod.city}
                                 <br/>
