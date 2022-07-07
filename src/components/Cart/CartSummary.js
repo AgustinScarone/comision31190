@@ -8,13 +8,13 @@ const CartSummary = (props) => {
     return(
         <div className="cartSummary">
             <div key={props.id} className="cartSummaryDetail">
-                <div>
+                <div className="hide">
                     PRODUCTO
                 </div>
                 <div>
-                    TOTAL: <span>{props.totalQuantity}</span>
+                    CANTIDAD: <span>{props.totalQuantity}</span>
                 </div>
-                <div>
+                <div className="hide">
                     
                 </div>
                 <div>

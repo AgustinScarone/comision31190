@@ -51,25 +51,27 @@ section{
 
 nav{
 	width: 100%;
-	height: 80px;
+	height: auto;
 	background-color: $colorNavFooter;
 	z-index: 100;
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-evenly;
 	align-items: center;
+	padding: 10px 5px 0px 5px;
 	div{
-		width: auto;
+		width: 100%;
 		height: 100%;
 		display: flex;
 		align-items: center;
-		order: 2;
+		justify-content: space-evenly;
+		order: 3;
 		.button{
-			width: 80px;
+			width: auto;
 			border: none;
-			padding: 10px;
-			margin: 10px;
-			font-size: 14px;
+			padding: 5px;
+			margin: 15px 5px;
+			font-size: 12px;
 			font-weight: 600;
 			background-color: transparent;
 		}
@@ -93,7 +95,7 @@ nav{
 		align-items: center;
 		font-size: 18px;
 		font-family: 'Roboto', sans-serif;
-		order: 3;
+		order: 2;
 		svg{
 			width: 30px;
 			margin-right: 5px;
@@ -119,13 +121,14 @@ nav{
 	padding: 25px;
 	margin-bottom: 50px;
 	.linkCategorias{
-		width: 100%;
-		height: 80px;
+		width: auto;
+		height: auto;
 		display: flex;
 		justify-content: center;
 		align-items: center;
 		flex-wrap: wrap;
 		margin: 10px;
+		font-size: 12px;
 		.links{
 			padding: 15px;
 			margin: 10px;
@@ -251,19 +254,17 @@ nav{
 	height: auto;
 	display: flex;
 	justify-content: center;
-	padding: 5px;
 	margin: 50px 0px;
 	.itemDetail{
 		width: auto;
 		height: auto;
 		position: relative;
-		margin: 5px;
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: center;
 		box-shadow: 1px 2px 3px rgba(0,0,0,0.15);
 		.itemImg{
-			width: 500px;
+			width: 100%;
 			height: 500px;
 			img{
 				width: 100%;
@@ -272,13 +273,12 @@ nav{
 			}
 		}
 		.item{
-			width: 500px;
+			width: 100%;
 			height: 500px;
 			display: flex;
 			flex-wrap: wrap;
 			justify-content: center;
 			align-items: center;
-			padding: 40px;
 			background-color: #fff;
 			border-radius: 3px;
 			h2{
@@ -291,6 +291,7 @@ nav{
 				width: 100%;
 				font-size: 18px;
 				line-height: 26px;
+				padding: 30px;
 			}
 			.priceContainer{
 				width: 100%;
@@ -303,11 +304,12 @@ nav{
 					padding: 10px;
 					font-weight: 900;
 					color: $colorMain;
-					margin: 10px;
+					margin: 5px;
 				}
 			}
 			.containerItemButtons{
 				width: 100%;
+				padding: 20px;
 				.containerButtons{
 					width: 100%;
 					display: flex;
@@ -315,15 +317,15 @@ nav{
 					gap: 20px;
 					.linkButtons{
 						width: 50%;
-						height: 40px;
+						height: auto;
 						background-color: transparent;
 						border: 1px solid $colorOk;
 						color: $colorOk;
 						display: flex;
 						justify-content: center;
 						align-items: center;
-						font-size: 16px;
-						padding: 5px;
+						font-size: 12px;
+						padding: 10px;
 						font-weight: 700;
 						cursor: pointer;
 					}
@@ -348,6 +350,7 @@ nav{
 					height: auto;
 					display: flex;
 					align-items: center;
+					padding: 20px;
 					.countCartButtons{
 						height: 30px;
 						width: 50%;
@@ -414,22 +417,21 @@ nav{
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	padding: 50px;
+	padding: 30px;
 	h2{
 		margin-bottom: 50px;
 		font-size: 36px;
 		font-weight: 900;
 	}
 	.cart{
-		width: 90%;
+		width: 100%;
 		display: flex;
 		flex-direction: column;
 		font-size: 14px;
 		.cartDetail{
 			width: 100%;
 			display: flex;
-			flex-direction: row;
-			align-items: center;
+			flex-direction: column;
 			background-color: #fff;
 			margin-bottom: 20px;
 			padding: 5px;
@@ -532,27 +534,29 @@ nav{
 		flex-direction: column;
 		align-items: center;
 		.cartSummary{
-			width: 90%;
+			width: 100%;
 			display: flex;
 			flex-direction: column;
 			align-items: center;
 			font-size: 14px;
 			.cartSummaryDetail{
 				width: 100%;
-				height: 60px;
+				height: auto;
 				display: flex;
-				flex-direction: row;
-				align-items: center;
+				flex-direction: column;
 				background-color: $colorMain;
 				margin-bottom: 20px;
 				margin-top: 20px;
 				padding: 5px;
 				box-shadow: 1px 2px 3px rgba(0,0,0,0.15);
 				border-radius: 3px;
+				.hide{
+					display: none;
+				}
 				div{
 					width: 100%;
 					padding: 5px;
-					font-size: 22px;
+					font-size: 16px;
 					display: flex;
 					justify-content: flex-start;
 					font-weight: 900;
@@ -594,11 +598,11 @@ nav{
 				background-color: $colorB;
 				border: 1px solid $colorB;
 				color: #fff;
-				font-size: 16px;
-				padding: 15px;
+				font-size: 12px;
+				padding: 10px;
 				font-weight: 700;
 				cursor: pointer;
-				margin: 0px 20px;
+				margin: 0px 5px;
 			}
 			.button:hover{
 				background-color: $colorMain;
@@ -619,7 +623,7 @@ nav{
 	align-items: center;
 	margin: 100px 0px;
 	h2{
-		font-size: 36px;
+		font-size: 26px;
 		font-weight: 900;
 		margin-bottom: 30px;
 	}
@@ -709,9 +713,9 @@ nav{
 	background-size: cover;
 	background-attachment: fixed;
 	padding: 5px;
-	padding: 100px;
+	padding: 100px 20px;
 	.formContainer{
-		width: 60%;
+		width: 90%;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
@@ -778,9 +782,9 @@ nav{
 	background-size: cover;
 	background-attachment: fixed;
 	padding: 5px;
-	padding: 100px;
+	padding: 100px 10px;
 	.formContainer{
-		width: 60%;
+		width: 90%;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
@@ -916,7 +920,7 @@ footer{
 		margin-bottom: 10px;
 	}
 	.cartCheckoutDetail{
-		width: 45%;
+		width: 90%;
 		margin: 10px;
 		display: flex;
 		flex-direction: column;
@@ -972,7 +976,7 @@ footer{
 		align-items: center;
 		justify-content: center;
 		h1{
-			font-size: 36px;
+			font-size: 26px;
 			color: #fff;
 			font-weight: 900;
 			margin-bottom: 20px;
@@ -981,7 +985,7 @@ footer{
 			text-align: center;
 		}
 		.button{
-			font-size: 36px;
+			font-size: 26px;
 			font-weight: 900;
 			color: #fff;
 			border: 1px solid #fff;
@@ -1006,8 +1010,10 @@ footer{
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	div{
-		width: 800px;
+	margin-top: 40px;
+	img{
+		width: 100%;
+		max-width: 800px;
 		height: auto;
 	}	
 }
@@ -1025,16 +1031,20 @@ footer{
 		width: 100%;
 		font-weight: 700;
 		text-align: center;
+		padding: 50px;
 		span{
 			color: $colorMain;
 			font-weight: 900;
 		}
 	}
 	div{
-		width: 800px;
+		width: 100%;
 		height: auto;
+		display: flex;
+		justify-content: center;
 		img{
-			max-width: 100%;
+			max-width: 90%;
+			max-width: 800px;
 		}
 	}	
 }
@@ -1063,9 +1073,9 @@ footer{
 	background-size: cover;
 	background-attachment: fixed;
 	padding: 5px;
-	padding: 100px;
+	padding: 100px 20px;
 	.thankYouInfo{
-		width: 60%;
+		width: 90%;
 		background-color: #fff;
 		padding: 50px;
 		display: flex;
@@ -1091,7 +1101,7 @@ footer{
 			border: dotted 4px $colorMain;
 			.titulo{
 				font-weight: 900;
-				font-size: 18px;
+				font-size: 16px;
 			}
 		}
 		article{
@@ -1119,6 +1129,146 @@ footer{
 				fill: $colorMain;
 			}
 		}
+	}	
+}
+
+@media only screen and (min-width: 1080px){
+
+	nav{
+		height: 80px;
+		justify-content: space-evenly;
+		padding: 10px;
+		div{
+			width: auto;
+			height: 100%;
+			order: 2;
+			.button{
+				padding: 10px;
+				margin: 10px;
+				font-size: 14px;
+			}
+		}
+		.logo{
+			height: 60px;
+			order: 1;
+		}
+		.cartWidget{
+			order: 3;
+		}
 	}
-	
+
+
+	/* ITEM LIST CONTAINER */
+
+.itemListContainer{
+	.linkCategorias{
+		font-size: 16px;
+	}		
+}
+
+/* CARRITO - CART */
+
+.cartContainer{
+	.cart{
+		width: 90%;
+		.cartDetail{
+			flex-direction: row;
+			align-items: center;	
+		}
+	}
+	.containerCartSummary{
+		.cartSummary{
+			width: 90%;
+			.cartSummaryDetail{
+				height: 60px;
+				flex-direction: row;
+				align-items: center;
+				.hide{
+					display: block;
+				}
+				div{
+					font-size: 22px;
+				}
+			}
+		}	
+		.containerCartButtons{
+			.button{
+				font-size: 16px;
+				padding: 15px;
+				margin: 0px 20px;
+			}
+		}	
+	}	
+}
+
+/* LOADING */
+
+.loading{
+	h2{
+		font-size: 36px;
+	}
+}
+
+/* CONTACT */
+
+.contact{
+	.formContainer{
+		width: 40%;
+	}	
+}
+
+/* CHECKOUT */
+
+.checkout{
+	.formContainer{
+		width: 40%;
+	}	
+}
+
+.cartCheckout{
+	.cartCheckoutDetail{
+		width: 45%;
+	}
+}
+
+/* SWIPER */ 
+
+.swiper-container {
+	.swiper-slide {
+		h1{
+			font-size: 36px;
+		}
+		.button{
+			font-size: 36px;
+		}
+	}
+}
+
+.thankYouContainer{
+	.thankYouInfo{
+		width: 40%;
+	}	
+}
+}
+
+@media only screen and (min-width: 500px){
+	/* ITEM DETAIL CONTAINER */
+
+.itemDetailContainer{
+	.itemDetail{
+		.itemImg{
+			width: 500px;
+		}
+		.item{
+			width: 500px;
+			.containerItemButtons{
+				.containerButtons{
+					.linkButtons{
+						font-size: 16px;
+					}
+				}	
+			}		
+		}	
+	}
+}
 }

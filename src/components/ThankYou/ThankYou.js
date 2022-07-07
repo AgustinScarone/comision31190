@@ -9,7 +9,7 @@ const ThankYou = () => {
     const { order } = useFirestore(() => getOrder(orderId)) 
     
     return (
-        <section className="thankYouContainer" style ={ {backgroundImage: "url('./img/checkout.jpg')" } }>
+        <section className="thankYouContainer" style ={ {backgroundImage: "url('../img/checkout.jpg')" } }>
             { !!order && order.id &&
             <div className="thankYouInfo">
                 <h1>¡GRACIAS POR TU COMPRA {order.buyer.name.toUpperCase()}!</h1>
